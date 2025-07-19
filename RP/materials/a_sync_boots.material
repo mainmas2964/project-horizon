@@ -1,0 +1,19 @@
+{
+    "format_version": "1.17.0",
+    "materials": {
+        "material.boots": {
+            "textures": [
+                "textures/models/armor/boots"
+            ],
+            "render_method": "alpha_test",
+            "blend_mode": "alpha",
+            "cull": "back",
+            "ambient_occlusion": true,
+            "depth_test": true,
+            "depth_write": true,
+            "lighting": true,
+            "transparency": "opaque",
+            "alpha_test": "1.0 - query.is_invisible"
+        }
+    }
+}

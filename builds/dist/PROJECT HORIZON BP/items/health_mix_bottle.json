@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:health_mix_bottle",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.potion"
+			}
+		},
+		"components": {
+			"minecraft:icon": "horizon_health_mix_bottle",
+			"minecraft:use_modifiers": {
+				"use_duration": 1.6
+			},
+			"minecraft:food": {
+				"nutrition": 4,
+				"saturation_modifier": 1,
+				"using_converts_to": "horizon:big_bottle",
+				"can_always_eat": true
+			},
+			"minecraft:use_animation": "drink"
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "horizon:basic_disc",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/disc_1"
+			},
+			"geometry": {
+				"default": "geometry.basic_disc"
+			},
+			"render_controllers": [
+				"controller.render.basic_disc"
+			],
+			"animations": {
+				"walk": "animation.horizon.disc_basic.rotation"
+			},
+			"animation_controllers": [
+				{
+					"walk": "controller.animation.horizon_basic_disc"
+				}
+			]
+		}
+	}
+}

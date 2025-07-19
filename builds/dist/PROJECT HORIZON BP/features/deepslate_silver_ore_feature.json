@@ -1,0 +1,22 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "horizon:deepslate_silver_ore_feature"
+		},
+		"count": 4,
+		"replace_rules": [
+			{
+				"places_block": {
+					"name": "horizon:deepslate_silver_ore",
+					"states": {}
+				},
+				"may_replace": [
+					{
+						"name": "minecraft:deepslate"
+					}
+				]
+			}
+		]
+	}
+}

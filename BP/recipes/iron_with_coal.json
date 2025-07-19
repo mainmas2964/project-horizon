@@ -1,0 +1,26 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:iron_with_coal"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"k": {
+				"item": "minecraft:iron_ingot"
+			},
+			"c": {
+				"item": "minecraft:coal"
+			}
+		},
+		"pattern": [
+			"ckc"
+		],
+		"result": {
+			"item": "horizon:iron_with_coal",
+			"count": 2
+		}
+	}
+}

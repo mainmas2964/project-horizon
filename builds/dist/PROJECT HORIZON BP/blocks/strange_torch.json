@@ -1,0 +1,17 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:strange_torch"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.strange_torch",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "horizon_strange_torch",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

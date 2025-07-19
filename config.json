@@ -1,0 +1,47 @@
+{
+	"type": "minecraftBedrock",
+	"name": "PROJECT HORIZON",
+	"namespace": "horizon",
+	"authors": [
+		"bridge."
+	],
+	"targetVersion": "1.21.80",
+	"description": "01101010101",
+	"experimentalGameplay": {
+		"creationOfCustomBiomes": false,
+		"upcomingCreatorFeatures": false,
+		"experimentalCreatorCameraFeatures": false,
+		"enableGameTestFramework": false,
+		"dataDrivenJigsawStructures": false,
+		"customComponentsV2": false,
+		"renderDragonFeatures": false,
+		"educationEdition": false
+	},
+	"bdsProject": false,
+	"packs": {
+		"behaviorPack": "./BP",
+		"resourcePack": "./RP"
+	},
+	"worlds": [
+		"./worlds/*"
+	],
+	"compiler": {
+		"plugins": [
+			"generatorScripts",
+			"typeScript",
+			"entityIdentifierAlias",
+			"customEntityComponents",
+			"customItemComponents",
+			"customBlockComponents",
+			"customCommands",
+			"moLang",
+			"formatVersionCorrection",
+			[
+				"simpleRewrite",
+				{
+					"packName": "PROJECT HORIZON"
+				}
+			]
+		]
+	}
+}

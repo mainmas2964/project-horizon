@@ -1,0 +1,22 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:vhs_camera",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"horizon:vhs_camera"
+			],
+			"minecraft:icon": "horizon_vsh_camera",
+			"minecraft:cooldown": {
+				"duration": 0.8,
+				"category": "vhs"
+			},
+			"minecraft:max_stack_size": 1
+		}
+	}
+}

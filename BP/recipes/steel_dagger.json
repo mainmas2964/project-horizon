@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:steel_dagger"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"s": {
+				"item": "horizon:light_steel_ingot"
+			},
+			"t": {
+				"item": "minecraft:stick"
+			}
+		},
+		"pattern": [
+			"   ",
+			" s ",
+			" t "
+		],
+		"result": {
+			"item": "horizon:steel_dagger"
+		}
+	}
+}

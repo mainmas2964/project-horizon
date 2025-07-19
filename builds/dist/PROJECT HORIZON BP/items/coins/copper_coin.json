@@ -1,0 +1,14 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "horizon:copper_coins"
+		},
+		"components": {
+			"minecraft:icon": "horizon:copper_coins"
+		}
+	}
+}

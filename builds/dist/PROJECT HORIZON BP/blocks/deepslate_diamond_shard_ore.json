@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.ore"
+			},
+			"identifier": "horizon:deepslate_diamond_shard_ore"
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 6
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:stone": {},
+			"tag:horizon:wood": {},
+			"tag:horizon:stone": {},
+			"tag:metal": {},
+			"minecraft:loot": "loot_tables/diamond_shard_ore.json"
+		}
+	}
+}

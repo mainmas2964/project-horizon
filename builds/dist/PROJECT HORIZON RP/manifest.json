@@ -1,0 +1,52 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"bogdan_goose"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.7.48"
+			],
+			"dash": [
+				"0.11.7"
+			]
+		}
+	},
+	"header": {
+		"name": "[ PROJECT HORIZON 1.0.2 ] BETA",
+		"description": "a project that will change your minecraft world ",
+		"min_engine_version": [
+			1,
+			21,
+			50
+		],
+		"uuid": "6b42ebbe-c89d-44b7-aa24-9d77d9ed2270",
+		"version": [
+			1,
+			0,
+			388
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "aaae11d3-cce5-4fd7-95ae-d03bd3da5d3f",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "e8ce7365-8a7c-4f0c-814e-fc77e3e46e0a",
+			"version": [
+				1,
+				0,
+				388
+			]
+		}
+	]
+}

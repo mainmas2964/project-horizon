@@ -1,0 +1,24 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:raw_silver_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"r": {
+				"item": "horizon:raw_silver"
+			}
+		},
+		"pattern": [
+			"rrr",
+			"rrr",
+			"rrr"
+		],
+		"result": {
+			"item": "horizon:raw_silver_block"
+		}
+	}
+}

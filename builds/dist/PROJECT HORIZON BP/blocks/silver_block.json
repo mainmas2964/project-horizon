@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:silver_block",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 12
+			},
+			"tag:metal": {},
+			"tag:horizon:wood": {},
+			"tag:horizon:stone": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		}
+	}
+}

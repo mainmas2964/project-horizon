@@ -1,0 +1,159 @@
+{
+	"resource_pack_name": "Project Horizon 1.0",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"horizon:copper_coins": {
+			"textures": "textures/items/coins/copper_coins"
+		},
+		"horizon:silver_coins": {
+			"textures": "textures/items/coins/silver_coins"
+		},
+		"horizon:golden_coins": {
+			"textures": "textures/items/coins/golden_coins"
+		},
+		"horizon_dagger_steel_triple_sculk": {
+			"textures": "textures/items/triple_steel_sculk_dagger"
+		},
+		"horizon_steel_dagger_triple": {
+			"textures": "textures/items/triple_steel_dagger"
+		},
+		"horizon_steel_helmet": {
+			"textures": "textures/items/steel_helmet"
+		},
+		"horizon_steel_chestplate": {
+			"textures": "textures/items/steel_chestplate"
+		},
+		"horizon_steel_leggings": {
+			"textures": "textures/items/steel_leggings"
+		},
+		"horizon_steel_boots": {
+			"textures": "textures/items/steel_boots"
+		},
+		"horizon_iron_with_coal": {
+			"textures": "textures/items/coal_with_iron"
+		},
+		"horizon_steel_ingot": {
+			"textures": "textures/items/steel_ingot"
+		},
+		"horizon_steel_dagger": {
+			"textures": "textures/items/steel_dagger"
+		},
+		"horizon_diamond_shard": {
+			"textures": "textures/items/diamond_shard"
+		},
+		"horizon_silver_ingot": {
+			"textures": "textures/items/silver_ingot"
+		},
+		"horizon_raw_silver": {
+			"textures": "textures/items/raw_silver"
+		},
+		"horizon_steel_saw_0": {
+			"textures": "textures/items/steel_saw_0"
+		},
+		"horizon_obsidian_dust": {
+			"textures": "textures/items/obsidian_dust"
+		},
+		"horizon_health_mushroom_0": {
+			"textures": "textures/items/health_mushroom"
+		},
+		"horizon_heavy_chestplate_chestplate": {
+			"textures": "textures/items/heavy_chestplate_chestplate"
+		},
+		"horizon_flint_pickaxe_0": {
+			"textures": "textures/items/flint_pickaxe"
+		},
+		"horizon_flint_shovel_0": {
+			"textures": "textures/items/flint_shovel"
+		},
+		"horizon_flint_axe_0": {
+			"textures": "textures/items/flint_axe"
+		},
+		"horizon_flint_sword": {
+			"textures": "textures/items/flint_sword"
+		},
+		"horizon_iron_ingot_with_flint": {
+			"textures": "textures/items/iron_with_flint"
+		},
+		"horizon_health_mix_bottle": {
+			"textures": "textures/items/health_mix"
+		},
+		"horizon_big_bottle": {
+			"textures": "textures/items/glass_big_bottle"
+		},
+		"horizon_flammable_potion_mix": {
+			"textures": "textures/items/flammable_potion_mix"
+		},
+		"horizon_ancient_coin": {
+			"textures": "textures/items/ancient_coin"
+		},
+		"horizon_invisible_scroll": {
+			"textures": "textures/items/invisible_scroll"
+		},
+		"horizon_deadly_katana": {
+			"textures": "textures/items/1000484602"
+		},
+		"horizon_bone_katana": {
+			"textures": "textures/items/1000484611"
+		},
+		"horizon_exposed_copper_pickaxe": {
+			"textures": "textures/items/1000584247"
+		},
+		"horizon_a_sync_chestplate": {
+			"textures": "textures/items/a_sync_chestplate"
+		},
+		"horizon_a_sync_helmet_helmet": {
+			"textures": "textures/items/a_sync_helmet_helmet"
+		},
+		"horizon_a_sync_leggings": {
+			"textures": "textures/items/a_sync_leggings"
+		},
+		"horizon_a_sync_boots": {
+			"textures": "textures/items/a_sync_boots"
+		},
+		"horizon_vsh_camera": {
+			"textures": "textures/items/vhs_camera"
+		},
+		"horizon_engineers_sword": {
+			"textures": "textures/items/engineer's_sword"
+		},
+		"horizon_robosphere_t1": {
+			"textures": "textures/items/robosphere_t1"
+		},
+		"horizon_scroll_of_oc": {
+			"textures": "textures/items/1000657595"
+		},
+		"horizon_a_sync_upgrade": {
+			"textures": "textures/items/hazmat_armor_upgrade"
+		},
+		"horizon_mobile_workbench": {
+			"textures": "textures/items/mobile_workbench"
+		},
+		"horizon_honey_stinger_sword": {
+			"textures": "textures/items/honey_stinger_sword"
+		},
+		"horizon_golden_honeycomb": {
+			"textures": "textures/items/golden_honeycomb"
+		},
+		"horizon_basic_disk_item": {
+			"textures": "textures/items/basic_disk"
+		},
+		"horizon_nectar": {
+			"textures": "textures/items/nectare"
+		},
+		"horizon_nectar_collector": {
+			"textures": "textures/items/nectar_collector"
+		},
+		"horizon_teleportation": {
+			"textures": "textures/items/teleportation"
+		},
+		"horizon_abilities_tablet": {
+			"textures": "textures/items/abilities_tablet"
+		},
+		"horizon_copper_drill": {
+			"textures": "textures/items/copper_drill"
+		},
+		"horizon_drone_station_t1": {
+			"textures": "textures/items/drone_station_t1"
+		}
+	}
+}

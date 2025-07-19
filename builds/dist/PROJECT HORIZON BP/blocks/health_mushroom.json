@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:health_mushroom"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.sculk_flower",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "horizon_health_mushroom",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": false,
+			"minecraft:light_emission": 7,
+			"minecraft:light_dampening": 0,
+			"minecraft:loot": "loot_tables/health_mushroom.json",
+			"minecraft:placement_filter": {
+				"allowed_faces": [
+					"up"
+				],
+				"block_filter": [
+					"minecraft:stone",
+					"minecraft:deepslate"
+				]
+			}
+		}
+	}
+}

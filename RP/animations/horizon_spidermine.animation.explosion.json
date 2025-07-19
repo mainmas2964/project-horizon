@@ -1,0 +1,81 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.horizon_spidermine.animation.explosion": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.25,
+			"bones": {
+				"0": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							25,
+							0,
+							0
+						]
+					}
+				},
+				"1": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							25,
+							0,
+							0
+						]
+					}
+				},
+				"2": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							25,
+							0,
+							0
+						]
+					}
+				},
+				"3": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							25,
+							0,
+							0
+						]
+					}
+				},
+				"body": {
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							0,
+							-3,
+							0
+						]
+					}
+				}
+			}
+		}
+	}
+}

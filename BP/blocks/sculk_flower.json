@@ -1,0 +1,17 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:sculk_flower"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.sculk_flower",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "horizon_sculk_flower",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

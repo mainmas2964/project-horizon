@@ -1,0 +1,86 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Project Horizon 1.0",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"horizon_sculk_flower": {
+			"textures": "textures/blocks/1000259872"
+		},
+		"Sculk_prds_catalyst": {
+			"textures": "textures/blocks/catalyst"
+		},
+		"Sculk_prds_core_main": {
+			"textures": "textures/blocks/sculk_core"
+		},
+		"Sculk_prds_sculk_grass": {
+			"textures": "textures/blocks/sculk_grass"
+		},
+		"Sculk_prds_sculk_grass_2": {
+			"textures": "textures/blocks/sculk_grass_2"
+		},
+		"Sculk_prds_sculk_kust": {
+			"textures": "textures/blocks/sculk_kust"
+		},
+		"horizon_sculk_node": {
+			"textures": "textures/blocks/1000166914"
+		},
+		"horizon_steel_block": {
+			"textures": "textures/blocks/steel_block"
+		},
+		"horizon_silver_ore": {
+			"textures": "textures/blocks/silver_ore"
+		},
+		"horizon_deepslate_silver_ore": {
+			"textures": "textures/blocks/deepslate_silver_ore"
+		},
+		"horizon_deepslate_diamond_shard_ore": {
+			"textures": "textures/blocks/deepslate_diamond_shard_ore"
+		},
+		"horizon_diamond_shard_ore": {
+			"textures": "textures/blocks/diamond_shard_ore"
+		},
+		"horizon_obsidian_diamond_ore": {
+			"textures": "textures/blocks/obsidian_diamond_ore"
+		},
+		"horizon_raw_silver_block": {
+			"textures": "textures/blocks/1000431526"
+		},
+		"horizon_obsidian_diamond__ore_0": {
+			"textures": "textures/blocks/obsidian_diamond_ore_f"
+		},
+		"horizon_silver_block": {
+			"textures": "textures/blocks/1000431556"
+		},
+		"horizon_health_mushroom": {
+			"textures": "textures/blocks/health_mushroom"
+		},
+		"horizon_box": {
+			"textures": "textures/blocks/1000464020"
+		},
+		"horizon_caves_chest_0_closed": {
+			"textures": "textures/blocks/1000566185"
+		},
+		"horizon_caves_chest_1_opened": {
+			"textures": "textures/blocks/1000566185"
+		},
+		"horizon_caves_tile_0": {
+			"textures": "textures/blocks/1000584250"
+		},
+		"horizon_caves_tile_spikes_0": {
+			"textures": "textures/blocks/1000584253"
+		},
+		"horizon_caves_spikes_0": {
+			"textures": "textures/blocks/1000584254"
+		},
+		"horizon_heavy_birck_blocks": {
+			"textures": "textures/blocks/1000584270"
+		},
+		"horizon_sculk_jaw": {
+			"textures": "textures/blocks/sculk_jaw"
+		},
+		"horizon_strange_torch": {
+			"textures": "textures/blocks/strange_torch"
+		}
+	}
+}

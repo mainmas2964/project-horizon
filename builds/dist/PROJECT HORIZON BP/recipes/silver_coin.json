@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "horizon:silver_coin"
+		},
+		"tags": [
+			"stonecutter",
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "horizon:silver_ingot"
+			}
+		],
+		"result": {
+			"item": "horizon:silver_coin",
+			"count": 2
+		}
+	}
+}

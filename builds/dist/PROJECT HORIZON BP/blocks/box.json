@@ -1,0 +1,9 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:box"
+		},
+		"components": {}
+	}
+}

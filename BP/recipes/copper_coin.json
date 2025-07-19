@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "horizon:copper_coin"
+		},
+		"tags": [
+			"stonecutter",
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "minecraft:copper_ingot"
+			}
+		],
+		"result": {
+			"item": "horizon:copper_coin",
+			"count": 1
+		}
+	}
+}

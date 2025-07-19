@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"identifier": "horizon:light_steel_block"
+		},
+		"components": {
+			"minecraft:custom_components": [],
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 10.5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 5
+			},
+			"tag:metal": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:horizon:wood": {},
+			"tag:horizon:stone": {}
+		}
+	}
+}

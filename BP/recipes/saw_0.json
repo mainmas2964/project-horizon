@@ -1,0 +1,36 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:saw_0"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"s": {
+				"item": "horizon:light_steel_ingot"
+			},
+			"S": {
+				"item": "horizon:silver_block"
+			},
+			"b": {
+				"item": "minecraft:andesite"
+			},
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"r": {
+				"item": "minecraft:redstone"
+			}
+		},
+		"pattern": [
+			"sSs",
+			"sbb",
+			"brd"
+		],
+		"result": {
+			"item": "horizon:steel_saw_0"
+		}
+	}
+}

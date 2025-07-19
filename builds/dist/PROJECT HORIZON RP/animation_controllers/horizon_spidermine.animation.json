@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.spidermine.walk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "query.modified_move_speed"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						{
+							"walk": "query.is_moving"
+						}
+					],
+					"transitions": [
+						{
+							"idle": "query.modified_move_speed<0"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

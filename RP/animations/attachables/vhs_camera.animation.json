@@ -1,0 +1,39 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.vhs_camera.first_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [
+						66,
+						60,
+						-60
+					],
+					"position": [
+						3,
+						12,
+						4
+					]
+				}
+			}
+		},
+		"animation.vhs_camera.third_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [
+						59.07165,
+						-1.03555,
+						0.91808
+					],
+					"position": [
+						0.5,
+						22.5,
+						-2.5
+					]
+				}
+			}
+		}
+	}
+}

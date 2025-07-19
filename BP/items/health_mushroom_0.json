@@ -1,0 +1,18 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:health_mushroom_0",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+			"minecraft:icon": "horizon_health_mushroom_0",
+			"minecraft:block_placer": {
+				"block": "horizon:health_mushroom"
+			}
+		}
+	}
+}

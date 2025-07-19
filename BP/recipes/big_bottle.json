@@ -1,0 +1,26 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:big_bottle"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"h": {
+				"item": "horizon:health_mushroom_0"
+			},
+			"b": {
+				"item": "horizon:big_bottle"
+			}
+		},
+		"pattern": [
+			"hb",
+			"h"
+		],
+		"result": {
+			"item": "horizon:health_mix_bottle"
+		}
+	}
+}

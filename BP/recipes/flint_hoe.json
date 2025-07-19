@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:flint_hoe"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"f": {
+				"item": "horizon:iron_nugget_with_flint"
+			},
+			"s": {
+				"item": "minecraft:stick"
+			}
+		},
+		"pattern": [
+			"ff",
+			"s ",
+			"s "
+		],
+		"result": {
+			"item": "horizon:flint_hoe"
+		}
+	}
+}

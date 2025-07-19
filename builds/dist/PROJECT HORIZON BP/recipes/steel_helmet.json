@@ -1,0 +1,23 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:light_steel_helmet"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"s": {
+				"item": "horizon:light_steel_ingot"
+			}
+		},
+		"pattern": [
+			"sss",
+			"s s"
+		],
+		"result": {
+			"item": "horizon:light_steel_helmet"
+		}
+	}
+}

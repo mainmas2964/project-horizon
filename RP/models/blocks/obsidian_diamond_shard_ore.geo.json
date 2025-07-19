@@ -1,0 +1,105 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:geometry": [
+        {
+            "description": {
+                "identifier": "geometry.obsidian_diamond_ore",
+                "texture_width": 32,
+                "texture_height": 32,
+                "visible_bounds_width": 3,
+                "visible_bounds_height": 3,
+                "visible_bounds_offset": [
+                    0,
+                    0.5,
+                    0
+                ]
+            },
+            "bones": [
+                {
+                    "name": "bb_main",
+                    "pivot": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -5,
+                                0,
+                                -5
+                            ],
+                            "size": [
+                                10,
+                                9,
+                                10
+                            ],
+                            "uv": {
+                                "north": {
+                                    "uv": [
+                                        10,
+                                        0
+                                    ],
+                                    "uv_size": [
+                                        10,
+                                        9
+                                    ]
+                                },
+                                "east": {
+                                    "uv": [
+                                        10,
+                                        9
+                                    ],
+                                    "uv_size": [
+                                        10,
+                                        9
+                                    ]
+                                },
+                                "south": {
+                                    "uv": [
+                                        10,
+                                        18
+                                    ],
+                                    "uv_size": [
+                                        10,
+                                        9
+                                    ]
+                                },
+                                "west": {
+                                    "uv": [
+                                        0,
+                                        20
+                                    ],
+                                    "uv_size": [
+                                        10,
+                                        9
+                                    ]
+                                },
+                                "up": {
+                                    "uv": [
+                                        0,
+                                        0
+                                    ],
+                                    "uv_size": [
+                                        10,
+                                        10
+                                    ]
+                                },
+                                "down": {
+                                    "uv": [
+                                        0,
+                                        20
+                                    ],
+                                    "uv_size": [
+                                        10,
+                                        -10
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

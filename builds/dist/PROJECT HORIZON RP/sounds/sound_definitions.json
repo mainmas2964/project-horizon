@@ -1,0 +1,79 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"horizon:spikes_sound": {
+			"sounds": [
+				"sounds/spike"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:spidermine_activate": {
+			"sounds": [
+				"sounds/spidermine_activate"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:spidermine_dead": {
+			"sounds": [
+				"sounds/spidermine_dead"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:electro1": {
+			"sounds": [
+				"sounds/electro"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:electro2": {
+			"sounds": [
+				"sounds/electro_zap"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:electro3": {
+			"sounds": [
+				"sounds/electro_zap2"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:electro4": {
+			"sounds": [
+				"sounds/electro_zap3"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:windly": {
+			"sounds": [
+				"sounds/wind"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:vhs": {
+			"sounds": [
+				"sounds/vhs"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:empd": {
+			"sounds": [
+				"sounds/explode_emp"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:break": {
+			"sounds": [
+				"sounds/break"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:teleport": {
+			"sounds": [
+				"sounds/teleport3",
+				"sounds/teleport",
+				"sounds/teleport2"
+			],
+			"__use_legacy_max_distance": true
+		}
+	}
+}

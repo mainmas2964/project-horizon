@@ -1,0 +1,39 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "horizon:basic_disk",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball"
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.10,
+				"height": 0.10
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 6
+					}
+				},
+				"anchor": 1,
+				"power": 1.5,
+				"gravity": 0.03,
+				"angle_offset": 0,
+				"offset": [
+					0,
+					-0.1,
+					0
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:obsidian_diamond__ore_0",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.ore"
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 24
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 50
+			},
+			"tag:stone": {},
+			"minecraft:loot": "loot_tables/obsidian_ore_for_ore.json",
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:metal": {},
+			"tag:horizon:wood": {},
+			"tag:horizon:stone": {},
+			"tag:horizon:iron": {},
+			"minecraft:map_color": "#fb57ff"
+		}
+	}
+}

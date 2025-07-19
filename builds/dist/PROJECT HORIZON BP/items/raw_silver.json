@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:raw_silver",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:icon": "horizon_raw_silver"
+		}
+	}
+}

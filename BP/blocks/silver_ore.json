@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:silver_ore",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.ore"
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 5
+			},
+			"minecraft:loot": "loot_tables/raw_silver.json",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 10
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:stone": {},
+			"tag:metal": {},
+			"minecraft:map_color": "#748687"
+		}
+	}
+}

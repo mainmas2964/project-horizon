@@ -1,0 +1,17 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:sculk_jaw"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.sculk_jaw",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "horizon_sculk_jaw",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

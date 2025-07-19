@@ -1,0 +1,17 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "horizon:caves_tile_0"
+		},
+		"components": {
+			"tag:horizon:wood": {},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 10
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3
+			}
+		}
+	}
+}

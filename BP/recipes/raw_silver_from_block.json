@@ -1,0 +1,20 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "horizon:raw_silver_from_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "horizon:raw_silver_block"
+			}
+		],
+		"result": {
+			"item": "horizon:raw_silver",
+			"count": 9
+		}
+	}
+}

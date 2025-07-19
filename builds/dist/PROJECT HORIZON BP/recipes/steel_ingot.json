@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "horizon:light_steel_ingot"
+		},
+		"tags": [
+			"blast_furnace",
+			"furnace"
+		],
+		"input": "horizon:iron_with_coal",
+		"output": "horizon:light_steel_ingot"
+	}
+}

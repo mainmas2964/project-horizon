@@ -1,0 +1,14 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:silver_coins",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:icon": "horizon:silver_coins"
+		}
+	}
+}

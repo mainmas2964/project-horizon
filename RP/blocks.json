@@ -1,0 +1,104 @@
+{
+	"format_version": [
+		1,
+		1,
+		0
+	],
+	"horizon:sculk_flower": {
+		"sound": "stone"
+	},
+	"sculk_addon:catalyst": {
+		"sound": "stone",
+		"textures": "Sculk_prds_catalyst"
+	},
+	"sculk_addon:core_main": {
+		"sound": "stone",
+		"textures": "Sculk_prds_core_main"
+	},
+	"Sculk_prds:sculk_grass": {
+		"sound": "stone",
+		"textures": "Sculk_prds_sculk_grass"
+	},
+	"Sculk_prds:sculk_grass_2": {
+		"sound": "stone",
+		"textures": "Sculk_prds_sculk_grass_2"
+	},
+	"Sculk_prds:sculk_kust": {
+		"sound": "stone",
+		"textures": "Sculk_prds_sculk_kust"
+	},
+	"horizon:sculk_node": {
+		"sound": "stone",
+		"textures": "horizon_sculk_node"
+	},
+	"horizon:light_steel_block": {
+		"sound": "stone",
+		"textures": "horizon_steel_block"
+	},
+	"horizon:silver_ore": {
+		"sound": "stone",
+		"textures": "horizon_silver_ore"
+	},
+	"horizon:deepslate_silver_ore": {
+		"sound": "stone",
+		"textures": "horizon_deepslate_silver_ore"
+	},
+	"horizon:deepslate_diamond_shard_ore": {
+		"sound": "stone",
+		"textures": "horizon_deepslate_diamond_shard_ore"
+	},
+	"horizon:diamond_shard_ore": {
+		"sound": "stone",
+		"textures": "horizon_diamond_shard_ore"
+	},
+	"horizon:obsidian_diamond_ore": {
+		"sound": "stone",
+		"textures": "horizon_obsidian_diamond_ore"
+	},
+	"horizon:raw_silver_block": {
+		"sound": "stone",
+		"textures": "horizon_raw_silver_block"
+	},
+	"horizon:obsidian_diamond__ore_0": {
+		"sound": "stone",
+		"textures": "horizon_obsidian_diamond__ore_0"
+	},
+	"horizon:silver_block": {
+		"sound": "stone",
+		"textures": "horizon_silver_block"
+	},
+	"horizon:health_mushroom": {
+		"sound": "grass"
+	},
+	"horizon:box": {
+		"sound": "stone",
+		"textures": "horizon_box"
+	},
+	"horizon:caves_chest_0_closed": {
+		"sound": "stone"
+	},
+	"horizon:caves_chest_1_opened": {
+		"sound": "stone"
+	},
+	"horizon:caves_tile_0": {
+		"sound": "stone",
+		"textures": "horizon_caves_tile_0"
+	},
+	"horizon:caves_tile_spikes_0": {
+		"sound": "stone",
+		"textures": "horizon_caves_tile_spikes_0"
+	},
+	"horizon:caves_spikes_0": {
+		"sound": "stone"
+	},
+	"horizon:heavy_birck_blocks": {
+		"sound": "stone",
+		"textures": "horizon_heavy_birck_blocks"
+	},
+	"horizon:sculk_jaw": {
+		"sound": "stone"
+	},
+	"horizon:strange_torch": {
+		"sound": "stone"
+	}
+}

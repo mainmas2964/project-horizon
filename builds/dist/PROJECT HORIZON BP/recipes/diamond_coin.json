@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "horizon:diamond_coin"
+		},
+		"tags": [
+			"stonecutter",
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "minecraft:diamond"
+			}
+		],
+		"result": {
+			"count": 2,
+			"item": "horizon:diamond_coin"
+		}
+	}
+}

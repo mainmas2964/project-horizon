@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:basic_disk_item",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:icon": "horizon_basic_disk_item",
+			"minecraft:throwable": {
+				"launch_power_scale": 2,
+				"do_swing_animation": true
+			},
+			"minecraft:projectile": {
+				"projectile_entity": "horizon:basic_disk"
+			}
+		}
+	}
+}

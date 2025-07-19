@@ -1,0 +1,69 @@
+{
+	"format_version": "1.21.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "horizon:steel_saw_0",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.axe"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"horizon:treecapitator",
+				"horizon:durability"
+			],
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:durability": {
+				"max_durability": 420
+			},
+			"minecraft:icon": "horizon_steel_saw_0",
+			"minecraft:damage": 8,
+			"minecraft:enchantable": {
+				"value": 14,
+				"slot": "axe"
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"horizon:steel_ingot"
+						],
+						"repair_amount": "query.max_durability*0.25"
+					},
+					{
+						"items": [
+							"horizon:steel_saw_0"
+						],
+						"repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
+					}
+				]
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"block": {
+							"tags": "query.any_tag('wood', 'pumpkin', 'plant')"
+						},
+						"speed": 6
+					},
+					{
+						"block": "minecraft:chest",
+						"speed": 6
+					},
+					{
+						"block": "minecraft:melon_block",
+						"speed": 6
+					}
+				]
+			},
+			"minecraft:tags": {
+				"tags": [
+					"minecraft:is_axe"
+				]
+			}
+		}
+	}
+}

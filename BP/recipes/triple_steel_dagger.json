@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:triple_steel_dagger"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"s": {
+				"item": "horizon:steel_dagger"
+			},
+			"t": {
+				"item": "minecraft:stick"
+			}
+		},
+		"pattern": [
+			"   ",
+			"sss",
+			" t "
+		],
+		"result": {
+			"item": "horizon:steel_dagger_triple"
+		}
+	}
+}

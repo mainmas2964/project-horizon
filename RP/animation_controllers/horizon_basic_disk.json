@@ -1,0 +1,18 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.horizon_basic_disk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						{
+							"walk": "!query.is_on_ground"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}
