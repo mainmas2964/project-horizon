@@ -17,6 +17,9 @@ system.runInterval(() => {
           player.addEffect("slowness", 300, { showParticles: false })
           player.addEffect("poison", 300, { showParticles: false })
         } break;
+        case "morehealth": {
+          player.addEffect("health_boost", 300, { amplifier: 1 })
+        }
       }
     }
   }

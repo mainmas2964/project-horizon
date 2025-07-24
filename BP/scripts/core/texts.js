@@ -38,10 +38,19 @@ const classLoc = {
         },
         "prospector": {
             name: "Prospector",
-            description: "basic class \nregeneration effect when eat cookies\nsimple mobile workbench"
+            description: "Tunnelers – while they don't have strong abilities, they are great at surviving. \n[ Cookie Lover ]\nWhen eating a cookie, you gain regeneration.\n[ More Health ]\nYou have more health.\n[ Basic Mobile Workbench ]\n[ All basic abilities available ]"
+
         }
     },
     "ru": {
+        "redstone_engineer": {
+            name: "Редстоун инженер",
+            description: "Инженеры редстоуна очень хороши в работе с редстоуном, а также в автоматизации! \n\n§b[ Пассивно ] : \n\n§c[ Питание от редстоуна ] \n\n§5Если вы используете блок редстоуна, вы получите эффект §yСкорости и Силы§5 \n\n[ Больше редстоуна и компонентов ]\n\n§rС вероятностью 60% вы получите больше редстоуна из руды редстоуна \n\n§b[Мобильный верстак T-REdst] \n\n§5Редстоун-компоненты \n\nКомпоненты для аддона utilitycraft (экспериментально)"
+        },
+        "prospector": {
+            name: "Проходчик",
+            description: "Проходчики - хоть и не имеют сильных способностей , однако они прекрасно справляються с выживанием \n[ Любитель печенья ]\nПри поеданий печенья вы получаете регенерацию\n[ Больше жизней ]\nУ вас больше здоровья\n[ Базовый мобильный верстак ]\n[ Доступны все базовые способности ]"
+        }
     }
 }
 const abilitiesLoc = {

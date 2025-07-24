@@ -80,7 +80,7 @@ const UseItemFunctionsMap = {
   })
 }
 const UseItemCompleteFunctionsMap = {
-  "predecessor": (data => {
+  "prospector": (data => {
     if (data.itemStack.typeId != "minecraft:cookie") return;
     data.source.addEffect("regeneration", 100, { amplifier: 2 })
   }),

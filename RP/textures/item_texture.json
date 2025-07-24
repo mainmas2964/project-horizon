@@ -154,6 +154,9 @@
 		},
 		"horizon_drone_station_t1": {
 			"textures": "textures/items/drone_station_t1"
+		},
+		"horizon_slimecat_egg": {
+			"textures": "textures/items/SlimeCat_SpawnEgg"
 		}
 	}
 }

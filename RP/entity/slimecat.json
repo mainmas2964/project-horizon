@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "horizon:slimecat",
+			"materials": {
+				"default": "entity_alphablend_nocolor"
+			},
+			"textures": {
+				"default": "textures/entity/slimecat_def"
+			},
+			"geometry": {
+				"default": "geometry.slimecat"
+			},
+			"render_controllers": [
+				"controller.render.slimecat"
+			],
+			"spawn_egg": {
+				"texture": "horizon_slimecat_egg",
+				"texture_index": 0
+			}
+		}
+	}
+}

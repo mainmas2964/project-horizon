@@ -97,3 +97,5 @@ item.horizon:silver_coins=Silver coins
 
 item.horizon:drone_station_t1=Drone station T1
 tile.horizon:strange_torch.name=Strange torch
+item.spawn_egg.entity.horizon:slimecat.name=Spawn Slime cat
+entity.horizon:slimecat.name=Slime cat

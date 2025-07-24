@@ -1,0 +1,214 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "horizon:slimecat",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"bartering": {
+				"minecraft:barter": {
+					"barter_table": "loot_tables/entities/slimecat_barter.json",
+					"cooldown_after_being_attacked": 20
+				},
+				"minecraft:admire_item": {
+					"duration": 8,
+					"cooldown_after_being_attacked": 20,
+					"admire_item_sound": "admire",
+					"sound_interval": {
+						"range_min": 2.0,
+						"range_max": 5.0
+					}
+				},
+				"minecraft:behavior.barter": {
+					"priority": 3
+				},
+				"minecraft:behavior.admire_item": {
+					"priority": 2
+				},
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "minecraft:beef"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"barter": true,
+							"admire": true,
+							"use_item": true,
+							"interact_text": "action.interact.barter",
+							"cooldown_after_being_attacked": 20
+						}
+					]
+				}
+			},
+			"angry_group": {
+				"minecraft:angry": {
+					"duration": 30,
+					"broadcast_anger": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"broadcast_targets": [
+						"slimecat"
+					],
+					"calm_event": {
+						"event": "slimecat:calm",
+						"target": "self"
+					},
+					"angry_sound": "angry",
+					"sound_interval": {
+						"range_min": 2.0,
+						"range_max": 5.0
+					}
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 1,
+					"entity_types": [
+						{
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "player"
+							},
+							"max_dist": 16
+						}
+					]
+				},
+				"minecraft:behavior.look_at_target": {
+					"priority": 2
+				},
+				"minecraft:behavior.melee_box_attack": {
+					"priority": 3,
+					"track_target": true,
+					"reach_multiplier": 1.0,
+					"speed_multiplier": 1.0
+				},
+				"minecraft:attack": {
+					"damage": 4
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"slimecat",
+					"monster"
+				]
+			},
+			"minecraft:nameable": {},
+			"minecraft:health": {
+				"value": 20,
+				"max": 20
+			},
+			"minecraft:movement": {
+				"value": 0.35
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"avoid_damage_blocks": true,
+				"can_pass_doors": true,
+				"can_open_doors": true
+			},
+			"minecraft:jump.static": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:inventory": {
+				"inventory_size": 8
+			},
+			"minecraft:shareables": {
+				"singular_pickup": true,
+				"items": [
+					{
+						"item": "minecraft:beef",
+						"priority": 1,
+						"barter": true,
+						"admire": true,
+						"pickup_limit": 1,
+						"stored_in_inventory": true
+					}
+				]
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 0
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 4,
+				"speed_multiplier": 0.6
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 5,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 6
+			},
+			"minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/slimecat.json"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"on_damage": {
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "damager",
+									"value": "player"
+								}
+							]
+						},
+						"event": "slimecat:angry"
+					}
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"bartering"
+					]
+				}
+			},
+			"slimecat:angry": {
+				"add": {
+					"component_groups": [
+						"angry_group"
+					]
+				},
+				"queue_command": {
+					"command": "/say"
+				}
+			},
+			"slimecat:calm": {
+				"remove": {
+					"component_groups": [
+						"angry_group"
+					]
+				}
+			}
+		}
+	}
+}
