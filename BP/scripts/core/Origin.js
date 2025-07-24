@@ -14,7 +14,7 @@ export class Origin {
 
   }
 
-  applyTo(player) {
+  applyTo(player, loc) {
     player.addTag(this.id);
     for (const tag of this.tags) {
       player.addTag(tag);
@@ -24,7 +24,7 @@ export class Origin {
       player.setDynamicProperty(key, value);
     }
 
-    player.sendMessage(`§a [ You have chosen §b${this.name} origin ]`);
+    player.sendMessage(`§a [ You have chosen §b${originsLoc[loc][this.id].name} origin ]`);
   }
 
 
@@ -67,7 +67,7 @@ export class OriginManager {
 
 
 
-  assignToPlayer(player, originId) {
+  assignToPlayer(player, originId, loc) {
     const newOrigin = this.getOriginById(originId);
     if (!newOrigin) {
       player.sendMessage(`§cOrigin "${originId}" не найден.`);
@@ -80,7 +80,7 @@ export class OriginManager {
       current.removeFrom(player);
     }
 
-    newOrigin.applyTo(player);
+    newOrigin.applyTo(player, loc);
     this.playerOrigins.set(player.id, originId);
   }
   clearPlayerOrigin(player) {
@@ -133,7 +133,7 @@ export function openOriginConfirmMenu(player, origin, originManager, classManage
       return;
     }
     if (res.selection === 0) {
-      originManager.assignToPlayer(player, origin.id)
+      originManager.assignToPlayer(player, origin.id, loc)
 
 
       if (origin.availableClasses?.length > 0) {
