@@ -136,11 +136,9 @@ const BreakBlockFunctionsMap = {
   })
 }
 const InteractFunctionsMap = {
-  "bee_origin": (data => {
-    if (data.player.inputInfo.getButtonState("Sneak") != "Pressed" && !FlowerIDs.includes(data.block.typeid)) return;
-    let stingers = data.player.getDynamicProperty("stingers")
-    addAction(data.player, `§l§6${stingers + 1} (+1)`)
-    data.player.setDynamicProperty("stingers", stingers + 1)
+  "demon": (data => {
+    if (data.block.typeId != "minecraft:bed") return;
+    data.cancel = true;
   })
 }
 const EntityHurtFunctionsMap = {
@@ -171,5 +169,5 @@ world.beforeEvents.playerBreakBlock.subscribe(event => { dispatchByTag(event.pla
 world.afterEvents.itemUse.subscribe(e => dispatchByTag(e.source, UseItemFunctionsMap, e));
 world.afterEvents.itemCompleteUse.subscribe(e => { dispatchByTag(e.source, UseItemCompleteFunctionsMap, e) })
 world.afterEvents.entityHitEntity.subscribe(e => { dispatchByTag(e.damagingEntity, HitEntityPlMap, e) })
-//world.afterEvents.playerInteractWithBlock.subscribe(event => { dispatchByTag(event.player, InteractFunctionsMap, event) })
+world.beforeEvents.playerInteractWithBlock.subscribe(event => { dispatchByTag(event.player, InteractFunctionsMap, event) })
 world.afterEvents.entityHurt.subscribe(e => { dispatchByTag(e.hurtEntity, EntityHurtFunctionsMap, e) })

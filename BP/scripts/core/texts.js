@@ -11,13 +11,13 @@ const originsLoc = {
             name: "Apid"
         },
         "demon": {
-            description: "Demon",
+            description: "Demons – one of the strongest and most ferocious races.\n[ Eternal Fire Resistance ]\nYou don't burn in fire.\n[ Demonic Fury ]\n30% chance to gain Resistance when taking damage, also damages and ignites nearby enemies.\n[ Curse of Sleep ]\nYou cannot sleep.",
             name: "Demon"
         }
     },
     "ru": {
         "predecessor": {
-            description: "Предшественники — это древняя раса, обитающая в пещерах, куда они скрылись в начале демонического вторжения. Они превосходны в раскопках и обладают забытыми технологиями\n[ Способности ]\nШанс 5 процентов получить опыт при добыче камня\nШанс 70 процентов получить опыт при добыче руды\nБолее быстрая добыча камня и руды\n[ Базовый мобильный верстак шахтёра ]\Факел\nЖелезо с углем",
+            description: "Предшественники — это древняя раса, обитающая в пещерах, куда они скрылись в начале демонического вторжения. Они превосходны в раскопках и обладают забытыми технологиями\n[ Способности ]\nШанс 5 процентов получить опыт при добыче камня\nШанс 70 процентов получить опыт при добыче руды\nБолее быстрая добыча камня и руды\n[ Базовый мобильный верстак шахтёра ]\nФакел\nЖелезо с углем",
             name: "Предшественник"
         },
         "bee": {
@@ -25,7 +25,7 @@ const originsLoc = {
             name: "Пчела"
         },
         "demon": {
-            description: "Демон",
+            description: "Демоны - одна из самых сильных рас, и одна из самых яростных\n[ вечная огнестойкость ]\nВы не горите в огне\n[ Демоническая ярость ]\n с шансом в 30 процентов при получаний урона получить эффект Сопротивление , а так же нанести урон ближайшим врагам и поджечь их\n[ Проклятие сна ]\nВы не можете спать",
             name: "Демон"
         }
     }
@@ -33,23 +33,23 @@ const originsLoc = {
 const classLoc = {
     "en": {
         "redstone_engineer": {
-            description: "Redstone engineers very good at redstone, as well as automation! \n\n§b[ Passive ] : \n\n§c[ Redstone powered ] \n\n§5if you using a Redstone block, you will get an a §ySpeed and strength §5 effect \n\n[ More redstone and components ]\n\n§rWith 60% chance you mine a more dust from Redstone ore \n\n§b[Mobile workbench T-REdst] \n\n§5Redstone components \n\nComponents for utilitycraft addon (experimental)",
+            description: "Redstone engineers very good at redstone, as well as automation! \n\n§b[ Passive ] : \n\n§c[ Redstone powered ] \n\n§5if you using a Redstone block, you will get an a §ySpeed and strength §5 effect \n\n[ More redstone and components ]\n\n§rWith 60 percent chance you mine a more dust from Redstone ore \n\n§b[Mobile workbench T-REdst] \n\n§5Redstone components \n\nComponents for utilitycraft addon (experimental)",
             name: "Redstone engineer"
         },
         "prospector": {
             name: "Prospector",
-            description: "Tunnelers – while they don't have strong abilities, they are great at surviving. \n[ Cookie Lover ]\nWhen eating a cookie, you gain regeneration.\n[ More Health ]\nYou have more health.\n[ Basic Mobile Workbench ]\n[ All basic abilities available ]"
+            description: "Prospectors – while they don't have strong abilities, they are great at surviving. \n[ Cookies fan ]\nWhen eating a cookie, you gain regeneration.\n[ More Health ]\nYou have more health.\n[ Basic Mobile Workbench ]\n[ All basic abilities available ]"
 
         }
     },
     "ru": {
         "redstone_engineer": {
             name: "Редстоун инженер",
-            description: "Инженеры редстоуна очень хороши в работе с редстоуном, а также в автоматизации! \n\n§b[ Пассивно ] : \n\n§c[ Питание от редстоуна ] \n\n§5Если вы используете блок редстоуна, вы получите эффект §yСкорости и Силы§5 \n\n[ Больше редстоуна и компонентов ]\n\n§rС вероятностью 60% вы получите больше редстоуна из руды редстоуна \n\n§b[Мобильный верстак T-REdst] \n\n§5Редстоун-компоненты \n\nКомпоненты для аддона utilitycraft (экспериментально)"
+            description: "Инженеры редстоуна очень хороши в работе с редстоуном, а также в автоматизации! \n\n§b[ Пассивно ] : \n\n§c[ Питание от редстоуна ] \n\n§5Если вы используете блок редстоуна, вы получите эффект §yСкорости и Силы§5 \n\n[ Больше редстоуна и компонентов ]\n\n§rС вероятностью 60 процентов вы получите больше редстоуна из руды редстоуна \n\n§b[Мобильный верстак T-REdst] \n\n§5Редстоун-компоненты \n\nКомпоненты для аддона utilitycraft (экспериментально)"
         },
         "prospector": {
             name: "Проходчик",
-            description: "Проходчики - хоть и не имеют сильных способностей , однако они прекрасно справляються с выживанием \n[ Любитель печенья ]\nПри поеданий печенья вы получаете регенерацию\n[ Больше жизней ]\nУ вас больше здоровья\n[ Базовый мобильный верстак ]\n[ Доступны все базовые способности ]"
+            description: "Проходчики - хоть и не имеют сильных способностей , однако они прекрасно справляются с выживанием \n[ Любитель печенья ]\nПри поедании печенья вы получаете регенерацию\n[ Больше жизней ]\nУ вас больше здоровья\n[ Базовый мобильный верстак ]\n[ Доступны все базовые способности ]"
         }
     }
 }
@@ -63,7 +63,7 @@ const abilitiesLoc = {
     "ru": {
         "teleportation": {
             name: "Телепортация",
-            description: "Телепортация - повзоляет телепортироваться на дистанцию, и совершать телепорт-удары\nтребует лазурит в качестве энергий\nДержите предмет в руке и используйте его для телепортаций в сторону взгляда(расходет небольшое количество лазурита)\nДержите предмет во второй руке, а оружие в первой, и используйте оружие смотря на моба, чтобы применить телепорт удар \n(расходует лазурит)"
+            description: "Телепортация - повзоляет телепортироваться на дистанцию, и совершать телепорт-удары\nтребует лазурит в качестве энергий\nДержите предмет в руке и используйте его для телепортаций в сторону взгляда(тп удар без оружия не требует лазурит)\nДержите предмет во второй руке, а оружие в первой, и используйте оружие смотря на моба, чтобы применить телепорт удар \n(расходует лазурит)"
         }
     }
 }

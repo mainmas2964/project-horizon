@@ -93,10 +93,10 @@ projects/PROJECT HORIZON/BP/scripts/core/drill_component.js|1752571951
 projects/PROJECT HORIZON/BP/scripts/core/start.js|1752700943
 projects/PROJECT HORIZON/BP/scripts/core/spidermines_1.js|1752861804
 projects/PROJECT HORIZON/BP/scripts/core/drop.js|1748363240
-projects/PROJECT HORIZON/BP/scripts/core/texts.js|1753383817
+projects/PROJECT HORIZON/BP/scripts/core/texts.js|1753451684
 projects/PROJECT HORIZON/BP/scripts/unused/debbug_scr.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/durability (1).js|1748363240
-projects/PROJECT HORIZON/BP/scripts/core/sandbox_script.js|1751896201
+projects/PROJECT HORIZON/BP/scripts/core/sandbox_script.js|1753443092
 projects/PROJECT HORIZON/BP/scripts/unused/index.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/mace_component.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_biomass.js|1748363240
@@ -115,13 +115,13 @@ projects/PROJECT HORIZON/BP/scripts/core/vhs_cam1.js|1751743152
 projects/PROJECT HORIZON/BP/scripts/unused/mars_mudak_ebanyi.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/core/health_potion.js|1751813603
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_utils.js|1748363240
-projects/PROJECT HORIZON/BP/scripts/core/OriginAbilities.js|1753382775
+projects/PROJECT HORIZON/BP/scripts/core/OriginAbilities.js|1753443090
 projects/PROJECT HORIZON/BP/scripts/core/abilities.js|1752749313
 projects/PROJECT HORIZON/BP/scripts/core/OriginsClassesManager.js|1753383670
 #entity
 projects/PROJECT HORIZON/BP/entities/basic_disk.json|1751894806|{"identifier":["horizon:basic_disk"]}
 projects/PROJECT HORIZON/BP/entities/spidermine_1.json|1748363240|{"identifier":["horizon:spidermine_1"],"event":["horizon:start_exploding"],"eventReference":["horizon:start_exploding"],"family":["spidermine","mob","irongolem"]}
-projects/PROJECT HORIZON/BP/entities/slimecat.json|1753346265|{"identifier":["horizon:slimecat"],"event":["minecraft:entity_spawned","slimecat:angry","slimecat:calm"],"eventReference":["slimecat:calm","slimecat:angry"],"componentGroup":["bartering","angry_group"],"family":["slimecat","monster"],"lootTablePath":["projects/PROJECT HORIZON/BP/loot_tables/entities/slimecat.json","projects/PROJECT HORIZON/BP/loot_tables/entities/slimecat_barter.json"]}
+projects/PROJECT HORIZON/BP/entities/slimecat.json|1753442461|{"identifier":["horizon:slimecat"],"event":["minecraft:entity_spawned","slimecat:angry","slimecat:calm"],"eventReference":["slimecat:calm","slimecat:angry"],"componentGroup":["bartering","angry_group"],"family":["slimecat","monster"],"lootTablePath":["projects/PROJECT HORIZON/BP/loot_tables/entities/slimecat.json","projects/PROJECT HORIZON/BP/loot_tables/entities/slimecat_barter.json"]}
 #featureRule
 projects/PROJECT HORIZON/BP/feature_rules/health_mushroom_feature_rule.json|1748363240|{"featureIdentifier":["horizon:health_mushroom_feature"],"identifier":["horizon:health_mushroom_feature_rule"]}
 projects/PROJECT HORIZON/BP/feature_rules/ruin_2 copy.json|1750948176|{"featureIdentifier":["horizon:ruin_3"],"identifier":["bridge:ruin_3"]}
