@@ -182,8 +182,9 @@ system.beforeEvents.startup.subscribe(data => {
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:invisibility_scroll", {
     onCompleteUse(e) {
-      e.source.addEffect("minecraft:invisibility", 800, { amplifier: 1 });
+      e.source.addEffect("minecraft:invisibility", 1200, { amplifier: 1 });
       consumeUsedItem(e.source, 1)
+      if (e.source.hasTag("mage")) e.source.addEffect("minecraft:invisibility", 3200, { amplifier: 1 });
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:nectar_collector", {

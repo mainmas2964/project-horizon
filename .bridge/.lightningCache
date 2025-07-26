@@ -117,7 +117,7 @@ projects/PROJECT HORIZON/BP/scripts/core/health_potion.js|1751813603
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_utils.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/core/OriginAbilities.js|1753443090
 projects/PROJECT HORIZON/BP/scripts/core/abilities.js|1752749313
-projects/PROJECT HORIZON/BP/scripts/core/OriginsClassesManager.js|1753383670
+projects/PROJECT HORIZON/BP/scripts/core/OriginsClassesManager.js|1753506781
 #entity
 projects/PROJECT HORIZON/BP/entities/basic_disk.json|1751894806|{"identifier":["horizon:basic_disk"]}
 projects/PROJECT HORIZON/BP/entities/spidermine_1.json|1748363240|{"identifier":["horizon:spidermine_1"],"event":["horizon:start_exploding"],"eventReference":["horizon:start_exploding"],"family":["spidermine","mob","irongolem"]}

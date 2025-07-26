@@ -157,6 +157,9 @@
 		},
 		"horizon_slimecat_egg": {
 			"textures": "textures/items/SlimeCat_SpawnEgg"
+		},
+		"horizon_redstone_impulse": {
+			"textures": "textures/items/redstone_impulse"
 		}
 	}
 }
