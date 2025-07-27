@@ -9,6 +9,11 @@ const abilitiesMain = {
         name: "Teleportation",
         description: "Ability that allow teleport to you",
         item: "horizon:teleportation"
+    },
+    "redstone_impulse": {
+        icon: "textures/items/redstone_impulse",
+        name: "Redstone impulse",
+        item: "horizon:teleportation"
     }
 }
 world.afterEvents.itemUse.subscribe(event => {

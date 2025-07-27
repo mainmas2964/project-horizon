@@ -58,12 +58,21 @@ const abilitiesLoc = {
         "teleportation": {
             name: "Teleportation",
             description: "Teleportation - allows you to teleport at a distance, and perform teleport attacks requires lapis lazuli as energy\nHold the item in your hand and use it to teleport in the direction of your gaze(consumes a small amount of lapis lazuli)\nHold the item in your second hand, and the weapon in your first, and use the weapon while looking at the mob to perform a teleport attack \n(consumes lapis lazuli)"
+        },
+        "redstone_impulse": {
+            name: "Redstone impulse",
+            description: "Redstone Pulse – a very powerful ability that must be used carefully\nElectric Charge\nWhen using the ability, 8 redstone dust is consumed, granting you a 10-unit charge\nIf there are redstone mechanisms or any blocks powered by redstone nearby, you gain more charge.\nWhen hitting mobs with any weapon, the amount of charge affects the damage dealt and creates a pulse.\nIf the pulse is strong enough, it may destroy nearby blocks.\nCharge consumption also scales with your current charge level – the more charge you have, the more is consumed."
+
         }
     },
     "ru": {
         "teleportation": {
             name: "Телепортация",
             description: "Телепортация - повзоляет телепортироваться на дистанцию, и совершать телепорт-удары\nтребует лазурит в качестве энергий\nДержите предмет в руке и используйте его для телепортаций в сторону взгляда(тп удар без оружия не требует лазурит)\nДержите предмет во второй руке, а оружие в первой, и используйте оружие смотря на моба, чтобы применить телепорт удар \n(расходует лазурит)"
+        },
+        "redstone_impulse": {
+            name: "Редстоун импульс",
+            description: "Редстоун-импульс — это очень мощная способность, но пользоваться ею нужно осторожно\nЭлектрический заряд\nПри использовании способности у вас расходуется 8 единиц редстоун-пыли, и вы получаете заряд в 10 единиц.\nЕсли рядом с вами есть редстоун-механизмы или любые блоки, активированные редстоуном, вы получите больше заряда.\nПри ударе мобов любым оружием, в зависимости от количества заряда, вы нанесёте больше урона и создадите импульс, сила которого зависит от заряда. Если импульс достаточно мощный — возможно разрушение блоков.\nРасход заряда также зависит от текущего уровня заряда: чем он выше — тем больше тратится."
         }
     }
 }

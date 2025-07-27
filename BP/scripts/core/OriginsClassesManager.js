@@ -73,11 +73,13 @@ originManager.register(new Origin({
   tags: ["demon", "firer"],
   availableClasses: ["prospector", "redstone_engineer"]
 }))
+/*
 originManager.register(new Origin({
   id: "portal_guard",
   tags: ["portal_guard", "guard", "mage"],
   availableClasses: ["prospector", "redstone_engineer"]
 }))
+*/
 classManager.register(new PlayerClass({
   id: "prospector",
   tags: ["prospector", "basicCraft1", "morehealth"],
