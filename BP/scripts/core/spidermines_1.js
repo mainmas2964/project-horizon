@@ -28,19 +28,19 @@ function explosion(entity, power, radius) {
   const { x, y, z } = entity.location;
   const dimension = entity.dimension;
 
-  const from = {
+  const from1 = {
     x: Math.floor(x - radius),
     y: Math.floor(y - 1),
     z: Math.floor(z - radius)
   };
 
-  const to = {
+  const to1 = {
     x: Math.floor(x + radius),
     y: Math.floor(y + radius),
     z: Math.floor(z + radius)
   };
 
-  const volume = new BlockVolume(from, to);
+  const volume = new BlockVolume(from1, to1);
 
   // Получаем координаты всех блоков, кроме bedrock
   const blocksVolume = dimension.getBlocks(volume, { excludeTypes: blocks }, true);
@@ -51,7 +51,7 @@ function explosion(entity, power, radius) {
     const blockId = block.typeId;
     const random = Math.random();
 
-    if (blockId in cracked) {
+    if (blockId in cracked && random > power) {
       block.setType(cracked[blockId].cracked);
     } else if (random > power) {
       dimension.runCommand(`setblock ${location.x} ${location.y} ${location.z} air destroy`);
@@ -123,3 +123,4 @@ const cracked = {
   "minecraft:weathered_cut_copper": { "cracked": "minecraft:exposed_cut_copper" },
   "minecraft:exposed_cut_copper": { "cracked": "minecraft:cut_copper" }
 }
+export { explosion }

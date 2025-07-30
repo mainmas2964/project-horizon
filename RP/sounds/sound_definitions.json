@@ -74,6 +74,18 @@
 				"sounds/teleport2"
 			],
 			"__use_legacy_max_distance": true
+		},
+		"horizon:impulse_strange": {
+			"sounds": [
+				"sounds/impulse_strange"
+			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:explode_lighting": {
+			"sounds": [
+				"sounds/explode_lightning2"
+			],
+			"__use_legacy_max_distance": true
 		}
 	}
 }

@@ -88,7 +88,16 @@ classManager.register(new PlayerClass({
 }));
 classManager.register(new PlayerClass({
   id: "redstone_engineer",
-  tags: ["engineer", "redstone_engineer"]
+  tags: ["engineer", "redstone_engineer"],
+  availableAbilities: ["redstone_impulse"],
+  dynamicProperties: {
+    "charge": 0
+  }
+}))
+classManager.register(new PlayerClass({
+  id: "mechanist",
+  tags: ["mechanist", "engineerlvl1"],
+  availableAbilities: ["drone_station_t1"]
 }))
 
 

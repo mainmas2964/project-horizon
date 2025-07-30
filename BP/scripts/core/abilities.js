@@ -5,15 +5,19 @@ import { classManager } from "./OriginsClassesManager.js"
 import { abilitiesLoc } from "./texts.js"
 const abilitiesMain = {
     "teleportation": {
-        icon: "textures/items/teleportation",
+        icon: "textures/items/abilities/teleportation",
         name: "Teleportation",
         description: "Ability that allow teleport to you",
         item: "horizon:teleportation"
     },
     "redstone_impulse": {
-        icon: "textures/items/redstone_impulse",
+        icon: "textures/items/abilities/redstone_impulse",
         name: "Redstone impulse",
-        item: "horizon:teleportation"
+        item: "horizon:redstone_impulse"
+    },
+    "drone_station_t1": {
+        icon: "textures/items/abilities/drone_station_t1",
+        item: "horizon:drone_station_t1"
     }
 }
 world.afterEvents.itemUse.subscribe(event => {

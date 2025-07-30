@@ -1,10 +1,10 @@
-{
+	{
 	"format_version": "1.21.10",
 	"minecraft:item": {
 		"description": {
 			"identifier": "horizon:teleportation",
 			"menu_category": {
-				"category": "nature"
+				"category": "items"
 			}
 		},
 		"components": {

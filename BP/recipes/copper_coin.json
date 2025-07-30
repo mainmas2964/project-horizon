@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "horizon:copper_coin"
+			"identifier": "horizon:copper_coins"
 		},
 		"tags": [
 			"stonecutter",
@@ -14,7 +14,7 @@
 			}
 		],
 		"result": {
-			"item": "horizon:copper_coin",
+			"item": "horizon:copper_coins",
 			"count": 1
 		}
 	}

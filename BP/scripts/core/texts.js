@@ -1,6 +1,9 @@
 
 // для происхождений
-const originsLoc = {
+let originsLoc
+let classLoc
+let abilitiesLoc
+originsLoc = {
     "en": {
         "predecessor": {
             description: "The predecessors are an ancient race that lives in caves and hid there during the beginning of the demon invasion. They are very good at excavation and possess forgotten technologies\n[ Abilities ]\n5 percent chance to get xp when mining\n70 percent chanceget xp when mining ore\nMining stone/ores faster\n[ Basic mining mobile workbench ]\nTorch\iron with coal",
@@ -30,30 +33,7 @@ const originsLoc = {
         }
     }
 }
-const classLoc = {
-    "en": {
-        "redstone_engineer": {
-            description: "Redstone engineers very good at redstone, as well as automation! \n\n§b[ Passive ] : \n\n§c[ Redstone powered ] \n\n§5if you using a Redstone block, you will get an a §ySpeed and strength §5 effect \n\n[ More redstone and components ]\n\n§rWith 60 percent chance you mine a more dust from Redstone ore \n\n§b[Mobile workbench T-REdst] \n\n§5Redstone components \n\nComponents for utilitycraft addon (experimental)",
-            name: "Redstone engineer"
-        },
-        "prospector": {
-            name: "Prospector",
-            description: "Prospectors – while they don't have strong abilities, they are great at surviving. \n[ Cookies fan ]\nWhen eating a cookie, you gain regeneration.\n[ More Health ]\nYou have more health.\n[ Basic Mobile Workbench ]\n[ All basic abilities available ]"
-
-        }
-    },
-    "ru": {
-        "redstone_engineer": {
-            name: "Редстоун инженер",
-            description: "Инженеры редстоуна очень хороши в работе с редстоуном, а также в автоматизации! \n\n§b[ Пассивно ] : \n\n§c[ Питание от редстоуна ] \n\n§5Если вы используете блок редстоуна, вы получите эффект §yСкорости и Силы§5 \n\n[ Больше редстоуна и компонентов ]\n\n§rС вероятностью 60 процентов вы получите больше редстоуна из руды редстоуна \n\n§b[Мобильный верстак T-REdst] \n\n§5Редстоун-компоненты \n\nКомпоненты для аддона utilitycraft (экспериментально)"
-        },
-        "prospector": {
-            name: "Проходчик",
-            description: "Проходчики - хоть и не имеют сильных способностей , однако они прекрасно справляются с выживанием \n[ Любитель печенья ]\nПри поедании печенья вы получаете регенерацию\n[ Больше жизней ]\nУ вас больше здоровья\n[ Базовый мобильный верстак ]\n[ Доступны все базовые способности ]"
-        }
-    }
-}
-const abilitiesLoc = {
+abilitiesLoc = {
     "en": {
         "teleportation": {
             name: "Teleportation",
@@ -61,14 +41,14 @@ const abilitiesLoc = {
         },
         "redstone_impulse": {
             name: "Redstone impulse",
-            description: "Redstone Pulse – a very powerful ability that must be used carefully\nElectric Charge\nWhen using the ability, 8 redstone dust is consumed, granting you a 10-unit charge\nIf there are redstone mechanisms or any blocks powered by redstone nearby, you gain more charge.\nWhen hitting mobs with any weapon, the amount of charge affects the damage dealt and creates a pulse.\nIf the pulse is strong enough, it may destroy nearby blocks.\nCharge consumption also scales with your current charge level – the more charge you have, the more is consumed."
+            description: "Redstone impulse – a very powerful ability that must be used carefully\nElectric Charge\nWhen using the ability, 8 redstone dust is consumed, granting you a 10-unit charge\nIf there are redstone mechanisms or any blocks powered by redstone nearby, you gain more charge.\nWhen hitting mobs with any weapon, the amount of charge affects the damage dealt and creates a pulse.\nIf the pulse is strong enough, it may destroy nearby blocks.\nCharge consumption also scales with your current charge level – the more charge you have, the more is consumed."
 
         }
     },
     "ru": {
         "teleportation": {
             name: "Телепортация",
-            description: "Телепортация - повзоляет телепортироваться на дистанцию, и совершать телепорт-удары\nтребует лазурит в качестве энергий\nДержите предмет в руке и используйте его для телепортаций в сторону взгляда(тп удар без оружия не требует лазурит)\nДержите предмет во второй руке, а оружие в первой, и используйте оружие смотря на моба, чтобы применить телепорт удар \n(расходует лазурит)"
+            description: "Телепортация - позволяет телепортироваться на дистанцию, и совершать телепорт-удары\nтребует лазурит в качестве энергий\nДержите предмет в руке и используйте его для телепортаций в сторону взгляда(тп удар без оружия не требует лазурит)\nДержите предмет во второй руке, а оружие в первой, и используйте оружие смотря на моба, чтобы применить телепорт удар \n(расходует лазурит)"
         },
         "redstone_impulse": {
             name: "Редстоун импульс",
@@ -76,4 +56,36 @@ const abilitiesLoc = {
         }
     }
 }
+classLoc = {
+    "en": {
+        "redstone_engineer": {
+            description: `Redstone engineers very good at redstone, as well as automation! \n\n§b[ Passive ] : \n\n§c[ Redstone powered ] \n\n§5if you using a Redstone block, you will get an a §ySpeed and strength §5 effect \n\n[ More redstone and components ]\n\n§rWith 60 percent chance you mine a more dust from Redstone ore \n\n§b[Mobile workbench T-REdst] \n\n§5Redstone components \n\nComponents for utilitycraft addon (experimental)\n[ Available abilities ]\nRedstone impulse:\n${abilitiesLoc["en"]["redstone_impulse"].description}`,
+            name: "Redstone engineer"
+        },
+        "prospector": {
+            name: "Prospector",
+            description: "Prospectors – while they don't have strong abilities, they are great at surviving. \n[ Cookies fan ]\nWhen eating a cookie, you gain regeneration.\n[ More Health ]\nYou have more health.\n[ Basic Mobile Workbench ]\n[ All basic abilities available ]"
+
+        },
+        "mechanist": {
+            name: "Mechanist",
+            description: "mechanist"
+        }
+    },
+    "ru": {
+        "redstone_engineer": {
+            name: "Редстоун инженер",
+            description: `Инженеры редстоуна очень хороши в работе с редстоуном, а также в автоматизации! \n\n§b[ Пассивно ] : \n\n§c[ Питание от редстоуна ] \n\n§5Если вы используете блок редстоуна, вы получите эффект §yСкорости и Силы§5 \n\n[ Больше редстоуна и компонентов ]\n\n§rС вероятностью 60 процентов вы получите больше редстоуна из руды редстоуна \n\n§b[Мобильный верстак T-REdst] \n\n§5Редстоун-компоненты \n\nКомпоненты для аддона utilitycraft (экспериментально)\n[ Доступные способности ]\nРедстоун импульс:\n${abilitiesLoc["ru"]["redstone_impulse"].description}`
+        },
+        "prospector": {
+            name: "Проходчик",
+            description: "Проходчики - хоть и не имеют сильных способностей , однако они прекрасно справляются с выживанием \n[ Любитель печенья ]\nПри поедании печенья вы получаете регенерацию\n[ Больше жизней ]\nУ вас больше здоровья\n[ Базовый мобильный верстак ]\n[ Доступны все базовые способности ]"
+        },
+        "mechanist": {
+            name: "Механист",
+            description: "механист"
+        }
+    }
+}
+
 export { originsLoc, abilitiesLoc, classLoc }

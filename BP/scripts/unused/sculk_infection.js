@@ -71,9 +71,7 @@ function spreadSculk(block, options, spreadTotal) {
     }
 }
 
-/**
- * Находит подходящие блоки в радиусе
- */
+
 function getNearbyBlocks(origin, radius, dimension) {
     let candidates = [];
 
@@ -83,10 +81,10 @@ function getNearbyBlocks(origin, radius, dimension) {
         let z = origin.z + (Math.random() * (2 * radius) - radius);
         let pos = { x: Math.round(x), y: Math.round(y), z: Math.round(z) };
 
-        //  Ограничиваем поиск только внутри заданного радиуса
+
         if (getDistance(origin, pos) > radius) continue;
 
-        // Проверяем границы мира перед getBlock
+
         if (pos.y < -64 || pos.y > 320) continue;
 
         let block = dimension.getBlock(pos);
@@ -100,9 +98,7 @@ function getNearbyBlocks(origin, radius, dimension) {
     return candidates;
 }
 
-/**
- * Инфицирует блок скалком и создаёт дополнительный рост (если задан)
- */
+
 function infectBlock(target, options) {
     if (!target?.block) return;
 

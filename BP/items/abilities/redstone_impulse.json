@@ -4,11 +4,14 @@
 		"description": {
 			"identifier": "horizon:redstone_impulse",
 			"menu_category": {
-				"category": "nature"
+				"category": "items"
 			}
 		},
 		"components": {
-			"minecraft:icon": "horizon_redstone_impulse"
+			"minecraft:icon": "horizon_redstone_impulse",
+			"minecraft:custom_components": [
+				"horizon:redstone_impulse"
+			]
 		}
 	}
 }

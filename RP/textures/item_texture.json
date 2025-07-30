@@ -12,22 +12,22 @@
 			"textures": "textures/items/coins/golden_coins"
 		},
 		"horizon_dagger_steel_triple_sculk": {
-			"textures": "textures/items/triple_steel_sculk_dagger"
+			"textures": "textures/items/weapon/mics/triple_steel_sculk_dagger"
 		},
 		"horizon_steel_dagger_triple": {
-			"textures": "textures/items/triple_steel_dagger"
+			"textures": "textures/items/weapon/mics/triple_steel_dagger"
 		},
 		"horizon_steel_helmet": {
-			"textures": "textures/items/steel_helmet"
+			"textures": "textures/items/armor/steel_helmet"
 		},
 		"horizon_steel_chestplate": {
-			"textures": "textures/items/steel_chestplate"
+			"textures": "textures/items/armor/steel_chestplate"
 		},
 		"horizon_steel_leggings": {
-			"textures": "textures/items/steel_leggings"
+			"textures": "textures/items/armor/steel_leggings"
 		},
 		"horizon_steel_boots": {
-			"textures": "textures/items/steel_boots"
+			"textures": "textures/items/armor/steel_boots"
 		},
 		"horizon_iron_with_coal": {
 			"textures": "textures/items/coal_with_iron"
@@ -36,7 +36,7 @@
 			"textures": "textures/items/steel_ingot"
 		},
 		"horizon_steel_dagger": {
-			"textures": "textures/items/steel_dagger"
+			"textures": "textures/items/weapon/mics/steel_dagger"
 		},
 		"horizon_diamond_shard": {
 			"textures": "textures/items/diamond_shard"
@@ -69,7 +69,7 @@
 			"textures": "textures/items/flint_axe"
 		},
 		"horizon_flint_sword": {
-			"textures": "textures/items/flint_sword"
+			"textures": "textures/items/weapon/mics/flint_sword"
 		},
 		"horizon_iron_ingot_with_flint": {
 			"textures": "textures/items/iron_with_flint"
@@ -90,31 +90,31 @@
 			"textures": "textures/items/invisible_scroll"
 		},
 		"horizon_deadly_katana": {
-			"textures": "textures/items/1000484602"
+			"textures": "textures/items/weapon/mics/1000484602"
 		},
 		"horizon_bone_katana": {
-			"textures": "textures/items/1000484611"
+			"textures": "textures/items/weapon/mics/1000484611"
 		},
 		"horizon_exposed_copper_pickaxe": {
 			"textures": "textures/items/1000584247"
 		},
 		"horizon_a_sync_chestplate": {
-			"textures": "textures/items/a_sync_chestplate"
+			"textures": "textures/items/armor/a_sync_chestplate"
 		},
 		"horizon_a_sync_helmet_helmet": {
-			"textures": "textures/items/a_sync_helmet_helmet"
+			"textures": "textures/items/armor/a_sync_helmet_helmet"
 		},
 		"horizon_a_sync_leggings": {
-			"textures": "textures/items/a_sync_leggings"
+			"textures": "textures/items/armor/a_sync_leggings"
 		},
 		"horizon_a_sync_boots": {
-			"textures": "textures/items/a_sync_boots"
+			"textures": "textures/items/armor/a_sync_boots"
 		},
 		"horizon_vsh_camera": {
 			"textures": "textures/items/vhs_camera"
 		},
 		"horizon_engineers_sword": {
-			"textures": "textures/items/engineer's_sword"
+			"textures": "textures/items/weapon/mics/engineer's_sword"
 		},
 		"horizon_robosphere_t1": {
 			"textures": "textures/items/robosphere_t1"
@@ -144,22 +144,22 @@
 			"textures": "textures/items/nectar_collector"
 		},
 		"horizon_teleportation": {
-			"textures": "textures/items/teleportation"
+			"textures": "textures/items/abilities/teleportation"
 		},
 		"horizon_abilities_tablet": {
-			"textures": "textures/items/abilities_tablet"
+			"textures": "textures/items/mics/abilities_tablet"
 		},
 		"horizon_copper_drill": {
 			"textures": "textures/items/copper_drill"
 		},
 		"horizon_drone_station_t1": {
-			"textures": "textures/items/drone_station_t1"
+			"textures": "textures/items/abilities/drone_station_t1"
 		},
 		"horizon_slimecat_egg": {
 			"textures": "textures/items/SlimeCat_SpawnEgg"
 		},
 		"horizon_redstone_impulse": {
-			"textures": "textures/items/redstone_impulse"
+			"textures": "textures/items/abilities/redstone_impulse"
 		}
 	}
 }

@@ -1,6 +1,7 @@
 
 import { world, system, ItemStack, EquipmentSlot, ItemTypes, BlockPermutation, ItemEnchantableComponent, EnchantmentTypes } from "@minecraft/server"
 import { addAction } from "./dynamic_actionbar.js"
+import { explosion } from "./spidermines_1.js"
 function consumeUsedItem(player, amount = 1) {
   const equip = player.getComponent("minecraft:equippable");
   if (!equip) return false;
@@ -59,12 +60,6 @@ const FlowerIDs = [
 ];
 
 const UseItemFunctionsMap = {
-  "redstone_engineer": (data => {
-    if (data.itemStack.typeId != "minecraft:redstone_block") return;
-    data.source.addEffect("speed", 350, { showParticles: false, amplifier: 2 })
-    data.source.addEffect("strength", 350, { showParticles: false, amplifier: 2 })
-    consumeUsedItem(data.source, 1)
-  }),
   "bee_origin": (data => {
     if (FlowerIDs.includes(data.itemStack.typeId)) {
       let stingers = data.source.getDynamicProperty("stingers")
@@ -106,7 +101,22 @@ const HitEntityPlMap = {
       addAction(data.damagingEntity, `§l§6[0! ]`)
 
     }
-  })
+  }),
+  "redstone_engineer": (data => {
+    const energy = data.damagingEntity.getDynamicProperty("charge")
+    if (energy - (10 + energy * 0.3) < 0) return;
+    const { x, y, z } = data.hitEntity.location
+    data.hitEntity.applyDamage(1 + energy * 0.1)
+    data.hitEntity.applyImpulse(data.damagingEntity.getViewDirection())
+    system.run(() => {
+      data.damagingEntity.dimension.spawnParticle("horizon:explosion_strong", { x, y, z })
+      data.damagingEntity.dimension.playSound("horizon:impulse_strange", { x, y, z })
+      data.damagingEntity.dimension.playSound("horizon:explode_lighting", { x, y, z })
+    })
+    data.damagingEntity.setDynamicProperty("charge", Math.floor(energy - (10 + energy * 0.3)))
+    addAction(data.damagingEntity, `${Math.floor(energy - (10 + energy * 0.3))}(-${Math.floor((10 + energy * 0.3))})`)
+  }
+  )
 }
 const BreakBlockFunctionsMap = {
   "redstone_engineer": (data => {
@@ -119,7 +129,7 @@ const BreakBlockFunctionsMap = {
   }),
   "predecessor": (data => {
     const blcl = classifyBlock(data.block.typeId)
-    if (blcl != "other" && !data.itemStack.getComponent(ItemEnchantableComponent.componentId)?.getEnchantment("silk_touch")) {
+    if (blcl != "other" && !data.itemStack?.getComponent(ItemEnchantableComponent.componentId)?.getEnchantment("silk_touch")) {
       if (blcl === "stone" && Math.random() < 0.01) {
         system.run(() => {
           data.block.dimension.spawnEntity("minecraft:xp_orb", data.block.center())
