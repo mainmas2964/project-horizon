@@ -2,25 +2,25 @@
 	"format_version": "1.8.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "horizon:basic_disk",
+			"identifier": "horizon:spiderbot_hybrid_t1",
 			"materials": {
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/disk_1"
+				"default": "textures/entity/spiderbot_hybrid_t1"
 			},
 			"geometry": {
-				"default": "geometry.basic_disk"
+				"default": "geometry.spidermine_1"
 			},
 			"render_controllers": [
-				"controller.render.basic_disk"
+				"controller.render.spiderbot_hybrid_t1"
 			],
 			"animations": {
-				"walk": "animation.horizon.disk_basic.rotation"
+				"walk": "animation.spidermine.walk"
 			},
 			"animation_controllers": [
 				{
-					"walk": "controller.animation.horizon_basic_disk"
+					"walk": "controller.animation.spidermine.walk"
 				}
 			]
 		}

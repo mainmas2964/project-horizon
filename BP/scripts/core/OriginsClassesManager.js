@@ -55,13 +55,13 @@ world.afterEvents.itemUse.subscribe(event => {
 originManager.register(new Origin({
   id: "predecessor",
   tags: ["predecessor"],
-  availableClasses: ["prospector", "redstone_engineer"]
+  availableClasses: ["prospector", "redstone_engineer", "mechanist"]
 
 }))
 originManager.register(new Origin({
   id: "bee",
   tags: ["bee_origin"],
-  availableClasses: ["prospector", "redstone_engineer"],
+  availableClasses: ["prospector", "redstone_engineer", "mechanist"],
   dynamicProperties: {
     "stingers": 7
   }
@@ -71,7 +71,7 @@ originManager.register(new Origin({
 originManager.register(new Origin({
   id: "demon",
   tags: ["demon", "firer"],
-  availableClasses: ["prospector", "redstone_engineer"]
+  availableClasses: ["prospector", "redstone_engineer", "mechanist"]
 }))
 /*
 originManager.register(new Origin({

@@ -43,6 +43,10 @@ abilitiesLoc = {
             name: "Redstone impulse",
             description: "Redstone impulse – a very powerful ability that must be used carefully\nElectric Charge\nWhen using the ability, 8 redstone dust is consumed, granting you a 10-unit charge\nIf there are redstone mechanisms or any blocks powered by redstone nearby, you gain more charge.\nWhen hitting mobs with any weapon, the amount of charge affects the damage dealt and creates a pulse.\nIf the pulse is strong enough, it may destroy nearby blocks.\nCharge consumption also scales with your current charge level – the more charge you have, the more is consumed."
 
+        },
+        "drone_station_t1": {
+            name: "Drone-station t1",
+            description: ""
         }
     },
     "ru": {
@@ -53,6 +57,10 @@ abilitiesLoc = {
         "redstone_impulse": {
             name: "Редстоун импульс",
             description: "Редстоун-импульс — это очень мощная способность, но пользоваться ею нужно осторожно\nЭлектрический заряд\nПри использовании способности у вас расходуется 8 единиц редстоун-пыли, и вы получаете заряд в 10 единиц.\nЕсли рядом с вами есть редстоун-механизмы или любые блоки, активированные редстоуном, вы получите больше заряда.\nПри ударе мобов любым оружием, в зависимости от количества заряда, вы нанесёте больше урона и создадите импульс, сила которого зависит от заряда. Если импульс достаточно мощный — возможно разрушение блоков.\nРасход заряда также зависит от текущего уровня заряда: чем он выше — тем больше тратится."
+        },
+        "drone_station_t1": {
+            name: "Дрон-станция Т1",
+            descriprion: ""
         }
     }
 }

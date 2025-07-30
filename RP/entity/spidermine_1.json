@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/1000566328"
+				"default": "textures/entity/spidermine_1"
 			},
 			"geometry": {
 				"default": "geometry.spidermine_1"

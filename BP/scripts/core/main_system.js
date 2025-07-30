@@ -1,4 +1,4 @@
-import { world, system, ItemStack, EquipmentSlot, EntityDamageCause, BlockPermutation, ItemEnchantableComponent, BlockVolume, BlockVolumeBase } from "@minecraft/server"
+import { world, system, ItemStack, EquipmentSlot, EntityDamageCause, BlockPermutation, ItemEnchantableComponent, BlockVolume, BlockVolumeBase, EntityTameableComponent } from "@minecraft/server"
 // Механика улучшенной невидимости
 import { consumeUsedItem } from "./OriginAbilities.js"
 import { removeItems, countItems } from "./craft_ui1_horizon.js"
@@ -159,13 +159,25 @@ system.beforeEvents.startup.subscribe(data => {
       if (countItems(inventory, "minecraft:redstone") < 8) return;
       blockabove.dimension.spawnParticle("horizon:spidermine_spawn_particle", blockabove.center())
       system.runTimeout(() => {
-        blockabove.dimension.spawnEntity("horizon:spidermine_1", blockabove.center())
+        const spiderbot = blockabove.dimension.spawnEntity("horizon:spiderbot_hybrid_t1", blockabove.center())
+        const tame = spiderbot.getComponent("minecraft:tameable").tame(e.source)
       }, 6)
 
 
       removeItems(inventory, "minecraft:redstone", 8)
       addCooldown(e.source, 35)
 
+    },
+    onUse(e) {
+      if (getCooldown(e.source) === true) return
+      const entities = e.source.getEntitiesFromViewDirection({ maxDistance: 4 })
+      if (entities.length === 0) return;
+      let inventory = e.source.getComponent("minecraft:inventory").container;
+      if (countItems(inventory, "minecraft:redstone") < 8) return;
+      const entity = entities[0].entity
+      const healthComp = entity.getComponent("minecraft:health");
+      healthComp.setCurrentValue(Math.min(healthComp.currentValue + 10, healthComp.defaultValue))
+      removeItems(inventory, "minecraft:redstone", 8)
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:teleport", {
