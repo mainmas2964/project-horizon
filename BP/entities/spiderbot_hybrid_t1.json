@@ -69,7 +69,10 @@
 				"priority": 4,
 				"speed_multiplier": 1.30,
 				"track_target": false,
-				"reach_multiplier": 4
+				"reach_multiplier": 4,
+				"on_attack": {
+					"event": "horizon:attacking"
+				}
 			},
 			"minecraft:behavior.random_stroll": {
 				"priority": 5,
@@ -121,8 +124,7 @@
 			}
 		},
 		"events": {
-			"horizon:start_exploding": {},
-			"horizon:attacking": {}
+			"horizon:start_exploding": {}
 		},
 		"minecraft:client_entity": {
 			"description": {

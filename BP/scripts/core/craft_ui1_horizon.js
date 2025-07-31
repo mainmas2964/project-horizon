@@ -64,9 +64,9 @@ function confirmCraftingWindow(player, recipes, recipeKey) {
   let recipe = recipes[recipeKey];
   let form = new CustomForm();
 
-  let bodyText = `§eCraft: §a${recipe.result} x${recipe.count}\n\n§fFor craft:\n`;
+  let bodyText = `§eCraft: §a${recipe.result} x${recipe.count}\n\n`;
   for (let item in recipe.ingredients) {
-    bodyText += `- §b${item}§f x${recipe.ingredients[item]}\n`;
+    bodyText += `§b${item}§f x${recipe.ingredients[item]}\n`;
   }
 
   form.body(bodyText);

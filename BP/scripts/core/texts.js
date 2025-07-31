@@ -60,7 +60,7 @@ abilitiesLoc = {
         },
         "drone_station_t1": {
             name: "Дрон-станция Т1",
-            descriprion: ""
+            description: ""
         }
     }
 }
