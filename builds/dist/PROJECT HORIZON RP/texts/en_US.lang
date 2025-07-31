@@ -97,3 +97,8 @@ item.horizon:silver_coins=Silver coins
 
 item.horizon:drone_station_t1=Drone station T1
 tile.horizon:strange_torch.name=Strange torch
+item.spawn_egg.entity.horizon:slimecat.name=Spawn Slime cat
+entity.horizon:slimecat.name=Slime cat
+item.horizon:redstone_impulse=Redstone impulse
+item.spawn_egg.entity.horizon:spiderbot_hybrid_t1.name=Spawn Spiderbot-hybrid T1
+entity.horizon:spiderbot_hybrid_t1.name=Spiderbot-hybrid T1

@@ -43,7 +43,7 @@ function openCraftingMenu(player, recipes, titlecraft) {
 
   for (let key of recipeKeys) {
     let recipe = recipes[key];
-    form.button("craft", key, recipe.icon || "textures/items/stone.png", false, `select_${key}`);
+    form.button(recipe.cat, key, recipe.icon || "textures/items/stone.png", false, `select_${key}`);
   }
 
   form.title(`${titlecraft}`).body("recipes:");
@@ -71,11 +71,11 @@ function confirmCraftingWindow(player, recipes, recipeKey) {
 
   form.body(bodyText);
   form.button("confirm", "§a✔", "textures/blocks/crafting_table_top", false, `confirm_${recipeKey}`);
-  form.button("cancel", "§c✖", "textures/blocks/barrier", false, `cancel_${recipeKey}`);
+  form.button("confirm", "§c✖", "textures/blocks/barrier", false, `cancel_${recipeKey}`);
 
   form.title("Confirm");
   form.show(player).then(response => {
-    if (response?.canceled || !response.text) return;
+    if (response?.canceled || !response || response.text === "§c✖") return;
     processCrafting(player, recipes, recipeKey);
     confirmCraftingWindow(player, recipes, recipeKey)
   });
@@ -149,6 +149,7 @@ export {
 const allRecipes = {
   "predecessor": {
     "Torch": {
+      cat: "§cBasic",
       result: "minecraft:torch",
       count: 8,
       icon: "textures/blocks/torch_on",
@@ -158,6 +159,7 @@ const allRecipes = {
       }
     },
     "Iron with coal": {
+      cat: "§cBasic",
       result: "horizon:iron_with_coal",
       count: 3,
       icon: "textures/items/coal_with_iron",
@@ -168,7 +170,9 @@ const allRecipes = {
     }
   },
   "miner": {
+
     "Diamond pickaxe": {
+      cat: "§gMine utilities",
       result: "minecraft:diamond_pickaxe",
       count: 1,
       icon: "textures/items/diamond_pickaxe",
@@ -178,8 +182,9 @@ const allRecipes = {
       }
     }
   },
-  "engineer": {
+  "redstone_engineer": {
     "Redstone Lamp": {
+      cat: "§5Redstone",
       result: "minecraft:redstone_lamp",
       count: 3,
       icon: "textures/blocks/redstone_lamp_on",
@@ -189,6 +194,7 @@ const allRecipes = {
       }
     },
     "Repeater": {
+      cat: "§5Redstone",
       result: "minecraft:repeater",
       count: 4,
       icon: "textures/items/repeater",
@@ -199,6 +205,7 @@ const allRecipes = {
       },
     },
     "Comparator": {
+      cat: "§5Redstone",
       result: "minecraft:comparator",
       count: 3,
       icon: "textures/items/comparator",
@@ -209,6 +216,7 @@ const allRecipes = {
       }
     },
     "Piston": {
+      cat: "§5Redstone",
       result: "minecraft:piston",
       count: 5,
       icon: "textures/blocks/piston_side",
@@ -219,6 +227,7 @@ const allRecipes = {
       }
     },
     "Observer": {
+      cat: "§5Redstone",
       result: "minecraft:observer",
       count: 8,
       icon: "textures/blocks/observer_side",
@@ -229,6 +238,7 @@ const allRecipes = {
       }
     },
     "Engineer's\nsword": {
+      cat: "§5Redstone",
       result: "horizon:engineers_sword",
       count: 1,
       icon: "textures/items/engineer's_sword",
@@ -239,8 +249,25 @@ const allRecipes = {
       }
     }
   },
+  "engineer_level_c": {
+
+
+    "Robosphere\nT1": {
+      cat: "§bRobospheres",
+      result: "horizon:robosphere_t1",
+      count: 3,
+      icon: "textures/items/robosphere_t1",
+      ingredients: {
+        "minecraft:redstone": 6,
+        "horizon:light_steel_ingot": 2,
+        "minecraft:gunpowder": 3
+      }
+    }
+  },
   "guideUC_horizon": {
+
     "Assembler": {
+      cat: "Machines",
       result: "twm:assembler",
       count: 1,
       icon: "textures/blocks/assembler/assembler_on",
@@ -252,6 +279,7 @@ const allRecipes = {
       }
     },
     "Block breaker": {
+      cat: "Machines",
       result: "twm:block_breaker",
       count: 4,
       icon: "textures/blocks/redstone_block",
@@ -263,6 +291,7 @@ const allRecipes = {
       }
     },
     "Electro\npress": {
+      cat: "Machines",
       result: "twm:electro_press",
       count: 1,
       icon: "textures/blocks/redstone_block",
@@ -274,6 +303,7 @@ const allRecipes = {
       }
     },
     "Coal\ngenerator": {
+      cat: "Machines",
       result: "twm:basic_furnator",
       count: 1,
       icon: "textures/blocks/restone_block",
@@ -284,6 +314,7 @@ const allRecipes = {
       }
     },
     "Energy\ncable": {
+      cat: "Machines",
       result: "twm:energy_cable",
       count: 42,
       icon: "textures/blocks/redstone_block",
@@ -296,7 +327,9 @@ const allRecipes = {
     }
   },
   "bee_origin": {
+
     "Honeycomb": {
+      cat: "Bee stuff",
       result: "minecraft:honeycomb",
       count: 3,
       icon: "textures/items/honeycomb",
@@ -305,6 +338,7 @@ const allRecipes = {
       }
     },
     "Golden\nhoneycomb": {
+      cat: "Bee stuff",
       result: "minecraft:honeycomb",
       count: 3,
       icon: "textures/items/golden_honeycomb",
@@ -314,6 +348,7 @@ const allRecipes = {
       }
     },
     "Honey\nBlock": {
+      cat: "Bee stuff",
       result: "minecraft:honey_bottle",
       count: 1,
       icon: "textures/items/honey_bottle",
@@ -323,6 +358,7 @@ const allRecipes = {
       }
     },
     "Nectar\nCollector": {
+      cat: "Bee stuff",
       result: "horizon:nectar_collector",
       count: 1,
       icon: "textures/items/nectar_collector",

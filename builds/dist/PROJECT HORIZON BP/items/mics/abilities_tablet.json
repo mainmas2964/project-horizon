@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "horizon:abilities_tablet",
 			"menu_category": {
-				"category": "nature"
+				"category": "equipment"
 			}
 		},
 		"components": {

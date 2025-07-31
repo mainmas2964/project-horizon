@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "horizon:teleportation",
 			"menu_category": {
-				"category": "nature"
+				"category": "items"
 			}
 		},
 		"components": {

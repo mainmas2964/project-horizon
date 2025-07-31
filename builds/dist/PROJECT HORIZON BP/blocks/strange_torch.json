@@ -5,7 +5,7 @@
 			"identifier": "horizon:strange_torch"
 		},
 		"components": {
-			"minecraft:geometry": "geometry.strange_torch",
+			"minecraft:geometry": "",
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "horizon_strange_torch",

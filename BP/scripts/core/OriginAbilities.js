@@ -119,7 +119,7 @@ const HitEntityPlMap = {
   )
 }
 const BreakBlockFunctionsMap = {
-  "redstone_engineer": (data => {
+  "engineer_level_r": (data => {
     if (Math.random() > 0.90) return;
     if (!RedstoneOres.includes(data.block.typeId)) return;
     const redstone = new ItemStack("minecraft:redstone", 10)

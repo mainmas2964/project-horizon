@@ -1,9 +1,8 @@
-import { world, system } from "@minecraft/server";
-
+import { world, system, EntityDamageCause, BlockVolume } from "@minecraft/server";
+/*
 function explosion(entity, power, radius) {
   const { x, y, z } = entity.location;
   const dimension = entity.dimension;
-
   for (let i = -radius; i <= radius; i++) {
     for (let j = -1; j <= radius; j++) {
       for (let b = -radius; b <= radius; b++) {
@@ -23,6 +22,42 @@ function explosion(entity, power, radius) {
     }
   }
 }
+*/
+
+function explosion(entity, power, radius) {
+  const { x, y, z } = entity.location;
+  const dimension = entity.dimension;
+
+  const from1 = {
+    x: Math.floor(x - radius),
+    y: Math.floor(y - 1),
+    z: Math.floor(z - radius)
+  };
+
+  const to1 = {
+    x: Math.floor(x + radius),
+    y: Math.floor(y + radius),
+    z: Math.floor(z + radius)
+  };
+
+  const volume = new BlockVolume(from1, to1);
+
+  // Получаем координаты всех блоков, кроме bedrock
+  const blocksVolume = dimension.getBlocks(volume, { excludeTypes: blocks }, true);
+  for (const location of blocksVolume.getBlockLocationIterator()) {
+    const block = dimension.getBlock(location);
+    if (!block) continue;
+
+    const blockId = block.typeId;
+    const random = Math.random();
+
+    if (blockId in cracked && random > power) {
+      block.setType(cracked[blockId].cracked);
+    } else if (random > power) {
+      dimension.runCommand(`setblock ${location.x} ${location.y} ${location.z} air destroy`);
+    }
+  }
+}
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   if (event.eventId !== "horizon:start_exploding") return;
   const entity1 = event.entity;
@@ -35,11 +70,12 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     explosion(entity1, 0.4, 2);
     const entities = entity1.dimension.getEntities({
       location: { x, y, z },
-      maxDistance: 3
+      maxDistance: 3,
+      families: ["mob"]
     })
     for (const entity of entities) {
-      entity.applyDamage(17)
-      entity.applyImpulse({ x: 0, y: 0.5, z: 0 })
+      entity.applyDamage(17, { cause: EntityDamageCause.entityExplosion, damagingEntity: entity1 })
+
     }
 
     entity1.dimension.playSound("horizon:spidermine_dead", { x, y, z })
@@ -60,7 +96,6 @@ const blocks = [
   "minecraft:jigsaw",
   "minecraft:end_portal",
   "minecraft:end_portal_frame",
-  "minecraft:nether_portal",
   "minecraft:reinforced_deepslate",
   "minecraft:obsidian",
   "minecraft:crying_obsidian",
@@ -88,3 +123,4 @@ const cracked = {
   "minecraft:weathered_cut_copper": { "cracked": "minecraft:exposed_cut_copper" },
   "minecraft:exposed_cut_copper": { "cracked": "minecraft:cut_copper" }
 }
+export { explosion }

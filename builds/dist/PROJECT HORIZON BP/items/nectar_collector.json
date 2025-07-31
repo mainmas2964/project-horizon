@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "horizon:nectar_collector",
 			"menu_category": {
-				"category": "nature"
+				"category": "equipment"
 			}
 		},
 		"components": {

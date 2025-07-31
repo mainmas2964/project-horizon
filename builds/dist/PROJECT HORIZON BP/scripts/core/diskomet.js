@@ -90,7 +90,7 @@ export function reflectProjectile(prj, hitVector, options = {}) {
 world.afterEvents.projectileHitBlock.subscribe(event => {
   const prj = event.projectile;
 
-  if (prj.typeId === "horizon:basic_disk" || prj.typeId === "minecraft:arrow") {
+  if (prj.typeId === "horizon:basic_disk") {
     reflectProjectile(prj, event.hitVector, {
       ttl: 100,
       despawnChance: 0.2,

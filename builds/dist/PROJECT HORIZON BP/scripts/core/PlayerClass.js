@@ -1,6 +1,6 @@
 import { world, system } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
-import { originsLoc } from "./texts.js"
+import { classLoc } from "./texts.js"
 export class PlayerClass {
   constructor({ id, name, description, tags = [], effects = [], dynamicProperties = {}, availableAbilities = [] }) {
     this.id = id;
@@ -11,9 +11,9 @@ export class PlayerClass {
     this.dynamicProperties = dynamicProperties;
     this.availableAbilities = availableAbilities
   }
+  //none commit 00000
 
-
-  applyTo(player) {
+  applyTo(player, loc) {
     player.addTag(this.id);
     for (const tag of this.tags) {
       player.addTag(tag);
@@ -24,7 +24,7 @@ export class PlayerClass {
     }
 
     if (this.onPick) this.onPick(player);
-    player.sendMessage(`§a[You chosen §b${this.name} class ]`);
+    player.sendMessage(`§a[You chosen §b${classLoc[loc][this.id].name} class ]`);
   }
 
   removeFrom(player) {
@@ -65,7 +65,7 @@ export class ClassManager {
     return null;
   }
 
-  assignClassToPlayer(player, classId) {
+  assignClassToPlayer(player, classId, loc) {
     const newClass = this.getById(classId);
     if (!newClass) {
       player.sendMessage(`§c [ Class "${classId}" is not defined ]`);
@@ -75,7 +75,7 @@ export class ClassManager {
     const current = this.getPlayerClass(player);
     if (current) current.removeFrom(player);
 
-    newClass.applyTo(player);
+    newClass.applyTo(player, loc);
   }
 
   listClasses() {
@@ -92,7 +92,7 @@ export function openAvailableClassMenu(player, allowedClassIds, classManager, lo
     .filter(Boolean);
 
   for (const cls of availableClasses) {
-    form.button(cls.name);
+    form.button(classLoc[loc][cls.id].name);
   }
 
   form.show(player).then(res => {
@@ -106,8 +106,8 @@ export function openAvailableClassMenu(player, allowedClassIds, classManager, lo
 }
 export function openClassConfirmMenu(player, cls, classManager, allowedClassids, loc) {
   const form = new MessageFormData()
-    .title(`${cls.name}`)
-    .body(`§f${cls.description}`)
+    .title(`${classLoc[loc][cls.id].name}`)
+    .body(`§f${classLoc[loc][cls.id].description}`)
     .button1("§a✔")
     .button2("§c✖");
 
@@ -117,7 +117,7 @@ export function openClassConfirmMenu(player, cls, classManager, allowedClassids,
       return;
     }
     if (res.selection === 0) {
-      classManager.assignClassToPlayer(player, cls.id)
+      classManager.assignClassToPlayer(player, cls.id, loc)
     }
   });
 }

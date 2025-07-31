@@ -17,6 +17,9 @@ system.runInterval(() => {
           player.addEffect("slowness", 300, { showParticles: false })
           player.addEffect("poison", 300, { showParticles: false })
         } break;
+        case "morehealth": {
+          player.addEffect("health_boost", 300, { amplifier: 1, showParticles: false })
+        }
       }
     }
   }
@@ -51,17 +54,14 @@ world.afterEvents.itemUse.subscribe(event => {
 });
 originManager.register(new Origin({
   id: "predecessor",
-  name: "Predecessor",
   tags: ["predecessor"],
-  availableClasses: ["prospector", "redstone_engineer"]
+  availableClasses: ["prospector", "redstone_engineer", "mechanist"]
 
 }))
 originManager.register(new Origin({
   id: "bee",
-  name: "Bee",
-  description: "A bee, you can eat a flowers , and produce a honey",
   tags: ["bee_origin"],
-  availableClasses: ["prospector", "redstone_engineer"],
+  availableClasses: ["prospector", "redstone_engineer", "mechanist"],
   dynamicProperties: {
     "stingers": 7
   }
@@ -70,24 +70,34 @@ originManager.register(new Origin({
 }))
 originManager.register(new Origin({
   id: "demon",
-  name: "Demon",
-  description: "A demonic origin\n\n Passive : \n\n §b[ Fire resistance ] \n\n you already have a fire resistance [ don't work on cursed/ash fire ] \n\n §5Abilities \n\n [ A fire strength ] \n\n you can do an a fire attack with 25% chance",
   tags: ["demon", "firer"],
+  availableClasses: ["prospector", "redstone_engineer", "mechanist"]
+}))
+/*
+originManager.register(new Origin({
+  id: "portal_guard",
+  tags: ["portal_guard", "guard", "mage"],
   availableClasses: ["prospector", "redstone_engineer"]
 }))
+*/
 classManager.register(new PlayerClass({
   id: "prospector",
-  name: "Prospector",
-  description: "A basic class",
-  tags: ["prospector", "basicCraft1"],
+  tags: ["prospector", "basicCraft1", "morehealth"],
   availableAbilities: ["teleportation"]
 
 }));
 classManager.register(new PlayerClass({
   id: "redstone_engineer",
-  name: "Redstone engineer",
-  description: "Redstone engineers very good at redstone, as well as automation! \n\n§b[ Passive ] : \n\n§c[ Redstone powered ] \n\n§5if you using a Redstone block, you will get an a §ySpeed and strength §5 effect \n\n[ More redstone and components ]\n\n§rWith 60% chance you mine a more dust from Redstone ore \n\n§b[Mobile workbench T-REdst] \n\n§5Redstone components \n\nComponents for utilitycraft addon (experimental)",
-  tags: ["engineer", "redstone_engineer"]
+  tags: ["engineer", "redstone_engineer"],
+  availableAbilities: ["redstone_impulse"],
+  dynamicProperties: {
+    "charge": 0
+  }
+}))
+classManager.register(new PlayerClass({
+  id: "mechanist",
+  tags: ["mechanist", "engineerlvl1"],
+  availableAbilities: ["drone_station_t1"]
 }))
 
 

@@ -1,7 +1,8 @@
-import { world, system, ItemStack, EquipmentSlot, EntityDamageCause, BlockPermutation, ItemEnchantableComponent } from "@minecraft/server"
+import { world, system, ItemStack, EquipmentSlot, EntityDamageCause, BlockPermutation, ItemEnchantableComponent, BlockVolume, BlockVolumeBase, EntityTameableComponent } from "@minecraft/server"
 // Механика улучшенной невидимости
 import { consumeUsedItem } from "./OriginAbilities.js"
 import { removeItems, countItems } from "./craft_ui1_horizon.js"
+import { addAction } from "./dynamic_actionbar.js"
 world.afterEvents.entityHitEntity.subscribe(event => {
   if (event.damagingEntity.getEffect("minecraft:invisibility")) {
     const effect = event.damagingEntity.getEffect("minecraft:invisibility").duration;
@@ -20,7 +21,6 @@ world.afterEvents.entityHitEntity.subscribe(event => {
   }
 });
 world.afterEvents.playerJoin.subscribe(event => {
-  const player = world.getPlayers({ name: event.playerName })
   system.runTimeout(() => {
     world.getDimension("overworld").runCommand("tag @a remove hcooldown")
   }, 250)
@@ -80,9 +80,71 @@ function isWeapon(typeId) {
 }
 
 const TELEPORT_ITEM_ID = "horizon:teleportation";
-
+const redstoneCraftedBlocks = [
+  "minecraft:lever",
+  "minecraft:redstone_torch",
+  "minecraft:noteblock",
+  "minecraft:tripwire_hook",
+  "minecraft:redstone_lamp",
+  "minecraft:piston",
+  "minecraft:sticky_piston",
+  "minecraft:target",
+  "minecraft:dropper",
+  "minecraft:dispenser",
+  "minecraft:observer",
+  "minecraft:redstone_block",
+  "minecraft:crafter",
+  "minecraft:detector_rail",
+  "minecraft:unpowered_comparator",
+  "minecraft:powered_comparator",
+  "minecraft:unpowered_comparator",
+  "minecraft:powered_repeater",
+  "minecraft:unpowered_repeater",
+  "minecraft:redstone_wire"
+];
 
 system.beforeEvents.startup.subscribe(data => {
+  data.itemComponentRegistry.registerCustomComponent("horizon:redstone_impulse", {
+    onUse(e) {
+      system.runTimeout(() => {
+        addCooldown(e.source, 1)
+      }, 450)
+      if (getCooldown(e.source) === true) return
+      let inventory = e.source.getComponent("minecraft:inventory").container;
+      if (countItems(inventory, "minecraft:redstone") < 8) return;
+      const { x, y, z } = e.source.location
+
+      const from1 = {
+        x: Math.floor(x - 5),
+        y: Math.floor(y - 5),
+        z: Math.floor(z - 5)
+      };
+
+      const to1 = {
+        x: Math.floor(x + 5),
+        y: Math.floor(y + 5),
+        z: Math.floor(z + 5)
+      };
+      const charge = e.source.getDynamicProperty("charge")
+      const volume = new BlockVolume(from1, to1);
+      const locations = e.source.dimension.getBlocks(volume, { includeTypes: redstoneCraftedBlocks }, true)
+      const redstone = locations.getCapacity()
+      if (redstone > 500) {
+        for (const loc of locations.getBlockLocationIterator()) {
+          if (0.90 < Math.random()) {
+            e.source.dimension.getBlock(loc).setType("minecraft:air")
+          }
+
+        }
+      }
+      const newcharge = 100 + (redstone * 0.5)
+      e.source.setDynamicProperty("charge", charge + newcharge)
+
+      removeItems(inventory, "minecraft:redstone", 8)
+      addAction(e.source, `${charge + newcharge} (+ ${newcharge})`)
+      addCooldown(e.source, 450)
+    }
+  })
   data.itemComponentRegistry.registerCustomComponent("horizon:drone_station_t1", {
     onUseOn(e) {
       if (getCooldown(e.source) === true) return
@@ -95,9 +157,27 @@ system.beforeEvents.startup.subscribe(data => {
       if (!blockabove.isAir) return;
       let inventory = e.source.getComponent("minecraft:inventory").container;
       if (countItems(inventory, "minecraft:redstone") < 8) return;
-      blockabove.dimension.spawnEntity("horizon:spidermine_1", blockabove.center())
+      blockabove.dimension.spawnParticle("horizon:spidermine_spawn_particle", blockabove.center())
+      system.runTimeout(() => {
+        const spiderbot = blockabove.dimension.spawnEntity("horizon:spiderbot_hybrid_t1", blockabove.center())
+        const tame = spiderbot.getComponent("minecraft:tameable").tame(e.source)
+      }, 6)
+
+
       removeItems(inventory, "minecraft:redstone", 8)
       addCooldown(e.source, 35)
+
+    },
+    onUse(e) {
+      if (getCooldown(e.source) === true) return
+      const entities = e.source.getEntitiesFromViewDirection({ maxDistance: 4 })
+      if (entities.length === 0) return;
+      let inventory = e.source.getComponent("minecraft:inventory").container;
+      if (countItems(inventory, "minecraft:redstone") < 8) return;
+      const entity = entities[0].entity
+      const healthComp = entity.getComponent("minecraft:health");
+      healthComp.setCurrentValue(Math.min(healthComp.currentValue + 10, healthComp.defaultValue))
+      removeItems(inventory, "minecraft:redstone", 8)
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:teleport", {
@@ -177,8 +257,9 @@ system.beforeEvents.startup.subscribe(data => {
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:invisibility_scroll", {
     onCompleteUse(e) {
-      e.source.addEffect("minecraft:invisibility", 800, { amplifier: 1 });
+      e.source.addEffect("minecraft:invisibility", 1200, { amplifier: 1 });
       consumeUsedItem(e.source, 1)
+      if (e.source.hasTag("mage")) e.source.addEffect("minecraft:invisibility", 3200, { amplifier: 1 });
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:nectar_collector", {
