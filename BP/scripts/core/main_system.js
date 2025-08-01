@@ -106,10 +106,7 @@ const redstoneCraftedBlocks = [
 system.beforeEvents.startup.subscribe(data => {
   data.itemComponentRegistry.registerCustomComponent("horizon:redstone_impulse", {
     onUse(e) {
-      system.runTimeout(() => {
-        addCooldown(e.source, 1)
-      }, 450)
-      if (e.source.getItemCooldown("abiity") > 0) return
+      if (e.source.getItemCooldown("ability") > 0) return
       let inventory = e.source.getComponent("minecraft:inventory").container;
       if (countItems(inventory, "minecraft:redstone") < 8) return;
       const { x, y, z } = e.source.location

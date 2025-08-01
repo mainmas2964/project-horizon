@@ -23,7 +23,9 @@ function explosion(entity, power, radius) {
   }
 }
 */
+world.afterEvents.entityHitEntity.subscribe(data => {
 
+})
 function explosion(entity, power, radius) {
   const { x, y, z } = entity.location;
   const dimension = entity.dimension;
