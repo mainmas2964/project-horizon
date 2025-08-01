@@ -106,8 +106,7 @@
 		"components": {
 			"minecraft:type_family": {
 				"family": [
-					"slimecat",
-					"monster"
+					"slimecat"
 				]
 			},
 			"minecraft:nameable": {},

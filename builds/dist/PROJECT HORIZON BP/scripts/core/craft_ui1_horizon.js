@@ -1,5 +1,6 @@
 import { world, system } from "@minecraft/server";
 import { CustomForm } from "./customForm_horizon.js";
+import { allRecipes } from "./crafts.js"
 function consumeUsedItem(player, usedStack, amount = 1) {
   const inv = player.getComponent("minecraft:inventory")?.container;
   if (!inv) return false;
@@ -43,7 +44,7 @@ function openCraftingMenu(player, recipes, titlecraft) {
 
   for (let key of recipeKeys) {
     let recipe = recipes[key];
-    form.button("craft", key, recipe.icon || "textures/items/stone.png", false, `select_${key}`);
+    form.button(recipe.cat, key, recipe.icon || "textures/items/stone.png", false, `select_${key}`);
   }
 
   form.title(`${titlecraft}`).body("recipes:");
@@ -64,18 +65,18 @@ function confirmCraftingWindow(player, recipes, recipeKey) {
   let recipe = recipes[recipeKey];
   let form = new CustomForm();
 
-  let bodyText = `§eCraft: §a${recipe.result} x${recipe.count}\n\n§fFor craft:\n`;
+  let bodyText = `§eCraft: §a${recipe.result} x${recipe.count}\n\n`;
   for (let item in recipe.ingredients) {
-    bodyText += `- §b${item}§f x${recipe.ingredients[item]}\n`;
+    bodyText += `§b${item}§f x${recipe.ingredients[item]}\n`;
   }
 
   form.body(bodyText);
   form.button("confirm", "§a✔", "textures/blocks/crafting_table_top", false, `confirm_${recipeKey}`);
-  form.button("cancel", "§c✖", "textures/blocks/barrier", false, `cancel_${recipeKey}`);
+  form.button("confirm", "§c✖", "textures/blocks/barrier", false, `cancel_${recipeKey}`);
 
   form.title("Confirm");
   form.show(player).then(response => {
-    if (response?.canceled || !response.text) return;
+    if (response?.canceled || !response || response.text === "§c✖") return;
     processCrafting(player, recipes, recipeKey);
     confirmCraftingWindow(player, recipes, recipeKey)
   });
@@ -146,191 +147,3 @@ export {
   removeItems,
   countItems
 }
-const allRecipes = {
-  "predecessor": {
-    "Torch": {
-      result: "minecraft:torch",
-      count: 8,
-      icon: "textures/blocks/torch_on",
-      ingredients: {
-        "minecraft:coal": 1,
-        "minecraft:stick": 1
-      }
-    },
-    "Iron with coal": {
-      result: "horizon:iron_with_coal",
-      count: 3,
-      icon: "textures/items/coal_with_iron",
-      ingredients: {
-        "minecraft:iron_ingot": 1,
-        "minecraft:coal": 1
-      }
-    }
-  },
-  "miner": {
-    "Diamond pickaxe": {
-      result: "minecraft:diamond_pickaxe",
-      count: 1,
-      icon: "textures/items/diamond_pickaxe",
-      ingredients: {
-        "minecraft:stick": 2,
-        "minecraft:diamond": 2
-      }
-    }
-  },
-  "engineer": {
-    "Redstone Lamp": {
-      result: "minecraft:redstone_lamp",
-      count: 3,
-      icon: "textures/blocks/redstone_lamp_on",
-      ingredients: {
-        "minecraft:redstone": 6,
-        "minecraft:glowstone_dust": 6
-      }
-    },
-    "Repeater": {
-      result: "minecraft:repeater",
-      count: 4,
-      icon: "textures/items/repeater",
-      ingredients: {
-        "minecraft:redstone": 6,
-        "minecraft:cobblestone": 6,
-        "minecraft:stick": 4
-      },
-    },
-    "Comparator": {
-      result: "minecraft:comparator",
-      count: 3,
-      icon: "textures/items/comparator",
-      ingredients: {
-        "minecraft:quartz": 1,
-        "minecraft:redstone": 8,
-        "minecraft:stick": 4
-      }
-    },
-    "Piston": {
-      result: "minecraft:piston",
-      count: 5,
-      icon: "textures/blocks/piston_side",
-      ingredients: {
-        "minecraft:redstone": 12,
-        "minecraft:cobblestone": 24,
-        "minecraft:iron_ingot": 3
-      }
-    },
-    "Observer": {
-      result: "minecraft:observer",
-      count: 8,
-      icon: "textures/blocks/observer_side",
-      ingredients: {
-        "minecraft:cobblestone": 24,
-        "minecraft:redstone": 12,
-        "minecraft:quartz": 4
-      }
-    },
-    "Engineer's\nsword": {
-      result: "horizon:engineers_sword",
-      count: 1,
-      icon: "textures/items/engineer's_sword",
-      ingredients: {
-        "minecraft:redstone": 24,
-        "minecraft:iron": 5,
-        "horizon:steel_ingot": 5
-      }
-    }
-  },
-  "guideUC_horizon": {
-    "Assembler": {
-      result: "twm:assembler",
-      count: 1,
-      icon: "textures/blocks/assembler/assembler_on",
-      ingredients: {
-        "minecraft:redstone": 6,
-        "twm:steel_plate": 4,
-        "minecraft:iron_ingot": 8,
-        "minecraft:cobblestone": 4
-      }
-    },
-    "Block breaker": {
-      result: "twm:block_breaker",
-      count: 4,
-      icon: "textures/blocks/redstone_block",
-      ingredients: {
-        "minecraft:redstone": 18,
-        "twm:steel_plate": 6,
-        "minecraft:copper_ingot": 22,
-        "minecraft:dropper": 2
-      }
-    },
-    "Electro\npress": {
-      result: "twm:electro_press",
-      count: 1,
-      icon: "textures/blocks/redstone_block",
-      ingredients: {
-        "minecraft:redstone": 12,
-        "minecraft:copper_block": 2,
-        "twm:steel_ingot": 5,
-        "minecraft:piston": 1
-      }
-    },
-    "Coal\ngenerator": {
-      result: "twm:basic_furnator",
-      count: 1,
-      icon: "textures/blocks/restone_block",
-      ingredients: {
-        "minecraft:redstone": 10,
-        "minecraft:copper_ingot": 5,
-        "twm:steel_ingot": 5
-      }
-    },
-    "Energy\ncable": {
-      result: "twm:energy_cable",
-      count: 42,
-      icon: "textures/blocks/redstone_block",
-      ingredients: {
-        "minecraft:redstone": 2,
-        "twm:steel_ingot": 1,
-        "minecraft:copper_ingot": 1,
-        "minecraft:iron_ingot": 1
-      }
-    }
-  },
-  "bee_origin": {
-    "Honeycomb": {
-      result: "minecraft:honeycomb",
-      count: 3,
-      icon: "textures/items/honeycomb",
-      ingredients: {
-        "horizon:nectar": 12
-      }
-    },
-    "Golden\nhoneycomb": {
-      result: "minecraft:honeycomb",
-      count: 3,
-      icon: "textures/items/golden_honeycomb",
-      ingredients: {
-        "minecraft:honeycomb": 1,
-        "minecraft:gold_nugget": 24
-      }
-    },
-    "Honey\nBlock": {
-      result: "minecraft:honey_bottle",
-      count: 1,
-      icon: "textures/items/honey_bottle",
-      ingredients: {
-        "horizon:nectar": 6,
-        "minecraft:glass_bottle": 1
-      }
-    },
-    "Nectar\nCollector": {
-      result: "horizon:nectar_collector",
-      count: 1,
-      icon: "textures/items/nectar_collector",
-      ingridients: {
-        "horizon:silver_ingot": 2,
-        "horizon:light_steel_ingot": 1,
-        "minecraft:stick": 1
-      }
-    }
-  }
-};

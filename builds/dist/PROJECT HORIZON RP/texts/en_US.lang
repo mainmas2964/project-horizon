@@ -102,3 +102,5 @@ entity.horizon:slimecat.name=Slime cat
 item.horizon:redstone_impulse=Redstone impulse
 item.spawn_egg.entity.horizon:spiderbot_hybrid_t1.name=Spawn Spiderbot-hybrid T1
 entity.horizon:spiderbot_hybrid_t1.name=Spiderbot-hybrid T1
+item.horizon:graphite_plate=Graphite plate
+item.horizon:flint_spear=Flint spear

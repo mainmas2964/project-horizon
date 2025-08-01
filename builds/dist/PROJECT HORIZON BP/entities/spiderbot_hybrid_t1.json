@@ -69,7 +69,10 @@
 				"priority": 4,
 				"speed_multiplier": 1.3,
 				"track_target": false,
-				"reach_multiplier": 4
+				"reach_multiplier": 4,
+				"on_attack": {
+					"event": "horizon:attacking"
+				}
 			},
 			"minecraft:behavior.random_stroll": {
 				"priority": 5,
@@ -104,6 +107,13 @@
 				"entity_types": [
 					{
 						"filters": {
+							"test": "has_tag",
+							"subject": "other",
+							"value": "enemy"
+						}
+					},
+					{
+						"filters": {
 							"test": "is_family",
 							"subject": "other",
 							"value": "monster"
@@ -121,8 +131,7 @@
 			}
 		},
 		"events": {
-			"horizon:start_exploding": {},
-			"horizon:attacking": {}
+			"horizon:start_exploding": {}
 		},
 		"minecraft:client_entity": {
 			"description": {

@@ -1,6 +1,7 @@
 import { world, system } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 import { classLoc } from "./texts.js"
+import { clearAbilites } from "./abilities.js"
 export class PlayerClass {
   constructor({ id, name, description, tags = [], effects = [], dynamicProperties = {}, availableAbilities = [] }) {
     this.id = id;
@@ -32,7 +33,7 @@ export class PlayerClass {
     for (const tag of this.tags) {
       player.removeTag(tag);
     }
-
+    clearAbilites(player)
     for (const effect of this.effects) {
       player.removeEffect(effect.id);
     }

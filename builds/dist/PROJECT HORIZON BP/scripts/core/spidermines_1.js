@@ -23,7 +23,9 @@ function explosion(entity, power, radius) {
   }
 }
 */
+world.afterEvents.entityHitEntity.subscribe(data => {
 
+})
 function explosion(entity, power, radius) {
   const { x, y, z } = entity.location;
   const dimension = entity.dimension;
@@ -104,7 +106,7 @@ const blocks = [
   "minecraft:end_gateway"
 ]
 const cracked = {
-  "minecraft:stonebrick": { "cracked": "minecraft:cracked_stone_bricks" },
+  "minecraft:stone_bricks": { "cracked": "minecraft:cracked_stone_bricks" },
   "minecraft:deepslate_bricks": { "cracked": "minecraft:cracked_deepslate_bricks" },
   "minecraft:deepslate_tiles": { "cracked": "minecraft:cracked_deepslate_tiles" },
   "minecraft:nether_bricks": { "cracked": "minecraft:cracked_nether_bricks" },

@@ -160,6 +160,12 @@
 		},
 		"horizon_redstone_impulse": {
 			"textures": "textures/items/abilities/redstone_impulse"
+		},
+		"horizon_graphite_plate": {
+			"textures": "textures/items/graphite_plate"
+		},
+		"horizon_flint_spear": {
+			"textures": "textures/items/flint_spear"
 		}
 	}
 }

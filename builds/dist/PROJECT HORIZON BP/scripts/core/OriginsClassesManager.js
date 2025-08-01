@@ -55,12 +55,12 @@ world.afterEvents.itemUse.subscribe(event => {
 originManager.register(new Origin({
   id: "predecessor",
   tags: ["predecessor"],
-  availableClasses: ["prospector", "redstone_engineer", "mechanist"]
+  availableClasses: ["prospector", "redstone_engineer", "mechanist", "builder"]
 
 }))
 originManager.register(new Origin({
   id: "bee",
-  tags: ["bee_origin"],
+  tags: ["bee_origin", "weak_hp"],
   availableClasses: ["prospector", "redstone_engineer", "mechanist"],
   dynamicProperties: {
     "stingers": 7
@@ -72,6 +72,11 @@ originManager.register(new Origin({
   id: "demon",
   tags: ["demon", "firer"],
   availableClasses: ["prospector", "redstone_engineer", "mechanist"]
+}))
+originManager.register(new Origin({
+  id: "slimecat",
+  tags: ["slimecat", "weak_hp"],
+  availableClasses: ["prospector", "redstone_engineer", "mechanist", "builder"]
 }))
 /*
 originManager.register(new Origin({
@@ -87,8 +92,13 @@ classManager.register(new PlayerClass({
 
 }));
 classManager.register(new PlayerClass({
+  id: "builder",
+  tags: ["builder"],
+  availableAbilities: ["teleportation"]
+}))
+classManager.register(new PlayerClass({
   id: "redstone_engineer",
-  tags: ["engineer", "redstone_engineer"],
+  tags: ["engineer", "redstone_engineer", "engineer_level_r", "engineer_level_c"],
   availableAbilities: ["redstone_impulse"],
   dynamicProperties: {
     "charge": 0
@@ -96,24 +106,10 @@ classManager.register(new PlayerClass({
 }))
 classManager.register(new PlayerClass({
   id: "mechanist",
-  tags: ["mechanist", "engineerlvl1"],
+  tags: ["mechanist", "engineer_level_c", "engineer_level_r"],
   availableAbilities: ["drone_station_t1"]
 }))
 
-
-
-
-
-
-
-
-
-const abilitiesIcons = {
-  "teleportation": {
-    icon: "textures/items/teleportation",
-    name: "Teleportation"
-  }
-}
 world.afterEvents.itemUse.subscribe(event => {
   if (event.itemStack.typeId != "horizon:abilities_tablet") return;
   const classp = classManager.getPlayerClass(event.source);

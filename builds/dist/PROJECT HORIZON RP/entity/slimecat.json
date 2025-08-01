@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "horizon:slimecat",
 			"materials": {
-				"default": "entity_alphablend_nocolor"
+				"default": "entity_alphablend"
 			},
 			"textures": {
 				"default": "textures/entity/slimecat_def"

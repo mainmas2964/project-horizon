@@ -6,13 +6,10 @@ import { abilitiesLoc } from "./texts.js"
 const abilitiesMain = {
     "teleportation": {
         icon: "textures/items/abilities/teleportation",
-        name: "Teleportation",
-        description: "Ability that allow teleport to you",
         item: "horizon:teleportation"
     },
     "redstone_impulse": {
         icon: "textures/items/abilities/redstone_impulse",
-        name: "Redstone impulse",
         item: "horizon:redstone_impulse"
     },
     "drone_station_t1": {
@@ -60,8 +57,9 @@ world.afterEvents.itemUse.subscribe(event => {
 })
 function applyAbility(player, ability) {
     for (const key in abilitiesMain) { player.dimension.runCommand(`clear ${player.name} ${abilitiesMain[key].item}`) }
-    player.dimension.runCommand(`give ${player.name} ${abilitiesMain[ability].item} 1 0 { "item_lock": {"mode":"lock_in_inventory"} }`)
+    player.dimension.runCommand(`give ${player.name} ${abilitiesMain[ability].item} 1 0 { "item_lock": {"mode":"lock_in_inventory"} , "keep_on_death":{}}`)
 }
 function clearAbilites(player) {
     for (const key in abilitiesMain) { player.dimension.runCommand(`clear ${player.name} ${abilitiesMain[key].item}`) }
 }
+export { clearAbilites }

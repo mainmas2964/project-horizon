@@ -16,6 +16,10 @@ originsLoc = {
         "demon": {
             description: "Demons – one of the strongest and most ferocious races.\n[ Eternal Fire Resistance ]\nYou don't burn in fire.\n[ Demonic Fury ]\n30% chance to gain Resistance when taking damage, also damages and ignites nearby enemies.\n[ Curse of Sleep ]\nYou cannot sleep.",
             name: "Demon"
+        },
+        "slimecat": {
+            name: "Slimecat",
+            description: ""
         }
     },
     "ru": {
@@ -30,6 +34,10 @@ originsLoc = {
         "demon": {
             description: "Демоны - одна из самых сильных рас, и одна из самых яростных\n[ вечная огнестойкость ]\nВы не горите в огне\n[ Демоническая ярость ]\n с шансом в 30 процентов при получаний урона получить эффект Сопротивление , а так же нанести урон ближайшим врагам и поджечь их\n[ Проклятие сна ]\nВы не можете спать",
             name: "Демон"
+        },
+        "slimecat": {
+            name: "Слаймкот",
+            description: ""
         }
     }
 }
@@ -60,7 +68,7 @@ abilitiesLoc = {
         },
         "drone_station_t1": {
             name: "Дрон-станция Т1",
-            descriprion: ""
+            description: ""
         }
     }
 }
@@ -78,6 +86,10 @@ classLoc = {
         "mechanist": {
             name: "Mechanist",
             description: "mechanist"
+        },
+        "builder": {
+            name: "Builder",
+            description: "builder"
         }
     },
     "ru": {
@@ -92,6 +104,10 @@ classLoc = {
         "mechanist": {
             name: "Механист",
             description: "механист"
+        },
+        "builder": {
+            name: "Строитель",
+            description: "Строит"
         }
     }
 }

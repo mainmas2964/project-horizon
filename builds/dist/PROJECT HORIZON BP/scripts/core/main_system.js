@@ -106,10 +106,7 @@ const redstoneCraftedBlocks = [
 system.beforeEvents.startup.subscribe(data => {
   data.itemComponentRegistry.registerCustomComponent("horizon:redstone_impulse", {
     onUse(e) {
-      system.runTimeout(() => {
-        addCooldown(e.source, 1)
-      }, 450)
-      if (getCooldown(e.source) === true) return
+      if (e.source.getItemCooldown("ability") > 0) return
       let inventory = e.source.getComponent("minecraft:inventory").container;
       if (countItems(inventory, "minecraft:redstone") < 8) return;
       const { x, y, z } = e.source.location
@@ -142,12 +139,12 @@ system.beforeEvents.startup.subscribe(data => {
 
       removeItems(inventory, "minecraft:redstone", 8)
       addAction(e.source, `${charge + newcharge} (+ ${newcharge})`)
-      addCooldown(e.source, 450)
+      e.source.startItemCooldown("ability", 400)
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:drone_station_t1", {
     onUseOn(e) {
-      if (getCooldown(e.source) === true) return
+      if (e.source.getItemCooldown("ability") > 0) return
       const { x, y, z } = e.block.location
       const blockabove = e.block.dimension.getBlock({
         x: x,
@@ -165,10 +162,11 @@ system.beforeEvents.startup.subscribe(data => {
 
 
       removeItems(inventory, "minecraft:redstone", 8)
-      addCooldown(e.source, 35)
+      e.source.startItemCooldown("ability", 100)
 
     },
     onUse(e) {
+      if (e.source.getItemCooldown("ability") > 0) return
       if (getCooldown(e.source) === true) return
       const entities = e.source.getEntitiesFromViewDirection({ maxDistance: 4 })
       if (entities.length === 0) return;
@@ -177,18 +175,20 @@ system.beforeEvents.startup.subscribe(data => {
       const entity = entities[0].entity
       const healthComp = entity.getComponent("minecraft:health");
       healthComp.setCurrentValue(Math.min(healthComp.currentValue + 10, healthComp.defaultValue))
-      removeItems(inventory, "minecraft:redstone", 8)
+      removeItems(inventory, "minecraft:redstone", 4)
+      e.source.startItemCooldown("ability", 50)
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:teleport", {
     onUse(e) {
+      if (e.source.getItemCooldown("ability") > 0) return;
       const player = e.source;
       const entities = player.getEntitiesFromViewDirection({ maxDistance: 10 });
       const loc = player.location
       const block = player.getBlockFromViewDirection({ maxDistance: 10 })
       let inventory = player.getComponent("minecraft:inventory").container;
       const dir = player.getViewDirection();
-      if (entities.length > 0 && getCooldown(player) === false) {
+      if (entities.length > 0) {
         if (countItems(inventory, "minecraft:lapis_lazuli" < 3)) return
         const target = entities[0].entity;
         const dx = loc.x - target.location.x;
@@ -209,7 +209,7 @@ system.beforeEvents.startup.subscribe(data => {
           y: target.location.y + 1,
           z: target.location.z
         })
-        addCooldown(player, 25)
+        e.source.startItemCooldown("ability", 10)
         system.runTimeout(() => {
           player.dimension.playSound("horizon:teleport", player.location)
           player.teleport(loc, { checkForBlocks: true });
@@ -220,7 +220,8 @@ system.beforeEvents.startup.subscribe(data => {
 
       } else
 
-        if (block && getCooldown(player) === false) {
+        if (block) {
+
           if (countItems(inventory, "minecraft:lapis_lazuli") < 1) return;
           player.dimension.spawnParticle("horizon:magic_particle_0", player.location)
           player.dimension.playSound("horizon:teleport", player.location)
@@ -231,11 +232,11 @@ system.beforeEvents.startup.subscribe(data => {
           })
           player.dimension.spawnParticle("horizon:magic_particle_0", player.location)
           player.dimension.playSound("horizon:teleport", player.location)
-          addCooldown(player, 10)
+          e.source.startItemCooldown("ability", 10)
           removeItems(inventory, "minecraft:lapis_lazuri", 1)
         }
 
-        else if (getCooldown(player) === false) {
+        else {
           if (countItems(inventory, "minecraft:lapis_lazuli") < 1) return
           const eye = player.getHeadLocation();
           player.dimension.spawnParticle("horizon:magic_particle_0", player.location)
@@ -248,7 +249,7 @@ system.beforeEvents.startup.subscribe(data => {
 
           player.dimension.spawnParticle("horizon:magic_particle_0", player.location)
           player.dimension.playSound("horizon:teleport", player.location)
-          addCooldown(player, 15)
+          e.source.startItemCooldown("ability", 10)
           removeItems(inventory, "minecraft:lapis_lazuli", 1)
         }
     }
@@ -380,14 +381,13 @@ world.afterEvents.playerJoin.subscribe(ev => {
 
 
 world.beforeEvents.itemUse.subscribe(({ source: player, itemStack }) => {
-
+  if (player.getItemCooldown("ability") > 0) return
   const tier = getWeaponTier(itemStack.typeId);
   const offhand = player.getComponent("minecraft:equippable")?.getEquipment(EquipmentSlot.Offhand);
   if (!isWeapon(itemStack.typeId)) return;
   if (!offhand || offhand.typeId !== TELEPORT_ITEM_ID) return;
   let inventory = player.getComponent("minecraft:inventory").container;
   if (countItems(inventory, "minecraft:lapis_lazuli") < 3) return;
-  if (getCooldown(player) === true) return;
   const targets = player.getEntitiesFromViewDirection({
     maxDistance: 10,
     maxResults: 1,
@@ -435,6 +435,7 @@ world.beforeEvents.itemUse.subscribe(({ source: player, itemStack }) => {
       player.dimension.spawnParticle("horizon:magic_particle_0", player.location)
     })
   }, 10); // 0.5 секунды
+  player.startItemCooldown("ability", 15)
 });
 
 

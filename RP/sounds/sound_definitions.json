@@ -9,13 +9,13 @@
 		},
 		"horizon:spidermine_activate": {
 			"sounds": [
-				"sounds/spidermine_activate"
+				"sounds/spidermines/spidermine_activate"
 			],
 			"__use_legacy_max_distance": true
 		},
 		"horizon:spidermine_dead": {
 			"sounds": [
-				"sounds/spidermine_dead"
+				"sounds/spidermines/spidermine_dead"
 			],
 			"__use_legacy_max_distance": true
 		},
@@ -85,6 +85,14 @@
 			"sounds": [
 				"sounds/explode_lightning2"
 			],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:spidermine_beep":{
+			"sounds": ["sounds/spidermines/beep_beep"],
+			"__use_legacy_max_distance": true
+		},
+		"horizon:spidermine_spawn":{
+			"sounds": ["sounds/spidermines/welding0"],
 			"__use_legacy_max_distance": true
 		}
 	}

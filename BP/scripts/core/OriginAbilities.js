@@ -152,7 +152,7 @@ const InteractFunctionsMap = {
   })
 }
 const EntityHurtFunctionsMap = {
-  "bee_origin": (data => {
+  "weak_hp": (data => {
     data.hurtEntity.applyDamage(2)
   }),
   "demon": (data => {
@@ -167,8 +167,28 @@ const EntityHurtFunctionsMap = {
   })
 }
 
+const PlayerButtonInput = {
+  "slimecat": (
+    data => {
+      const block = data.player.dimension.getBlock({
+        x: data.player.location.x,
+        y: data.player.location.y - 0.1,
+        z: data.player.location.z
+      })
+      const view = data.player.getViewDirection()
+      if (data.button === "Jump" && !block.isAir && data.newButtonState === "Pressed") {
+        data.player.addTag("double_jump_h")
+      }
+      else if (data.player.hasTag("double_jump_h") && data.button === "Jump" && data.newButtonState === "Pressed" && data.player.getVelocity().y <= 0.4) {
+        data.player.applyKnockback({ x: view.x * 0.5, z: view.z * 0.5 }, 0.7)
+        data.player.removeTag("double_jump_h")
+      }
 
+    }
+  )
+}
 function dispatchByTag(entity, map, event) {
+
   for (const tag of entity.getTags()) {
     const func = map[tag];
     if (func) func(event);
@@ -181,3 +201,4 @@ world.afterEvents.itemCompleteUse.subscribe(e => { dispatchByTag(e.source, UseIt
 world.afterEvents.entityHitEntity.subscribe(e => { dispatchByTag(e.damagingEntity, HitEntityPlMap, e) })
 world.beforeEvents.playerInteractWithBlock.subscribe(event => { dispatchByTag(event.player, InteractFunctionsMap, event) })
 world.afterEvents.entityHurt.subscribe(e => { dispatchByTag(e.hurtEntity, EntityHurtFunctionsMap, e) })
+world.afterEvents.playerButtonInput.subscribe(e => { dispatchByTag(e.player, PlayerButtonInput, e) })
