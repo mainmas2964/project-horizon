@@ -54,11 +54,6 @@
 			"minecraft:behavior.float": {
 				"priority": 0
 			},
-			"minecraft:behavior.swell": {
-				"start_distance": 2.5,
-				"stop_distance": 6,
-				"priority": 2
-			},
 			"minecraft:behavior.melee_attack": {
 				"priority": 4,
 				"speed_multiplier": 1.25,
