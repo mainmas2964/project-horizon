@@ -226,6 +226,7 @@ system.beforeEvents.startup.subscribe(data => {
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:drone_station_t1", {
     onUseOn(e) {
+      if (e.source.isSneaking) return
       if (e.source.getItemCooldown("ability") > 0) return;
 
       const { x, y, z } = e.block.location;
@@ -233,7 +234,7 @@ system.beforeEvents.startup.subscribe(data => {
       if (!blockabove.isAir) return;
 
       const inventory = e.source.getComponent("minecraft:inventory").container;
-      if (countItems(inventory, "minecraft:redstone") < 8) return;
+      if (countItems(inventory, "minecraft:redstone") < 12) return;
 
       const dimension = e.source.dimension;
       const tag1 = `spiderbot1_${e.source.id}`;
@@ -275,21 +276,27 @@ system.beforeEvents.startup.subscribe(data => {
         spawnSpiderbot(dimension, blockabove, e.source, tag2);
       }
 
-      removeItems(inventory, "minecraft:redstone", 8);
+      removeItems(inventory, "minecraft:redstone", 12);
       e.source.startItemCooldown("ability", 100);
     },
     onUse(e) {
+      if (!e.source.isSneaking) return;
       if (e.source.getItemCooldown("ability") > 0) return
-      if (getCooldown(e.source) === true) return
-      const entities = e.source.getEntitiesFromViewDirection({ maxDistance: 4, families: robots_f })
+      const entities = e.source.dimension.getEntities({ maxDistance: 20, families: ["robots_f"], location: e.source.location })
       if (entities.length === 0) return;
       let inventory = e.source.getComponent("minecraft:inventory").container;
-      if (countItems(inventory, "minecraft:redstone") < 8) return;
-      const entity = entities[0].entity
-      const healthComp = entity.getComponent("minecraft:health");
-      healthComp.setCurrentValue(Math.min(healthComp.currentValue + 10, healthComp.defaultValue))
-      removeItems(inventory, "minecraft:redstone", 4)
-      e.source.startItemCooldown("ability", 50)
+      if (countItems(inventory, "minecraft:redstone") < 2) return;
+      for (const entity of entities) {
+        const healthComp = entity.getComponent("minecraft:health");
+        if ((healthComp.currentValue + 10) > healthComp.defaultValue) continue
+        if (entity?.getComponent("tameable")?.tamedToPlayer.name != e.source.name) continue
+        entity.dimension.playSound("horizon:repair", entity.location)
+        entity.dimension.spawnParticle("horizon:heal_particle", entity.location)
+        healthComp.setCurrentValue(Math.min(healthComp.currentValue + 10, healthComp.defaultValue))
+
+        e.source.startItemCooldown("ability", 20)
+      }
+      removeItems(inventory, "minecraft:redstone", 2)
     }
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:teleport", {

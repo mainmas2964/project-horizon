@@ -1,1 +1,30 @@
-{}
+{
+    "entity_sounds": {
+        "entities": {
+            "horizon:spidermine_1": {
+                "events": {
+                    "ambient": "horizon:spidermine_beep",
+                    "death": "horizon:spidermine_dead",
+                    "hurt": "horizon:spidermine_hit"
+                },
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "volume": 1
+            },
+            "horizon:spiderbot_hybrid_t1": {
+                "events": {
+                    "ambient": "horizon:spidermine_beep",
+                    "death": "horizon:spidermine_dead",
+                    "hurt": "horizon:spidermine_hit"
+                },
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "volume": 1
+            }
+        }
+    }
+}
