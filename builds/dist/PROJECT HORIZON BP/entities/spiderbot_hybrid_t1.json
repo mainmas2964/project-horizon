@@ -13,7 +13,8 @@
 					"spidermine",
 					"mob",
 					"irongolem",
-					"spiderbot"
+					"spiderbot",
+					"robots_f"
 				]
 			},
 			"minecraft:collision_box": {

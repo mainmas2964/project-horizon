@@ -12,7 +12,8 @@
 				"family": [
 					"spidermine",
 					"mob",
-					"irongolem"
+					"irongolem",
+					"robots_f"
 				]
 			},
 			"minecraft:collision_box": {

@@ -257,11 +257,10 @@ system.beforeEvents.startup.subscribe(data => {
         if (bot0) {
           bot0.dimension.playSound("horizon:spidermine_dead", bot0.location);
           bot0.dimension.spawnParticle("horizon:spidermine_spawn_particle", bot0.location);
-          bot0.teleport({ x: bot0.location.x, y: -100, z: bot0.location.z });
 
           system.runTimeout(() => {
-            bot0.teleport({ x: bot0.location.x, y: -100, z: bot0.location.z });
-            bot0.kill();
+            bot0.removeTag(tag1)
+            bot0.remove()
           }, 2);
         }
 
@@ -282,7 +281,7 @@ system.beforeEvents.startup.subscribe(data => {
     onUse(e) {
       if (e.source.getItemCooldown("ability") > 0) return
       if (getCooldown(e.source) === true) return
-      const entities = e.source.getEntitiesFromViewDirection({ maxDistance: 4 })
+      const entities = e.source.getEntitiesFromViewDirection({ maxDistance: 4, families: robots_f })
       if (entities.length === 0) return;
       let inventory = e.source.getComponent("minecraft:inventory").container;
       if (countItems(inventory, "minecraft:redstone") < 8) return;
