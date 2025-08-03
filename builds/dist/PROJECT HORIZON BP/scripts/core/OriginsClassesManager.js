@@ -106,7 +106,7 @@ classManager.register(new PlayerClass({
 }))
 classManager.register(new PlayerClass({
   id: "mechanist",
-  tags: ["mechanist", "engineer_level_c", "engineer_level_r"],
+  tags: ["mechanist", "engineer_level_c", "engineer_level_r", "better_spidermines"],
   availableAbilities: ["drone_station_t1"]
 }))
 

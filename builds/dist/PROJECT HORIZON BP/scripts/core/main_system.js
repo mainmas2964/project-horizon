@@ -103,7 +103,89 @@ const redstoneCraftedBlocks = [
   "minecraft:redstone_wire"
 ];
 
+function spawnSpiderbot(dimension, block, player, tag) {
+  dimension.spawnParticle("horizon:spidermine_spawn_particle", block.center());
+  dimension.playSound("horizon:spidermine_spawn", block.center())
+
+  system.runTimeout(() => {
+    const bot = dimension.spawnEntity("horizon:spiderbot_hybrid_t1", block.center());
+    bot.getComponent("minecraft:tameable").tame(player);
+    bot.addTag(tag); // уникальный тег, привязанный к игроку
+  }, 6);
+}
+
+
+
 system.beforeEvents.startup.subscribe(data => {
+  data.itemComponentRegistry.registerCustomComponent("horizon:robosphere", {
+    onUseOn(e) {
+      const origin = e.block.above(); // Блок над местом использования
+      const dim = origin.dimension;
+
+      // Все потенциальные позиции спавна (в порядке приоритета)
+      const candidates = [
+        origin.location, // Прямо над местом клика
+        { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z },
+        { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z },
+        { x: origin.location.x, y: origin.location.y, z: origin.location.z + 1 },
+        { x: origin.location.x, y: origin.location.y, z: origin.location.z - 1 },
+        { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z + 1 },
+        { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z - 1 },
+        { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z + 1 },
+        { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z - 1 },
+        { x: origin.location.x, y: origin.location.y + 1, z: origin.location.z }, // Один блок выше
+        { x: origin.location.x, y: origin.location.y - 1, z: origin.location.z }  // Один блок ниже
+      ];
+
+      // Фильтруем только свободные (воздушные) блоки
+      const freeSpots = candidates.filter(pos => {
+        const block = dim.getBlock(pos);
+        return block && block.isAir;
+      });
+
+      if (freeSpots.length < 2) return; // Недостаточно места для спавна
+
+      // Спавн мобов
+      const pos1 = freeSpots[0];
+      const pos2 = freeSpots[1];
+
+      const s1 = dim.spawnEntity("horizon:spidermine_1", {
+        x: pos1.x + 0.5,
+        y: pos1.y,
+        z: pos1.z + 0.5
+      });
+
+      const s2 = dim.spawnEntity("horizon:spidermine_1", {
+        x: pos2.x + 0.5,
+        y: pos2.y,
+        z: pos2.z + 0.5
+      });
+
+      s1.getComponent("minecraft:tameable").tame(e.source);
+      s2.getComponent("minecraft:tameable").tame(e.source);
+      if (e.source.hasTag("better_spidermines")) {
+        s1.addEffect("resistance", 20000000, { amplifier: 1, showParticles: false })
+        s2.addEffect("resistance", 20000000, { amplifier: 1, showParticles: false })
+      }
+
+      // Эффект партиклов
+      dim.spawnParticle("horizon:spidermine_spawn_particle", {
+        x: pos1.x + 0.5,
+        y: pos1.y + 0.5,
+        z: pos1.z + 0.5
+      });
+
+      dim.spawnParticle("horizon:spidermine_spawn_particle", {
+        x: pos2.x + 0.5,
+        y: pos2.y + 0.5,
+        z: pos2.z + 0.5
+      });
+
+      dim.playSound("horizon:spidermine_spawn", origin.location);
+      consumeUsedItem(e.source, 1);
+    }
+
+  })
   data.itemComponentRegistry.registerCustomComponent("horizon:redstone_impulse", {
     onUse(e) {
       if (e.source.getItemCooldown("ability") > 0) return
@@ -144,26 +226,58 @@ system.beforeEvents.startup.subscribe(data => {
   })
   data.itemComponentRegistry.registerCustomComponent("horizon:drone_station_t1", {
     onUseOn(e) {
-      if (e.source.getItemCooldown("ability") > 0) return
-      const { x, y, z } = e.block.location
-      const blockabove = e.block.dimension.getBlock({
-        x: x,
-        y: y + 1,
-        z: z
-      })
+      if (e.source.getItemCooldown("ability") > 0) return;
+
+      const { x, y, z } = e.block.location;
+      const blockabove = e.block.dimension.getBlock({ x, y: y + 1, z });
       if (!blockabove.isAir) return;
-      let inventory = e.source.getComponent("minecraft:inventory").container;
+
+      const inventory = e.source.getComponent("minecraft:inventory").container;
       if (countItems(inventory, "minecraft:redstone") < 8) return;
-      blockabove.dimension.spawnParticle("horizon:spidermine_spawn_particle", blockabove.center())
-      system.runTimeout(() => {
-        const spiderbot = blockabove.dimension.spawnEntity("horizon:spiderbot_hybrid_t1", blockabove.center())
-        const tame = spiderbot.getComponent("minecraft:tameable").tame(e.source)
-      }, 6)
 
+      const dimension = e.source.dimension;
+      const tag1 = `spiderbot1_${e.source.id}`;
+      const tag2 = `spiderbot2_${e.source.id}`;
 
-      removeItems(inventory, "minecraft:redstone", 8)
-      e.source.startItemCooldown("ability", 100)
+      const bots1 = dimension.getEntities({ tags: [tag1] });
+      const bots2 = dimension.getEntities({ tags: [tag2] });
 
+      const has1 = bots1.length > 0;
+      const has2 = bots2.length > 0;
+
+      if (!has1 && !has2) {
+        spawnSpiderbot(dimension, blockabove, e.source, tag1);
+      } else if (has1 && !has2) {
+        spawnSpiderbot(dimension, blockabove, e.source, tag2);
+      } else if (!has1 && has2) {
+        spawnSpiderbot(dimension, blockabove, e.source, tag1);
+      } else {
+        const bot0 = bots1[0];
+
+        if (bot0) {
+          bot0.dimension.playSound("horizon:spidermine_dead", bot0.location);
+          bot0.dimension.spawnParticle("horizon:spidermine_spawn_particle", bot0.location);
+          bot0.teleport({ x: bot0.location.x, y: -100, z: bot0.location.z });
+
+          system.runTimeout(() => {
+            bot0.teleport({ x: bot0.location.x, y: -100, z: bot0.location.z });
+            bot0.kill();
+          }, 2);
+        }
+
+        // Переназначение тегов: bot2 → bot1
+        const bot1 = bots2[0];
+        if (bot1) {
+          bot1.removeTag(tag2);
+          bot1.addTag(tag1);
+        }
+
+        // Новый бот → tag2
+        spawnSpiderbot(dimension, blockabove, e.source, tag2);
+      }
+
+      removeItems(inventory, "minecraft:redstone", 8);
+      e.source.startItemCooldown("ability", 100);
     },
     onUse(e) {
       if (e.source.getItemCooldown("ability") > 0) return

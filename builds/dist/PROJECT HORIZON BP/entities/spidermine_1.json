@@ -22,6 +22,9 @@
 			"minecraft:movement": {
 				"value": 0.2
 			},
+			"minecraft:tameable": {
+				"probability": 1
+			},
 			"minecraft:navigation.walk": {
 				"can_path_over_water": true,
 				"can_walk": true
@@ -51,6 +54,7 @@
 					"target": "self"
 				}
 			},
+			"minecraft:behavior.owner_hurt_by_target": {},
 			"minecraft:behavior.float": {
 				"priority": 0
 			},

@@ -23,8 +23,43 @@ function explosion(entity, power, radius) {
   }
 }
 */
-world.afterEvents.entityHitEntity.subscribe(data => {
+function applyExplosionDamage(entity1, radius, damage) {
+  const { x, y, z } = entity1.location;
 
+  const tameable = entity1.getComponent("minecraft:tameable");
+  const owner = tameable?.tamedToPlayer;
+
+
+
+  for (const target of entity1.dimension.getEntities({
+    location: { x, y, z },
+    maxDistance: radius
+  })) {
+    if (target.id === entity1.id) continue;
+
+    const targetTameable = target.getComponent("minecraft:tameable");
+    const targetOwner = targetTameable?.tamedToPlayer;
+
+    if (owner.id) {
+      if (target.id === owner.id) {
+
+        continue;
+      }
+      if (targetTameable?.isTamed && targetOwner.id === owner.id) {
+
+        continue;
+      }
+    }
+    target.applyDamage(damage, {
+      cause: EntityDamageCause.entityExplosion,
+      damagingEntity: entity1
+    });
+  }
+}
+
+world.afterEvents.entityHitEntity.subscribe(data => {
+  if (data.damagingEntity.typeId != "horizon:spiderbot_hybrid_t1") return;
+  data.hitEntity.dimension.spawnParticle("horizon:fire_attack", data.hitEntity.location)
 })
 function explosion(entity, power, radius) {
   const { x, y, z } = entity.location;
@@ -52,7 +87,6 @@ function explosion(entity, power, radius) {
 
     const blockId = block.typeId;
     const random = Math.random();
-
     if (blockId in cracked && random > power) {
       block.setType(cracked[blockId].cracked);
     } else if (random > power) {
@@ -70,16 +104,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   entity1.addEffect("minecraft:slowness", 25, { amplifier: 100, showParticles: false })
   system.runTimeout(() => {
     explosion(entity1, 0.4, 2);
-    const entities = entity1.dimension.getEntities({
-      location: { x, y, z },
-      maxDistance: 3,
-      families: ["mob"]
-    })
-    for (const entity of entities) {
-      entity.applyDamage(17, { cause: EntityDamageCause.entityExplosion, damagingEntity: entity1 })
-
-    }
-
+    applyExplosionDamage(entity1, 3, 17)
     entity1.dimension.playSound("horizon:spidermine_dead", { x, y, z })
     entity1.dimension.spawnParticle("horizon:exploding", { x, y, z });
     entity1.dimension.spawnParticle("horizon:particles_smoke", { x, y, z });
