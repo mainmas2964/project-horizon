@@ -120,12 +120,10 @@ const allRecipes = {
         }
     },
     "engineer_level_c": {
-
-
         "Robosphere\nT1": {
             cat: categories.gadgets,
             result: "horizon:robosphere_t1",
-            count: 3,
+            count: 1,
             icon: "textures/items/robosphere_t1",
             ingredients: {
                 "minecraft:redstone": 6,

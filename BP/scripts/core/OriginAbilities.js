@@ -186,6 +186,7 @@ const PlayerButtonInputFunctionsMap = {
     }
   )
 }
+/*
 function dispatchByTag(entity, map, event) {
 
   for (const tag of entity.getTags()) {
@@ -193,7 +194,17 @@ function dispatchByTag(entity, map, event) {
     if (func) func(event);
   }
 }
-
+*/
+function dispatchByTag(entity, map, event) {
+  try {
+    for (const tag of entity.getTags()) {
+      const func = map[tag];
+      if (func) func(event);
+    }
+  }
+  catch {
+  }
+}
 world.beforeEvents.playerBreakBlock.subscribe(event => { dispatchByTag(event.player, BreakBlockFunctionsMap, event) })
 world.afterEvents.itemUse.subscribe(e => dispatchByTag(e.source, UseItemFunctionsMap, e));
 world.afterEvents.itemCompleteUse.subscribe(e => { dispatchByTag(e.source, UseItemCompleteFunctionsMap, e) })

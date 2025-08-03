@@ -12,12 +12,13 @@
 				"family": [
 					"spidermine",
 					"mob",
-					"irongolem"
+					"irongolem",
+					"spiderbot"
 				]
 			},
 			"minecraft:collision_box": {
-				"width": 0.6,
-				"height": 0.6
+				"width": 0.5,
+				"height": 0.5
 			},
 			"minecraft:fire_immune": true,
 			"minecraft:movement": {
@@ -26,6 +27,9 @@
 			"minecraft:navigation.walk": {
 				"can_path_over_water": true,
 				"can_walk": true
+			},
+			"minecraft:tameable": {
+				"probability": 1
 			},
 			"minecraft:movement.basic": {},
 			"minecraft:jump.static": {},
@@ -53,7 +57,7 @@
 						"subject": "self",
 						"test": "actor_health",
 						"operator": "<",
-						"value": 5
+						"value": 10
 					}
 				}
 			},
