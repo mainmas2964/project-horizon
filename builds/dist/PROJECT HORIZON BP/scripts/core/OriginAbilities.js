@@ -1,41 +1,9 @@
 
 import { world, system, ItemStack, EquipmentSlot, ItemTypes, BlockPermutation, ItemEnchantableComponent, EnchantmentTypes } from "@minecraft/server"
-import { addAction } from "./dynamic_actionbar.js"
 import { explosion } from "./spidermines_1.js"
-function consumeUsedItem(player, amount = 1) {
-  const equip = player.getComponent("minecraft:equippable");
-  if (!equip) return false;
-
-  const heldItem = equip.getEquipment("Mainhand");
-  if (!heldItem) return false;
-
-  // Копия и уменьшение количества
-  if (heldItem.amount > amount) {
-    heldItem.amount -= amount;
-    equip.setEquipment("Mainhand", heldItem);
-    return true;
-  } else if (heldItem.amount === amount) {
-    equip.setEquipment("Mainhand", undefined);
-    return true;
-  }
-
-  return false; // недостаточно предметов
-}
-export {
-  consumeUsedItem
-}
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction } from "./utilities/core_utilities.js"
 const stoneKeywords = ["stone", "cobble", "granite", "andesite", "diorite", "deepslate"];
-function hasKeyword(typeId, keywords) {
-  const id = typeId.toLowerCase();
-  return keywords.some(keyword => id.includes(keyword));
-}
 
-function classifyBlock(typeId) {
-  const id = typeId.toLowerCase();
-  if (stoneKeywords.some(k => id.includes(k))) return "stone";
-  if (id.includes("ore")) return "ore";
-  return "other";
-}
 
 // ITEM USING
 // BLOCK BREAK
@@ -171,11 +139,28 @@ const PlayerButtonInputFunctionsMap = {
     data => {
 
       const view = data.player.getViewDirection()
-      if (data.button === "Jump" && !data.player.dimension.getBlock({
+      if (data.button === "Jump" && (!data.player.dimension.getBlock({
         x: data.player.location.x,
-        y: data.player.location.y - 0.1,
+        y: data.player.location.y - 0.2,
         z: data.player.location.z
-      }).isAir) {
+      }).isAir || !data.player.dimension.getBlock({
+        x: data.player.location.x - 0.3,
+        y: data.player.location.y - 0.2,
+        z: data.player.location.z - 0.3
+      }).isAir || !data.player.dimension.getBlock({
+        x: data.player.location.x + 0.3,
+        y: data.player.location.y - 0.2,
+        z: data.player.location.z + 0.3
+      }).isAir
+        || !data.player.dimension.getBlock({
+          x: data.player.location.x - 0.3,
+          y: data.player.location.y - 0.2,
+          z: data.player.location.z + 0.3
+        }).isAir || !data.player.dimension.getBlock({
+          x: data.player.location.x + 0.3,
+          y: data.player.location.y - 0.2,
+          z: data.player.location.z - 0.3
+        }).isAir)) {
         data.player.addTag("double_jump_h")
       }
       else if (data.player.hasTag("double_jump_h") && data.button === "Jump" && data.newButtonState === "Pressed" && data.player.getVelocity().y < 0) {

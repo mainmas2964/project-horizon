@@ -87,13 +87,30 @@
 			],
 			"__use_legacy_max_distance": true
 		},
-		"horizon:spidermine_beep":{
-			"sounds": ["sounds/spidermines/beep_beep"],
+		"horizon:spidermine_beep": {
+			"sounds": [
+				"sounds/spidermines/beep_beep"
+			],
 			"__use_legacy_max_distance": true
 		},
-		"horizon:spidermine_spawn":{
-			"sounds": ["sounds/spidermines/welding0"],
+		"horizon:spidermine_spawn": {
+			"sounds": [
+				"sounds/spidermines/welding0"
+			],
 			"__use_legacy_max_distance": true
+		},
+		"horizon:repair": {
+			"__use_legacy_max_distance": true,
+			"sounds": [
+				"sounds/mics/repair"
+			]
+		},
+		"horizon:spidermine_hit": {
+			"__use_legacy_max_distance": true,
+			"sounds": [
+				"sounds/spidermines/metal_break",
+				"sounds/spidermines/metal_break1"
+			]
 		}
 	}
 }

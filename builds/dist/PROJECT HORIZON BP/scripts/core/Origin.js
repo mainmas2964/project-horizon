@@ -1,5 +1,5 @@
 import { world, system } from "@minecraft/server";
-import { consumeUsedItem } from "./OriginAbilities.js"
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew } from "./utilities/core_utilities.js"
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 import { openAvailableClassMenu, openClassConfirmMenu } from "./PlayerClass.js"
 import { originsLoc } from "./texts.js"
@@ -134,10 +134,11 @@ export function openOriginConfirmMenu(player, origin, originManager, classManage
     }
     if (res.selection === 0) {
       originManager.assignToPlayer(player, origin.id, loc)
-
-
+      const id = {
+        id: "horizo"
+      }
       if (origin.availableClasses?.length > 0) {
-        consumeUsedItem(player, 1)
+        consumeUsedItemNew(player, 1)
         openAvailableClassMenu(player, origin.availableClasses, classManager, loc);
       }
     }

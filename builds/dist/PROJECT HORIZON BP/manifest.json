@@ -42,7 +42,7 @@
 			"type": "script",
 			"language": "javascript",
 			"uuid": "bffa739d-02b5-49f2-b312-a4be2221df68",
-			"entry": "scripts/mainimp.js",
+			"entry": "scripts/main.js",
 			"version": [
 				1,
 				0,

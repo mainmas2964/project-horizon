@@ -161,11 +161,20 @@
 		"horizon_redstone_impulse": {
 			"textures": "textures/items/abilities/redstone_impulse"
 		},
-		"horizon_graphite_plate": {
-			"textures": "textures/items/graphite_plate"
-		},
 		"horizon_flint_spear": {
 			"textures": "textures/items/flint_spear"
+		},
+		"horizon_simple_component": {
+			"textures": "textures/items/simple_component"
+		},
+		"horizon_fire_element": {
+			"textures": "textures/items/fire_element"
+		},
+		"horizon_electric_element": {
+			"textures": "textures/items/electric_element"
+		},
+		"horizon_ai_module": {
+			"textures": "textures/items/ai_module"
 		}
 	}
 }

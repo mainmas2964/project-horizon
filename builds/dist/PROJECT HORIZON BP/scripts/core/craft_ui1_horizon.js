@@ -1,30 +1,7 @@
 import { world, system } from "@minecraft/server";
 import { CustomForm } from "./customForm_horizon.js";
 import { allRecipes } from "./crafts.js"
-function consumeUsedItem(player, usedStack, amount = 1) {
-  const inv = player.getComponent("minecraft:inventory")?.container;
-  if (!inv) return false;
-
-  let toRemove = amount;
-
-  for (let i = 0; i < inv.size; i++) {
-    const slot = inv.getItem(i);
-    if (!slot || slot.typeId !== usedStack.typeId) continue;
-    if (!slot.isStackableWith(usedStack)) continue;
-
-    if (slot.amount > toRemove) {
-      slot.amount -= toRemove;
-      inv.setItem(i, slot);
-      return true;
-    } else {
-      toRemove -= slot.amount;
-      inv.setItem(i, undefined);
-      if (toRemove <= 0) return true;
-    }
-  }
-
-  return false;
-}
+import { consumeUsedItem, countItems, removeItems } from "core/utilities/core_utilities.js"
 function getRecipesByTags(player) {
   const playerTags = player.getTags();
   let recipes = { ...allRecipes["default"] };
@@ -105,31 +82,6 @@ function processCrafting(player, recipes, recipeKey) {
 
   player.runCommand(`give @s ${recipe.result} ${recipe.count}`);
   player.sendMessage(`§a${recipe.result} x${recipe.count}`);
-}
-
-function countItems(inventory, itemType) {
-  let count = 0;
-  for (let i = 0; i < inventory.size; i++) {
-    let item = inventory.getItem(i);
-    if (item && item.typeId === itemType) count += item.amount;
-  }
-  return count;
-}
-
-function removeItems(inventory, itemType, amount) {
-  for (let i = 0; i < inventory.size; i++) {
-    let item = inventory.getItem(i);
-    if (item && item.typeId === itemType) {
-      if (item.amount > amount) {
-        item.amount -= amount;
-        inventory.setItem(i, item);
-        return;
-      } else {
-        amount -= item.amount;
-        inventory.setItem(i, undefined);
-      }
-    }
-  }
 }
 
 

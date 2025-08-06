@@ -7,10 +7,10 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/spiderbot_hybrid_t1"
+				"default": "textures/entity/spidermines/spiderbot_hybrid_t1"
 			},
 			"geometry": {
-				"default": "geometry.spidermine_1"
+				"default": "geometry.spidermine"
 			},
 			"render_controllers": [
 				"controller.render.spiderbot_hybrid_t1"

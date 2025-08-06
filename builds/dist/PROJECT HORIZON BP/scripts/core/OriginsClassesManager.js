@@ -2,6 +2,7 @@ import { world, system } from "@minecraft/server";
 import { Origin, openOriginSelectionMenu, openOriginConfirmMenu, OriginManager } from "./Origin.js"
 import { ClassManager, openAvailableClassMenu, openClassConfirmMenu, PlayerClass } from "./PlayerClass.js"
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction } from "./utilities/core_utilities.js"
 const originManager = new OriginManager();
 const classManager = new ClassManager()
 export { originManager, classManager }
@@ -98,7 +99,7 @@ classManager.register(new PlayerClass({
 }))
 classManager.register(new PlayerClass({
   id: "redstone_engineer",
-  tags: ["engineer", "redstone_engineer", "engineer_level_r", "engineer_level_c"],
+  tags: ["engineer", "redstone_engineer", "engineer_level_r", "engineer_level_c", "basic_components"],
   availableAbilities: ["redstone_impulse"],
   dynamicProperties: {
     "charge": 0
@@ -106,7 +107,7 @@ classManager.register(new PlayerClass({
 }))
 classManager.register(new PlayerClass({
   id: "mechanist",
-  tags: ["mechanist", "engineer_level_c", "engineer_level_r", "better_spidermines"],
+  tags: ["mechanist", "engineer_level_c", "engineer_level_r", "better_spidermines", "basic_components"],
   availableAbilities: ["drone_station_t1"]
 }))
 

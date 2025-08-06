@@ -7,10 +7,10 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/spidermine_1"
+				"default": "textures/entity/spidermines/spidermine"
 			},
 			"geometry": {
-				"default": "geometry.spidermine_1"
+				"default": "geometry.spidermine"
 			},
 			"render_controllers": [
 				"controller.render.spidermine_1"

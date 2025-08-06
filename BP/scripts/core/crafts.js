@@ -17,6 +17,51 @@ const categories = {
 
 
 const allRecipes = {
+    "basic_components": {
+        "Simple\ncomponent": {
+            cat: categories.components,
+            result: "horizon:simple_component",
+            count: 6,
+            ingredients: {
+                "minecraft:copper_ingot": 4,
+                "horizon:light_steel_ingot": 1
+            },
+            icon: "textures/items/simple_component"
+
+        },
+        "Electric\nelement": {
+            cat: categories.components,
+            result: "horizon:electric_element",
+            count: 6,
+            ingredients: {
+                "minecraft:redstone": 4,
+                "horizon:simple_component": 8
+            },
+            icon: "textures/items/electric_element"
+
+        },
+        "Fire\nelement": {
+            cat: categories.components,
+            result: "horizon:fire_component",
+            count: 4,
+            ingredients: {
+                "horizon:simple_component": 8,
+                "minecraft:blaze_powder": 4
+            },
+            icon: "textures/items/fire_element"
+        },
+        "AI module": {
+            cat: categories.components,
+            result: "horizon:ai_module",
+            count: 1,
+            ingredients: {
+                "horizon:simple_component": 8,
+                "horizon:electric_component": 6,
+                "horizon:redstone": 12
+            },
+            icon: "textures/items/ai_module"
+        }
+    },
     "predecessor": {
         "Torch": {
             cat: categories.basic,
@@ -130,15 +175,6 @@ const allRecipes = {
                 "horizon:light_steel_ingot": 2,
                 "minecraft:gunpowder": 3
             }
-        },
-        "Graphite\nplate": {
-            cat: categories.components,
-            result: "horizon:graphite_plate",
-            count: 2,
-            ingredients: {
-                "minecraft:coal": 6
-            },
-            icon: "textures/items/graphite_plate"
         }
     },
     "guideUC_horizon": {

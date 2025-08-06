@@ -1,14 +1,14 @@
-{
+	{
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "horizon:graphite_plate",
+			"identifier": "horizon:fire_element",
 			"menu_category": {
 				"category": "items"
 			}
 		},
 		"components": {
-			"minecraft:icon": "horizon_graphite_plate"
+			"minecraft:icon": "horizon_fire_element"
 		}
 	}
 }

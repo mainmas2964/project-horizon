@@ -13,14 +13,7 @@ system.beforeEvents.startup.subscribe(event => {
       const newPermutation = BlockPermutation.resolve("horizon:caves_chest_1_opened", {
         "minecraft:facing_direction": facingDirection
       });
-
-      // Заменяем блок на новый с новыми статами
-
       block.setPermutation(newPermutation)
-
-      // Остальной код (звуки, партиклы, лут     block.dimension.playSound("random.chest", { x, y, z });)
-
-
       system.runTimeout(() => {
         block.dimension.spawnParticle("horizon:dust_chest", block);
         block.dimension.runCommand(`loot spawn ${block.location.x} ${block.location.y} ${block.location.z} loot generic_loot`);

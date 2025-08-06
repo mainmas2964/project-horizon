@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.21.90",
 	"minecraft:item": {
 		"description": {
 			"identifier": "horizon:robosphere_t1",
@@ -9,9 +9,9 @@
 		},
 		"components": {
 			"minecraft:icon": "horizon_robosphere_t1",
-			"minecraft:custom_components": [
-				"horizon:robosphere"
-			]
+			"horizon:robosphere": {
+				"spiderbot": "horizon:spidermine_1"
+			}
 		}
 	}
 }
