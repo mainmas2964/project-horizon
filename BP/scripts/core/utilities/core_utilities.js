@@ -6,6 +6,8 @@ import { world, system } from "@minecraft/server"
 
 
 
+
+
 const RedstoneOres = ["minecraft:redstone_ore", "minecraft:deepslate_redstone_ore"]
 const FlowerIDs = [
     "minecraft:dandelion",

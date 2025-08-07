@@ -18,7 +18,7 @@ function startCoreSpread(block) {
         radius: 15,
         speed: 1,
         count: 10,
-        maxSpread: 2000,
+        maxSpread: 100,
         sculkAddonBlock: [
             "minecraft:sculk_shrieker",
             "minecraft:sculk_sensor",

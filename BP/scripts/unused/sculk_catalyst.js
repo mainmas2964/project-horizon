@@ -15,6 +15,7 @@ function findNearestCatalystPosition(origin, target, dimension, radius) {
     let bestPos = null;
     let bestDistance = Infinity;
 
+
     for (let i = 0; i < 20; i++) {  // Вместо полного перебора, 20 случайных попыток
         let pos = {
             x: origin.x + (Math.random() * radius * 2 - radius),
@@ -40,7 +41,7 @@ function findNearestCatalystPosition(origin, target, dimension, radius) {
 // Запуск логики каталиста
 //
 function catalystLogic(catalystBlock) {
-    startSculkSpread(catalystBlock, { radius: 10, count: 3, speed: 50, maxSpread: 123 });
+    startSculkSpread(catalystBlock, { radius: 10, count: 20, speed: 1, maxSpread: 20 });
 
     const target = getTarget();
     if (!target) {

@@ -29,4 +29,12 @@ import "./core/OriginAbilities.js";
 import "./core/diskomet.js"
 import "./core/start.js"
 import "./core/abilities.js"
+import "./unused/debbug_scr.js"
+import "./unused/sculk_biomass.js"
+import "./unused/sculk_catalyst.js"
+import "./unused/sculk_core.js"
+import "./unused/sculk_infection.js"
+import "./unused/sculk_info.js"
+import "./unused/sculk_target.js"
+import "./unused/sculk_utils.js"
 
