@@ -8,6 +8,7 @@ originsLoc = {
         "predecessor": {
             description: "The predecessors are an ancient race that lives in caves and hid there during the beginning of the demon invasion. They are very good at excavation and possess forgotten technologies\n[ Abilities ]\n5 percent chance to get xp when mining\n70 percent chanceget xp when mining ore\nMining stone/ores faster\n[ Basic mining mobile workbench ]\nTorch\iron with coal",
             name: "Predecessor"
+
         },
         "bee": {
             description: "Apid - this race loves flowers, honey... and death! Although bee-like creatures are very fragile, they can poison their enemies (perhaps at the cost of their own lives)\n[ abilities ]\nyou will have 7 stingers, when you make a crit hit, you will consume 1 stinger, and you apply fatal poisoning to the enemy for a few seconds\n[ last hit ]\nif you use your last sting, you and the enemy will take 90 damage and be poisoned to death\nYou'll take more damage\nUsing the flower in your hand, you will restore 1 sting and regenerate some HP\n[ mobile bee workbench ]\nHoneycomb\nGolden honeycomb\nNectar collector\nHoney stinger sword\nHoney bottle",
@@ -19,6 +20,10 @@ originsLoc = {
         },
         "slimecat": {
             name: "Slimecat",
+            description: ""
+        },
+        "robot": {
+            name: "Robot",
             description: ""
         }
     },
@@ -37,6 +42,11 @@ originsLoc = {
         },
         "slimecat": {
             name: "Слаймкот",
+            description: ""
+        }
+        ,
+        "robot": {
+            name: "Робот",
             description: ""
         }
     }

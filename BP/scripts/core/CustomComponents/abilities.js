@@ -1,6 +1,6 @@
 
 import { consumeUsedItem, countItems, removeItems, addAction, spawnSpiderbot } from "core/utilities/core_utilities.js"
-import { system, world } from "@minecraft/server"
+import { system, world, EntityDamageCause } from "@minecraft/server"
 const FlowerIDs = [
     "minecraft:dandelion",
     "minecraft:poppy",
@@ -81,8 +81,11 @@ export const drone_station_t1 = {
             const bot0 = bots1[0];
 
             if (bot0) {
-                bot0.dimension.playSound("horizon:spidermine_dead", bot0.location);
-                bot0.dimension.spawnParticle("horizon:spidermine_spawn_particle", bot0.location);
+                try {
+                    bot0.dimension.playSound("horizon:spidermine_dead", bot0.location);
+                    bot0.dimension.spawnParticle("horizon:spidermine_spawn_particle", bot0.location);
+                }
+                catch { }
 
                 system.runTimeout(() => {
                     bot0.removeTag(tag1)

@@ -1,57 +1,55 @@
-import { world, system } from "@minecraft/server";
+import { system } from "@minecraft/server";
 import { getDistance, isValidPosition, pickRandom } from "./sculk_utils.js";
 
 const DEFAULT_RADIUS = 5;
 const DEFAULT_SPEED = 3;
 const DEFAULT_SPREAD_COUNT = 3;
 const DEFAULT_MAX_SPREAD = 1000;
-const VALID_BLOCKS = ["minecraft:stone", "minecraft:dirt", "minecraft:grass_block", "minecraft:sand", "minecraft:gravel"];
+const VALID_BLOCKS = [
+    "minecraft:stone",
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:sand",
+    "minecraft:gravel"
+];
 const MAX_BLOCK_CHECKS = 25;
 
 let spreadQueue = [];
+let totalSpread = 0; // общий счётчик
 let isRunning = false;
 
-/**
- * Запускает процесс распространения скалка
- */
-// I AM THE DRUG DEALER , I HAVE KILLED A 40 PEOPLE'S 
 export function startSculkSpread(startBlock, options = {}) {
-    if (!startBlock?.location) return;
-    spreadQueue.push({ block: startBlock, options, spreadTotal: 0 });
+    if (!startBlock?.location || !startBlock.dimension) return;
 
-    // Перезапуск заражения, если процесс остановлен
+    spreadQueue.push({ block: startBlock, options });
     if (!isRunning) {
         isRunning = true;
-        system.runInterval(() => {
-            if (spreadQueue.length === 0) {
-                isRunning = false;
-                return;
-            }
-            processSpreadQueue();
-        }, options.speed || DEFAULT_SPEED);
+        processSpreadQueueRecursive();
     }
 }
 
 /**
- * Обрабатывает очередь заражения
+ * Рекурсивная обработка очереди
  */
-function processSpreadQueue() {
-    if (spreadQueue.length === 0) {
+function processSpreadQueueRecursive() {
+    if (spreadQueue.length === 0 || totalSpread >= (spreadQueue[0]?.options.maxSpread || DEFAULT_MAX_SPREAD)) {
         isRunning = false;
         return;
     }
 
-    let { block, options, spreadTotal } = spreadQueue.shift();
+    let { block, options } = spreadQueue.shift();
 
-    // Добавлена проверка maxSpread
-    if (!block?.location || spreadTotal >= (options.maxSpread || DEFAULT_MAX_SPREAD)) return;
+    spreadSculk(block, options);
 
-    spreadSculk(block, options, spreadTotal);
+    // Запускаем следующий цикл через задержку
+    system.runTimeout(() => processSpreadQueueRecursive(), options.speed || DEFAULT_SPEED);
 }
 
-/* блять я ебал моджанг сука следующий разработчик пофикси этот код я ебал это фиксить 
+/**
+ * Распространяем скалк вокруг блока
  */
-function spreadSculk(block, options, spreadTotal) {
+function spreadSculk(block, options) {
+    if (!block?.location) return;
     const spreadCount = options.count || DEFAULT_SPREAD_COUNT;
     const spreadRadius = options.radius || DEFAULT_RADIUS;
     const dimension = block.dimension;
@@ -62,16 +60,18 @@ function spreadSculk(block, options, spreadTotal) {
     let selectedBlocks = pickRandom(candidates, Math.min(spreadCount, candidates.length));
 
     for (let target of selectedBlocks) {
-        infectBlock(target, options);
+        infectBlock(target, options, dimension);
+        totalSpread++;
 
-        // Теперь проверяем maxSpread перед добавлением в очередь
-        if (spreadTotal + 1 < (options.maxSpread || DEFAULT_MAX_SPREAD)) {
-            spreadQueue.push({ block: target.block, options, spreadTotal: spreadTotal + 1 });
+        if (totalSpread < (options.maxSpread || DEFAULT_MAX_SPREAD)) {
+            spreadQueue.push({ block: target.block, options });
         }
     }
 }
 
-
+/**
+ * Получаем случайные блоки рядом
+ */
 function getNearbyBlocks(origin, radius, dimension) {
     let candidates = [];
 
@@ -81,14 +81,11 @@ function getNearbyBlocks(origin, radius, dimension) {
         let z = origin.z + (Math.random() * (2 * radius) - radius);
         let pos = { x: Math.round(x), y: Math.round(y), z: Math.round(z) };
 
-
         if (getDistance(origin, pos) > radius) continue;
-
-
         if (pos.y < -64 || pos.y > 320) continue;
 
         let block = dimension.getBlock(pos);
-        if (block && VALID_BLOCKS.includes(block.typeId) && isValidPosition(pos)) {
+        if (block && VALID_BLOCKS.includes(block.typeId) && isValidPosition(pos, dimension)) {
             candidates.push({ pos, block });
         }
 
@@ -98,14 +95,16 @@ function getNearbyBlocks(origin, radius, dimension) {
     return candidates;
 }
 
-
-function infectBlock(target, options) {
+/**
+ * Заражает блок скалком
+ */
+function infectBlock(target, options, dimension) {
     if (!target?.block) return;
 
     target.block.setType("minecraft:sculk");
 
     let abovePos = { x: target.pos.x, y: target.pos.y + 1, z: target.pos.z };
-    let aboveBlock = target.block.dimension.getBlock(abovePos);
+    let aboveBlock = dimension.getBlock(abovePos);
 
     if (aboveBlock?.typeId === "minecraft:air" && options.sculkAddonBlock && options.growthChance) {
         let blockList = Array.isArray(options.sculkAddonBlock) ? options.sculkAddonBlock : [options.sculkAddonBlock];

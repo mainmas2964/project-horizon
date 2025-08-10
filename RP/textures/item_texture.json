@@ -175,6 +175,9 @@
 		},
 		"horizon_ai_module": {
 			"textures": "textures/items/ai_module"
+		},
+		"horizon_builder_wand": {
+			"textures": "textures/items/builder_wand"
 		}
 	}
 }

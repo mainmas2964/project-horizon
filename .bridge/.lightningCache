@@ -49,20 +49,15 @@ projects/PROJECT HORIZON/BP/items/a_sync/a_sync_helmet_helmet.json|1748363240|{"
 projects/PROJECT HORIZON/BP/items/coins/gold_coin.json|1752828729|{"identifier":["horizon:golden_coins"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/steel/iron_with_coal.json|1748363240|{"identifier":["horizon:iron_with_coal"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/flint/flint_shovel_0.json|1748363240|{"identifier":["horizon:flint_shovel_0"],"tag":["minecraft:is_shovel"],"customComponent":["horizon:durability"]}
-projects/PROJECT HORIZON/BP/items/steel/steel_chestplate.json|1751968804|{"identifier":["horizon:light_steel_chestplate"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/flint/flint_pickaxe_0.json|1748363240|{"identifier":["horizon:flint_pickaxe_0"],"tag":["minecraft:is_pickaxe"],"customComponent":["horizon:durability"]}
 projects/PROJECT HORIZON/BP/items/a_sync/a_sync_chestplate.json|1748363240|{"identifier":["horizon:a_sync_chestplate"],"tag":[]}
-projects/PROJECT HORIZON/BP/items/steel/steel_boots.json|1751962793|{"identifier":["horizon:light_steel_boots"],"tag":[]}
-projects/PROJECT HORIZON/BP/items/steel/steel_helmet.json|1751968660|{"identifier":["horizon:light_steel_helmet"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/coins/silver_coin.json|1752824274|{"identifier":["horizon:silver_coins"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/steel/steel_dagger_triple.json|1748363240|{"identifier":["horizon:steel_dagger_triple"],"tag":["minecraft:is_sword","minecraft:is_tool"]}
-projects/PROJECT HORIZON/BP/items/steel/steel_ingot.json|1751962771|{"identifier":["horizon:light_steel_ingot"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/steel/steel_dagger.json|1748363240|{"identifier":["horizon:steel_dagger"],"tag":["minecraft:is_sword","minecraft:is_tool"]}
 projects/PROJECT HORIZON/BP/items/flint/iron_nugget_with_flint.json|1748363240|{"identifier":["horizon:iron_nugget_with_flint"],"tag":[]}
-projects/PROJECT HORIZON/BP/items/steel/steel_leggings.json|1751968665|{"identifier":["horizon:light_steel_leggings"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/flint/flint_sword.json|1748363240|{"identifier":["horizon:flint_sword"],"tag":["minecraft:is_sword","minecraft:is_tool"]}
 projects/PROJECT HORIZON/BP/items/flint/flint_hoe.json|1748363240|{"identifier":["horizon:flint_hoe"],"tag":["minecraft:is_hoe"],"customComponent":["horizon:durability"]}
-projects/PROJECT HORIZON/BP/items/steel/steel_saw_0.json|1748363240|{"identifier":["horizon:steel_saw_0"],"tag":["minecraft:is_axe"],"customComponent":["horizon:treecapitator","horizon:durability"]}
+projects/PROJECT HORIZON/BP/items/steel/steel_saw_0.json|1754651436|{"identifier":["horizon:steel_saw_0"],"tag":["minecraft:is_axe"],"customComponent":["horizon:treecapitator","horizon:durability"]}
 projects/PROJECT HORIZON/BP/items/copper_drill.json|1752767002|{"identifier":["horizon:copper_drill"],"tag":["minecraft:is_pickaxe"],"customComponent":["horizon:aoe_mining"]}
 projects/PROJECT HORIZON/BP/items/mics/abilities_tablet.json|1753865250|{"identifier":["horizon:abilities_tablet"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/abilities/drone_station_t1.json|1753958353|{"identifier":["horizon:drone_station_t1"],"customComponent":["horizon:drone_station_t1"],"tag":[]}
@@ -73,40 +68,43 @@ projects/PROJECT HORIZON/BP/items/simple_component.json|1754297064|{"identifier"
 projects/PROJECT HORIZON/BP/items/fire_element.json|1754297066|{"identifier":["horizon:fire_element"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/electric_element.json|1754297066|{"identifier":["horizon:electric_element"],"tag":[]}
 projects/PROJECT HORIZON/BP/items/ai_module.json|1754297068|{"identifier":["horizon:ai_module"],"tag":[]}
+projects/PROJECT HORIZON/BP/items/steel/light_steel_chestplate.json|1754651375|{"identifier":["horizon:light_steel_chestplate"],"tag":[]}
+projects/PROJECT HORIZON/BP/items/steel/light_steel_boots.json|1754651393|{"identifier":["horizon:light_steel_boots"],"tag":[]}
+projects/PROJECT HORIZON/BP/items/steel/light_steel_helmet.json|1754651400|{"identifier":["horizon:light_steel_helmet"],"tag":[]}
+projects/PROJECT HORIZON/BP/items/steel/light_steel_leggings.json|1754651410|{"identifier":["horizon:light_steel_leggings"],"tag":[]}
+projects/PROJECT HORIZON/BP/items/steel/light_steel_ingot.json|1754651421|{"identifier":["horizon:light_steel_ingot"],"tag":[]}
+projects/PROJECT HORIZON/BP/items/builder_wand.json|1754680791|{"identifier":["horizon:builder_wand"],"tag":[]}
 #manifest
 projects/PROJECT HORIZON/BP/manifest.json|1754384072
 #functionTick
 projects/PROJECT HORIZON/BP/functions/tick.json|1748363240
 #mcstructure
-projects/PROJECT HORIZON/BP/structures/broken_farmland.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/hoob_house_1.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/ruin_1.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/ruin_2.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/farmland.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/noob_house_2.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/hoob_house_1_a.mcstructure|1754394271
-projects/PROJECT HORIZON/BP/structures/ruin_3.mcstructure|1754394271
+projects/PROJECT HORIZON/BP/structures/broken_farmland.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/hoob_house_1.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/ruin_1.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/ruin_2.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/farmland.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/noob_house_2.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/hoob_house_1_a.mcstructure|1754828835
+projects/PROJECT HORIZON/BP/structures/ruin_3.mcstructure|1754828835
 #gameTest
 projects/PROJECT HORIZON/BP/scripts/core/cc_chest.js|1754407993
 projects/PROJECT HORIZON/BP/scripts/core/craft_ui1_horizon.js|1754388827
 projects/PROJECT HORIZON/BP/scripts/core/customForm_horizon.js|1754039953
-projects/PROJECT HORIZON/BP/scripts/core/Origin.js|1754400658
-projects/PROJECT HORIZON/BP/scripts/core/PlayerClass.js|1754066214
 projects/PROJECT HORIZON/BP/scripts/core/drill_component.js|1752571951
-projects/PROJECT HORIZON/BP/scripts/core/start.js|1752700943
+projects/PROJECT HORIZON/BP/scripts/core/start.js|1754760552
 projects/PROJECT HORIZON/BP/scripts/core/spidermines_1.js|1754206391
 projects/PROJECT HORIZON/BP/scripts/core/drop.js|1748363240
-projects/PROJECT HORIZON/BP/scripts/core/texts.js|1754249481
+projects/PROJECT HORIZON/BP/scripts/core/texts.js|1754836958
 projects/PROJECT HORIZON/BP/scripts/unused/debbug_scr.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/durability (1).js|1748363240
 projects/PROJECT HORIZON/BP/scripts/core/sandbox_script.js|1753451803
-projects/PROJECT HORIZON/BP/scripts/unused/index.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_biomass.js|1748363240
-projects/PROJECT HORIZON/BP/scripts/unused/sculk_core.js|1748363240
+projects/PROJECT HORIZON/BP/scripts/unused/sculk_core.js|1754769656
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_dagger.js|1748363240
-projects/PROJECT HORIZON/BP/scripts/unused/sculk_catalyst.js|1748363240
+projects/PROJECT HORIZON/BP/scripts/unused/sculk_catalyst.js|1754569798
 projects/PROJECT HORIZON/BP/scripts/core/treecapitator.js|1751743232
-projects/PROJECT HORIZON/BP/scripts/unused/sculk_infection.js|1753786220
+projects/PROJECT HORIZON/BP/scripts/unused/sculk_infection.js|1754760553
 projects/PROJECT HORIZON/BP/scripts/core/durability.js|1752571950
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_info.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/dust_f_field.js|1748363240
@@ -114,24 +112,25 @@ projects/PROJECT HORIZON/BP/scripts/unused/sculk_target.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/core/typeIds.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/mars_mudak_ebanyi.js|1748363240
 projects/PROJECT HORIZON/BP/scripts/unused/sculk_utils.js|1748363240
-projects/PROJECT HORIZON/BP/scripts/core/OriginAbilities.js|1754395013
-projects/PROJECT HORIZON/BP/scripts/core/abilities.js|1754066414
-projects/PROJECT HORIZON/BP/scripts/core/OriginsClassesManager.js|1754395049
-projects/PROJECT HORIZON/BP/scripts/core/diskomet.js|1753866469
+projects/PROJECT HORIZON/BP/scripts/core/abilities.js|1754834058
+projects/PROJECT HORIZON/BP/scripts/core/diskomet.js|1754839342
 projects/PROJECT HORIZON/BP/scripts/core/new_AI_core.ts|1754036291
 projects/PROJECT HORIZON/BP/scripts/core/crafts.js|1754338034
-projects/PROJECT HORIZON/BP/scripts/core/main_system.js|1754408247
-projects/PROJECT HORIZON/BP/scripts/main.js|1754408274
-projects/PROJECT HORIZON/BP/scripts/core/utilities/core_utilities.js|1754407994
+projects/PROJECT HORIZON/BP/scripts/core/main_system.js|1754837327
+projects/PROJECT HORIZON/BP/scripts/main.js|1754847011
+projects/PROJECT HORIZON/BP/scripts/core/utilities/core_utilities.js|1754680387
 projects/PROJECT HORIZON/BP/scripts/core/utilities/food_effects.js|1754384365
-projects/PROJECT HORIZON/BP/scripts/core/CustomComponents/customComponents.js|1754400922
-projects/PROJECT HORIZON/BP/scripts/core/CustomComponents/abilities.js|1754407997
-projects/PROJECT HORIZON/BP/scripts/core/CustomComponents/items.js|1754402065
+projects/PROJECT HORIZON/BP/scripts/core/CustomComponents/customComponents.js|1754680460
+projects/PROJECT HORIZON/BP/scripts/core/CustomComponents/abilities.js|1754585298
+projects/PROJECT HORIZON/BP/scripts/core/CustomComponents/items.js|1754680924
 projects/PROJECT HORIZON/BP/scripts/unused/vhs_cam1.js|1754402323
-projects/PROJECT HORIZON/BP/scripts/core/Classes&Origins_system/OriginAbilities.js|1754404390
-projects/PROJECT HORIZON/BP/scripts/core/Classes&Origins_system/Origin.js|1754404379
-projects/PROJECT HORIZON/BP/scripts/core/Classes&Origins_system/PlayerClass.js|1754404385
-projects/PROJECT HORIZON/BP/scripts/core/Classes&Origins_system/OriginsClassesManager.js|1754404400
+projects/PROJECT HORIZON/BP/scripts/core/ClassesOrigins_system/OriginsClassesManager.js|1754859384
+projects/PROJECT HORIZON/BP/scripts/core/ClassesOrigins_system/PlayerClass.js|1754829198
+projects/PROJECT HORIZON/BP/scripts/core/ClassesOrigins_system/Origin.js|1754834330
+projects/PROJECT HORIZON/BP/scripts/core/ClassesOrigins_system/register/classes.js|1754835506
+projects/PROJECT HORIZON/BP/scripts/core/ClassesOrigins_system/register/origins.js|1754836907
+projects/PROJECT HORIZON/BP/scripts/core/ClassesOrigins_system/Abilities.js|1754827785
+projects/PROJECT HORIZON/BP/scripts/core/tickSystem/tick.js|1754859993
 #entity
 projects/PROJECT HORIZON/BP/entities/basic_disk.json|1751894806|{"identifier":["horizon:basic_disk"]}
 projects/PROJECT HORIZON/BP/entities/spidermine_1.json|1754225177|{"identifier":["horizon:spidermine_1"],"event":["horizon:start_exploding"],"eventReference":["horizon:start_exploding"],"family":["spidermine","mob","irongolem","robots_f"]}
@@ -385,7 +384,8 @@ projects/PROJECT HORIZON/RP/textures/items/fire_element.png|1754297007
 projects/PROJECT HORIZON/RP/textures/items/electric_element.png|1754297034
 projects/PROJECT HORIZON/RP/textures/items/ai_module.png|1754297051
 projects/PROJECT HORIZON/RP/textures/entity/spidermines/spidermine.png|1754497344
-projects/PROJECT HORIZON/RP/textures/entity/spidermines/spiderbot_hybrid_t1.png|1754498336
+projects/PROJECT HORIZON/RP/textures/entity/spidermines/spiderbot_hybrid_t1.png|1754499323
+projects/PROJECT HORIZON/RP/textures/items/builder_wand.png|1754651670
 #sound
 projects/PROJECT HORIZON/RP/sounds/break.ogg|1748363240
 projects/PROJECT HORIZON/RP/sounds/electro.ogg|1748363240
@@ -429,7 +429,7 @@ projects/PROJECT HORIZON/RP/render_controllers/basic_disk.json|1751355528|{"iden
 projects/PROJECT HORIZON/RP/render_controllers/slimecat.json|1753259700|{"identifier":["controller.render.slimecat"]}
 projects/PROJECT HORIZON/RP/render_controllers/spiderbot_hybrid_t1.json|1753868853|{"identifier":["controller.render.spiderbot_hybrid_t1"]}
 #clientLang
-projects/PROJECT HORIZON/RP/texts/en_US.lang|1754337703|{"actionText":[]}
+projects/PROJECT HORIZON/RP/texts/en_US.lang|1754651671|{"actionText":[]}
 projects/PROJECT HORIZON/RP/texts/ru_RU.lang|1748363240|{"actionText":[]}
 #soundDefinition
 projects/PROJECT HORIZON/RP/sounds/sound_definitions.json|1754235548|{"identifier":["horizon:spikes_sound","horizon:spidermine_activate","horizon:spidermine_dead","horizon:electro1","horizon:electro2","horizon:electro3","horizon:electro4","horizon:windly","horizon:vhs","horizon:empd","horizon:break","horizon:teleport","horizon:impulse_strange","horizon:explode_lighting","horizon:spidermine_beep","horizon:spidermine_spawn","horizon:repair","horizon:spidermine_hit"]}
@@ -482,17 +482,17 @@ projects/PROJECT HORIZON/RP/textures/terrain_texture.json|1752837902|{"texture":
 projects/PROJECT HORIZON/RP/attachables/copper_leggings.json|1748363240|{"identifier":["horizon:copper_leggings"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.leggings"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/copper_2.png"]}
 projects/PROJECT HORIZON/RP/attachables/heavy_chestplate_chestplate.json|1748363240|{"identifier":["horizon:heavy_chestplate_chestplate"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.chestplate"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/heavy_chestplate_1.png"]}
 projects/PROJECT HORIZON/RP/attachables/a_sync_boots.json|1748363240|{"identifier":["horizon:a_sync_boots"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.a_sync_boots"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/a_sync_boots.png"]}
-projects/PROJECT HORIZON/RP/attachables/steel_boots.json|1748363240|{"identifier":["horizon:steel_boots"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.boots"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_1.png"]}
+projects/PROJECT HORIZON/RP/attachables/steel_boots.json|1754651311|{"identifier":["horizon:light_steel_boots"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.boots"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_1.png"]}
 projects/PROJECT HORIZON/RP/attachables/a_sync_helmet_helmet.json|1748363240|{"identifier":["horizon:a_sync_helmet"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.a_sync_helmet"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/a_sync_helmet.png"]}
 projects/PROJECT HORIZON/RP/attachables/vhs_camera.json|1748363240|{"identifier":["horizon:vhs_camera"],"animationReference":["first_person_hold","third_person_hold"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"animationIdentifier":["animation.vhs_camera.first_person_hold","animation.vhs_camera.third_person_hold"],"materialIdentifier":["entity_alphatest","entity_alphatest_glint"],"geometryIdentifier":["geometry.vhs_camera"],"renderControllerIdentifier":["controller.render.item_default"],"texturePath":["projects/PROJECT HORIZON/RP/textures/entity/vhs_camera.png"]}
 projects/PROJECT HORIZON/RP/attachables/copper_chestplate.json|1748363240|{"identifier":["horizon:copper_chestplate"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.chestplate"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/copper_1.png"]}
 projects/PROJECT HORIZON/RP/attachables/copper_boots.json|1748363240|{"identifier":["horizon:copper_boots"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.boots"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/copper_1.png"]}
 projects/PROJECT HORIZON/RP/attachables/copper_helmet.json|1748363240|{"identifier":["horizon:copper_helmet"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.helmet"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/copper_1.png"]}
 projects/PROJECT HORIZON/RP/attachables/a_sync_chestplate.json|1748363240|{"identifier":["horizon:a_sync_chestplate"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.a_sync_chestplate"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/a-sync_chestplate.png"]}
-projects/PROJECT HORIZON/RP/attachables/steel_chestplate.json|1748363240|{"identifier":["horizon:steel_chestplate"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.chestplate"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_1.png"]}
+projects/PROJECT HORIZON/RP/attachables/steel_chestplate.json|1754651312|{"identifier":["horizon:light_steel_chestplate"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.chestplate"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_1.png"]}
 projects/PROJECT HORIZON/RP/attachables/a_sync_leggings.json|1748363240|{"identifier":["horizon:a_sync_leggings"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.a_sync_leggings"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/a_sync_leggings.png"]}
-projects/PROJECT HORIZON/RP/attachables/steel_helmet.json|1748363240|{"identifier":["horizon:steel_helmet"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.helmet"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_1.png"]}
-projects/PROJECT HORIZON/RP/attachables/steel_leggings.json|1748363240|{"identifier":["horizon:steel_leggings"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.leggings"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_2.png"]}
+projects/PROJECT HORIZON/RP/attachables/steel_helmet.json|1754651314|{"identifier":["horizon:light_steel_helmet"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.helmet"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_1.png"]}
+projects/PROJECT HORIZON/RP/attachables/steel_leggings.json|1754651315|{"identifier":["horizon:light_steel_leggings"],"textureReference":["default","enchanted"],"materialReference":["default","enchanted"],"geometryReference":["default"],"materialIdentifier":["armor","armor_enchanted"],"geometryIdentifier":["geometry.humanoid.armor.leggings"],"renderControllerIdentifier":["controller.render.armor"],"texturePath":["projects/PROJECT HORIZON/RP/textures/models/armor/steel_2.png"]}
 #itemTexture
-projects/PROJECT HORIZON/RP/textures/item_texture.json|1754337702|{"texture":["horizon:copper_coins","horizon:silver_coins","horizon:golden_coins","horizon_dagger_steel_triple_sculk","horizon_steel_dagger_triple","horizon_steel_helmet","horizon_steel_chestplate","horizon_steel_leggings","horizon_steel_boots","horizon_iron_with_coal","horizon_steel_ingot","horizon_steel_dagger","horizon_diamond_shard","horizon_silver_ingot","horizon_raw_silver","horizon_steel_saw_0","horizon_obsidian_dust","horizon_health_mushroom_0","horizon_heavy_chestplate_chestplate","horizon_flint_pickaxe_0","horizon_flint_shovel_0","horizon_flint_axe_0","horizon_flint_sword","horizon_iron_ingot_with_flint","horizon_health_mix_bottle","horizon_big_bottle","horizon_flammable_potion_mix","horizon_ancient_coin","horizon_invisible_scroll","horizon_deadly_katana","horizon_bone_katana","horizon_exposed_copper_pickaxe","horizon_a_sync_chestplate","horizon_a_sync_helmet_helmet","horizon_a_sync_leggings","horizon_a_sync_boots","horizon_vsh_camera","horizon_engineers_sword","horizon_robosphere_t1","horizon_scroll_of_oc","horizon_a_sync_upgrade","horizon_mobile_workbench","horizon_honey_stinger_sword","horizon_golden_honeycomb","horizon_basic_disk_item","horizon_nectar","horizon_nectar_collector","horizon_teleportation","horizon_abilities_tablet","horizon_copper_drill","horizon_drone_station_t1","horizon_slimecat_egg","horizon_redstone_impulse","horizon_flint_spear","horizon_simple_component","horizon_fire_element","horizon_electric_element","horizon_ai_module"],"texturePath":["projects/PROJECT HORIZON/RP/textures/items/diamond_shard.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/steel_dagger.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_chestplate.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_boots.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_leggings.png","projects/PROJECT HORIZON/RP/textures/items/iron_with_flint.png","projects/PROJECT HORIZON/RP/textures/items/heavy_chestplate_chestplate.png","projects/PROJECT HORIZON/RP/textures/items/coins/golden_coins.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/triple_steel_sculk_dagger.png","projects/PROJECT HORIZON/RP/textures/items/obsidian_dust.png","projects/PROJECT HORIZON/RP/textures/items/steel_saw_0.png","projects/PROJECT HORIZON/RP/textures/items/silver_ingot.png","projects/PROJECT HORIZON/RP/textures/items/health_mushroom.png","projects/PROJECT HORIZON/RP/textures/items/flint_pickaxe.png","projects/PROJECT HORIZON/RP/textures/items/coins/copper_coins.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/1000484611.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_leggings.png","projects/PROJECT HORIZON/RP/textures/items/flammable_potion_mix.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/1000484602.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_boots.png","projects/PROJECT HORIZON/RP/textures/items/flint_shovel.png","projects/PROJECT HORIZON/RP/textures/items/invisible_scroll.png","projects/PROJECT HORIZON/RP/textures/items/1000584247.png","projects/PROJECT HORIZON/RP/textures/items/glass_big_bottle.png","projects/PROJECT HORIZON/RP/textures/items/coal_with_iron.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/triple_steel_dagger.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/flint_sword.png","projects/PROJECT HORIZON/RP/textures/items/abilities/drone_station_t1.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_helmet_helmet.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_chestplate.png","projects/PROJECT HORIZON/RP/textures/items/golden_honeycomb.png","projects/PROJECT HORIZON/RP/textures/items/coins/silver_coins.png","projects/PROJECT HORIZON/RP/textures/items/1000657595.png","projects/PROJECT HORIZON/RP/textures/items/ancient_coin.png","projects/PROJECT HORIZON/RP/textures/items/robosphere_t1.png","projects/PROJECT HORIZON/RP/textures/items/steel_ingot.png","projects/PROJECT HORIZON/RP/textures/items/honey_stinger_sword.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_helmet.png","projects/PROJECT HORIZON/RP/textures/items/health_mix.png","projects/PROJECT HORIZON/RP/textures/items/mics/abilities_tablet.png","projects/PROJECT HORIZON/RP/textures/items/mobile_workbench.png","projects/PROJECT HORIZON/RP/textures/items/basic_disk.png","projects/PROJECT HORIZON/RP/textures/items/abilities/teleportation.png","projects/PROJECT HORIZON/RP/textures/items/SlimeCat_SpawnEgg.png","projects/PROJECT HORIZON/RP/textures/items/hazmat_armor_upgrade.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/engineer's_sword.png","projects/PROJECT HORIZON/RP/textures/items/abilities/redstone_impulse.png","projects/PROJECT HORIZON/RP/textures/items/fire_element.png","projects/PROJECT HORIZON/RP/textures/items/vhs_camera.png","projects/PROJECT HORIZON/RP/textures/items/flint_spear.png","projects/PROJECT HORIZON/RP/textures/items/raw_silver.png","projects/PROJECT HORIZON/RP/textures/items/copper_drill.png","projects/PROJECT HORIZON/RP/textures/items/ai_module.png","projects/PROJECT HORIZON/RP/textures/items/electric_element.png","projects/PROJECT HORIZON/RP/textures/items/flint_axe.png","projects/PROJECT HORIZON/RP/textures/items/simple_component.png","projects/PROJECT HORIZON/RP/textures/items/nectare.png","projects/PROJECT HORIZON/RP/textures/items/nectar_collector.png"]}
+projects/PROJECT HORIZON/RP/textures/item_texture.json|1754651671|{"texture":["horizon:copper_coins","horizon:silver_coins","horizon:golden_coins","horizon_dagger_steel_triple_sculk","horizon_steel_dagger_triple","horizon_steel_helmet","horizon_steel_chestplate","horizon_steel_leggings","horizon_steel_boots","horizon_iron_with_coal","horizon_steel_ingot","horizon_steel_dagger","horizon_diamond_shard","horizon_silver_ingot","horizon_raw_silver","horizon_steel_saw_0","horizon_obsidian_dust","horizon_health_mushroom_0","horizon_heavy_chestplate_chestplate","horizon_flint_pickaxe_0","horizon_flint_shovel_0","horizon_flint_axe_0","horizon_flint_sword","horizon_iron_ingot_with_flint","horizon_health_mix_bottle","horizon_big_bottle","horizon_flammable_potion_mix","horizon_ancient_coin","horizon_invisible_scroll","horizon_deadly_katana","horizon_bone_katana","horizon_exposed_copper_pickaxe","horizon_a_sync_chestplate","horizon_a_sync_helmet_helmet","horizon_a_sync_leggings","horizon_a_sync_boots","horizon_vsh_camera","horizon_engineers_sword","horizon_robosphere_t1","horizon_scroll_of_oc","horizon_a_sync_upgrade","horizon_mobile_workbench","horizon_honey_stinger_sword","horizon_golden_honeycomb","horizon_basic_disk_item","horizon_nectar","horizon_nectar_collector","horizon_teleportation","horizon_abilities_tablet","horizon_copper_drill","horizon_drone_station_t1","horizon_slimecat_egg","horizon_redstone_impulse","horizon_flint_spear","horizon_simple_component","horizon_fire_element","horizon_electric_element","horizon_ai_module","horizon_builder_wand"],"texturePath":["projects/PROJECT HORIZON/RP/textures/items/coins/golden_coins.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/triple_steel_dagger.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/steel_dagger.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/triple_steel_sculk_dagger.png","projects/PROJECT HORIZON/RP/textures/items/coins/copper_coins.png","projects/PROJECT HORIZON/RP/textures/items/coins/silver_coins.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_helmet.png","projects/PROJECT HORIZON/RP/textures/items/coal_with_iron.png","projects/PROJECT HORIZON/RP/textures/items/steel_ingot.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_chestplate.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_boots.png","projects/PROJECT HORIZON/RP/textures/items/armor/steel_leggings.png","projects/PROJECT HORIZON/RP/textures/items/silver_ingot.png","projects/PROJECT HORIZON/RP/textures/items/flint_axe.png","projects/PROJECT HORIZON/RP/textures/items/obsidian_dust.png","projects/PROJECT HORIZON/RP/textures/items/steel_saw_0.png","projects/PROJECT HORIZON/RP/textures/items/heavy_chestplate_chestplate.png","projects/PROJECT HORIZON/RP/textures/items/flint_shovel.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/1000484602.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_helmet_helmet.png","projects/PROJECT HORIZON/RP/textures/items/diamond_shard.png","projects/PROJECT HORIZON/RP/textures/items/flint_pickaxe.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_chestplate.png","projects/PROJECT HORIZON/RP/textures/items/health_mushroom.png","projects/PROJECT HORIZON/RP/textures/items/health_mix.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/flint_sword.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/1000484611.png","projects/PROJECT HORIZON/RP/textures/items/flammable_potion_mix.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_leggings.png","projects/PROJECT HORIZON/RP/textures/items/iron_with_flint.png","projects/PROJECT HORIZON/RP/textures/items/armor/a_sync_boots.png","projects/PROJECT HORIZON/RP/textures/items/weapon/mics/engineer's_sword.png","projects/PROJECT HORIZON/RP/textures/items/glass_big_bottle.png","projects/PROJECT HORIZON/RP/textures/items/1000584247.png","projects/PROJECT HORIZON/RP/textures/items/honey_stinger_sword.png","projects/PROJECT HORIZON/RP/textures/items/vhs_camera.png","projects/PROJECT HORIZON/RP/textures/items/abilities/teleportation.png","projects/PROJECT HORIZON/RP/textures/items/robosphere_t1.png","projects/PROJECT HORIZON/RP/textures/items/ancient_coin.png","projects/PROJECT HORIZON/RP/textures/items/1000657595.png","projects/PROJECT HORIZON/RP/textures/items/abilities/drone_station_t1.png","projects/PROJECT HORIZON/RP/textures/items/raw_silver.png","projects/PROJECT HORIZON/RP/textures/items/invisible_scroll.png","projects/PROJECT HORIZON/RP/textures/items/mics/abilities_tablet.png","projects/PROJECT HORIZON/RP/textures/items/flint_spear.png","projects/PROJECT HORIZON/RP/textures/items/basic_disk.png","projects/PROJECT HORIZON/RP/textures/items/abilities/redstone_impulse.png","projects/PROJECT HORIZON/RP/textures/items/mobile_workbench.png","projects/PROJECT HORIZON/RP/textures/items/electric_element.png","projects/PROJECT HORIZON/RP/textures/items/nectare.png","projects/PROJECT HORIZON/RP/textures/items/fire_element.png","projects/PROJECT HORIZON/RP/textures/items/hazmat_armor_upgrade.png","projects/PROJECT HORIZON/RP/textures/items/nectar_collector.png","projects/PROJECT HORIZON/RP/textures/items/copper_drill.png","projects/PROJECT HORIZON/RP/textures/items/ai_module.png","projects/PROJECT HORIZON/RP/textures/items/simple_component.png","projects/PROJECT HORIZON/RP/textures/items/builder_wand.png","projects/PROJECT HORIZON/RP/textures/items/SlimeCat_SpawnEgg.png","projects/PROJECT HORIZON/RP/textures/items/golden_honeycomb.png"]}
 #bridgeConfig

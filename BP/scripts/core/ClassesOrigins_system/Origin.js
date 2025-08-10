@@ -1,17 +1,27 @@
 import { world, system } from "@minecraft/server";
-import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew } from "./utilities/core_utilities.js"
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew } from "core/utilities/core_utilities.js"
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 import { openAvailableClassMenu, openClassConfirmMenu } from "./PlayerClass.js"
-import { originsLoc } from "./texts.js"
+import { originsLoc } from "core/texts.js"
 export class Origin {
-  constructor({ id, name, tags = [], effects = [], onJoin = null, availableClasses = [], dynamicProperties = {} }) {
+  constructor({
+    id,
+    name,
+    tags = [],
+    effects = [],
+    onJoin = null,
+    availableClasses = [],
+    dynamicProperties = {},
+    hidden = false // скрытая ли раса
+  }) {
     this.id = id;
     this.name = name;
     this.tags = tags;
     this.effects = effects;
     this.availableClasses = availableClasses;
     this.dynamicProperties = dynamicProperties;
-
+    this.hidden = hidden;
+    this.onJoin = onJoin;
   }
 
   applyTo(player, loc) {
@@ -20,13 +30,14 @@ export class Origin {
       player.addTag(tag);
     }
 
+    // Устанавливаем динамические свойства
     for (const [key, value] of Object.entries(this.dynamicProperties)) {
       player.setDynamicProperty(key, value);
     }
 
+    if (this.onJoin) this.onJoin(player);
     player.sendMessage(`§a [ You have chosen §b${originsLoc[loc][this.id].name} origin ]`);
   }
-
 
   removeFrom(player) {
     player.removeTag(this.id);
@@ -38,13 +49,13 @@ export class Origin {
       player.removeEffect(effect.id);
     }
 
+    // Очищаем динамические свойства
     for (const key of Object.keys(this.dynamicProperties)) {
-      player.setDynamicProperty(key, undefined); // Или 0/null, в зависимости от типа
+      player.setDynamicProperty(key, undefined);
     }
   }
-
-
 }
+
 export class OriginManager {
   constructor() {
     this.origins = {}; // { id: Origin }
@@ -107,7 +118,8 @@ export function openOriginSelectionMenu(player, originManager, classManager, loc
     .title("Origin choosing \n выбор происхождения")
     .body("");
 
-  const originslist = originManager.listOrigins();
+  const originslist = originManager.listOrigins().filter(o => !o.hidden); // скрытые исключаем
+
   for (const origin of originslist) {
     form.button(originsLoc[loc][origin.id].name);
   }
@@ -117,9 +129,9 @@ export function openOriginSelectionMenu(player, originManager, classManager, loc
     const selectedOrigin = originslist[res.selection];
     if (!selectedOrigin) return;
     openOriginConfirmMenu(player, selectedOrigin, originManager, classManager, loc);
-
   });
 }
+
 export function openOriginConfirmMenu(player, origin, originManager, classManager, loc) {
   const form = new MessageFormData()
     .title(`Origin: ${originsLoc[loc][origin.id].name}`)

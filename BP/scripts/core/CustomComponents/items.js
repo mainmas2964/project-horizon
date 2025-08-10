@@ -1,7 +1,57 @@
-import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew } from "core/utilities/core_utilities.js"
-import { system, world } from "@minecraft/server"
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew, placeNextBatch, isPlaneShape, buildBlockQueue } from "core/utilities/core_utilities.js"
+import { system, world, BlockVolume } from "@minecraft/server"
+import { MessageFormData } from "@minecraft/server-ui"
 
 
+
+
+export const builder_wand = {
+
+    onUseOn(e, { params }) {
+        const { source, block } = e;
+        const pos1 = source.getDynamicProperty("pos1");
+        const pos2 = source.getDynamicProperty("pos2");
+
+        if (!pos1) {
+            source.setDynamicProperty("pos1", block.location);
+            world.sendMessage("pos1 set");
+            return;
+        }
+
+        if (!pos2) {
+            source.setDynamicProperty("pos2", block.location);
+            world.sendMessage("pos2 set");
+            return;
+        }
+
+        const blocksVolume = new BlockVolume(pos1, pos2);
+        const isPlaneMode = source.isSneaking;
+        const inv = source.getComponent("inventory").container;
+
+        const blocks = source.dimension.getBlocks(blocksVolume, { includeTypes: ["minecraft:air"] }, false);
+
+        buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, 100, (blockQueue) => {
+            const countblocks = blockQueue.length;
+            const typeId = block.typeId;
+
+            let message = new MessageFormData()
+                .body(`You need ${countblocks}x ${typeId}, you have ${countItems(inv, typeId)}\nBuild a box?`)
+                .title("Builder Wand")
+                .button1("Yes")
+                .button2("No");
+
+            message.show(source).then(res => {
+                if (res.selection === 0) {
+                    placeNextBatch(blockQueue, inv, typeId, source, params.batch_size, params.ticks_delay);
+                }
+            });
+        });
+
+        source.setDynamicProperty("pos1", undefined);
+        source.setDynamicProperty("pos2", undefined);
+    }
+
+}
 export const robosphere = {
     onUseOn(e, { params }) {
         const origin = e.block.above(); // Блок над местом использования

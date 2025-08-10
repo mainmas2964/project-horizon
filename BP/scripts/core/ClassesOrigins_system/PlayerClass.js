@@ -1,7 +1,7 @@
 import { world, system } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
-import { classLoc } from "./texts.js"
-import { clearAbilites } from "./abilities.js"
+import { classLoc } from "core/texts.js"
+import { clearAbilites } from "core/abilities.js"
 export class PlayerClass {
   constructor({ id, name, description, tags = [], effects = [], dynamicProperties = {}, availableAbilities = [] }) {
     this.id = id;

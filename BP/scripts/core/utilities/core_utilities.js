@@ -147,3 +147,75 @@ export function getWeaponTier(typeId) {
 
     return 0;
 }
+
+
+export function buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, batchSize, onDone) {
+    const iterator = blocks.getBlockLocationIterator();
+    const queue = [];
+
+    function step() {
+        let count = 0;
+        while (count < batchSize) {
+            const next = iterator.next();
+            if (next.done) {
+                onDone(queue);
+                return;
+            }
+
+            const loc = next.value;
+            const block = source.dimension.getBlock(loc);
+            if (block.isAir) {
+                if (isPlaneMode) {
+                    if (isPlaneShape(pos1, pos2, loc)) {
+                        queue.push(loc);
+                    }
+                } else {
+                    queue.push(loc);
+                }
+            }
+
+            count++;
+        }
+
+        system.runTimeout(step, 1); // Следующий тик
+    }
+
+    step();
+}
+
+export function isPlaneShape(pos1, pos2, block) {
+    const minX = Math.min(pos1.x, pos2.x);
+    const maxX = Math.max(pos1.x, pos2.x);
+    const minY = Math.min(pos1.y, pos2.y);
+    const maxY = Math.max(pos1.y, pos2.y);
+    const minZ = Math.min(pos1.z, pos2.z);
+    const maxZ = Math.max(pos1.z, pos2.z);
+
+    const x = block.x;
+    const y = block.y;
+    const z = block.z;
+
+    return (
+        x === minX || x === maxX ||
+        y === minY || y === maxY ||
+        z === minZ || z === maxZ
+    );
+}
+// Постепенная установка блоков
+export function placeNextBatch(queue, inv, typeId, source, batchSize = 5, delayTicks = 1) {
+    for (let i = 0; i < batchSize; i++) {
+        if (queue.length === 0) return;
+
+        const loc = queue.shift();
+        const block = source.dimension.getBlock(loc);
+
+        if (block.isAir && countItems(inv, typeId) > 0) {
+            block.setType(typeId);
+            removeItems(inv, typeId, 1);
+        }
+    }
+
+    system.runTimeout(() => {
+        placeNextBatch(queue, inv, typeId, source, batchSize, delayTicks);
+    }, delayTicks);
+}

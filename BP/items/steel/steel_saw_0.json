@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "horizon:steel_saw_0",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.axe"
+				"category": "none"
 			}
 		},
 		"components": {
