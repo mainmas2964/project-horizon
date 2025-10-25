@@ -3,6 +3,8 @@ import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, co
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 import { openAvailableClassMenu, openClassConfirmMenu } from "./PlayerClass.js"
 import { originsLoc } from "core/texts.js"
+import { processEffects, effectKey } from "./OriginsClassesManager.js"
+import { onApply } from "./onApply.js"
 export class Origin {
   constructor({
     id,
@@ -28,8 +30,11 @@ export class Origin {
     player.addTag(this.id);
     for (const tag of this.tags) {
       player.addTag(tag);
-    }
+      if (!effectKey[tag]) continue;
+      processEffects(player, tag)
 
+    }
+    onApply(this.id, player)
     // Устанавливаем динамические свойства
     for (const [key, value] of Object.entries(this.dynamicProperties)) {
       player.setDynamicProperty(key, value);

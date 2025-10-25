@@ -2,7 +2,7 @@
 import { world, system, ItemStack, EquipmentSlot, ItemTypes, BlockPermutation, ItemEnchantableComponent, EnchantmentTypes } from "@minecraft/server"
 import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction } from "core/utilities/core_utilities.js"
 const stoneKeywords = ["stone", "cobble", "granite", "andesite", "diorite", "deepslate"];
-
+import { processEffects } from "./OriginsClassesManager.js"
 
 // ITEM USING
 // BLOCK BREAK
@@ -63,6 +63,7 @@ const HitEntityPlMap = {
             data.damagingEntity.addTag("nostingers")
             data.hitEntity.applyDamage(90);
             data.damagingEntity.applyDamage(90)
+            processEffects(data.damagingEntity, "nostingers")
         }
         else {
             addAction(data.damagingEntity, `§l§6[0! ]`)
@@ -73,15 +74,15 @@ const HitEntityPlMap = {
         const energy = data.damagingEntity.getDynamicProperty("charge")
         if (energy - (10 + energy * 0.3) < 0) return;
         const { x, y, z } = data.hitEntity.location
-        data.hitEntity.applyDamage(1 + energy * 0.1)
+        data.hitEntity.applyDamage(1 + energy * 0.03)
         data.hitEntity.applyImpulse(data.damagingEntity.getViewDirection())
         system.run(() => {
             data.damagingEntity.dimension.spawnParticle("horizon:explosion_strong", { x, y, z })
             data.damagingEntity.dimension.playSound("horizon:impulse_strange", { x, y, z })
             data.damagingEntity.dimension.playSound("horizon:explode_lighting", { x, y, z })
         })
-        data.damagingEntity.setDynamicProperty("charge", Math.floor(energy - (10 + energy * 0.3)))
-        addAction(data.damagingEntity, `${Math.floor(energy - (10 + energy * 0.3))}(-${Math.floor((10 + energy * 0.3))})`)
+        data.damagingEntity.setDynamicProperty("charge", Math.floor(energy - (10 + energy * 0.05)))
+        addAction(data.damagingEntity, `${Math.floor(energy - (10 + energy * 0.05))}(-${Math.floor((10 + energy * 0.05))})`)
     }
     )
 }
@@ -133,12 +134,12 @@ const EntityHurtFunctionsMap = {
         }
     })
 }
+
 const PlayerButtonInputFunctionsMap = {
     "slimecat": (
         data => {
-
-            const view = data.player.getViewDirection()
-            if (data.button === "Jump" && (!data.player.dimension.getBlock({
+            let t = false
+            if ((!data.player.dimension.getBlock({
                 x: data.player.location.x,
                 y: data.player.location.y - 0.2,
                 z: data.player.location.z
@@ -159,10 +160,12 @@ const PlayerButtonInputFunctionsMap = {
                     x: data.player.location.x + 0.3,
                     y: data.player.location.y - 0.2,
                     z: data.player.location.z - 0.3
-                }).isAir)) {
+                }).isAir)) t = true
+            const view = data.player.getViewDirection()
+            if (data.button === "Jump" && t === true) {
                 data.player.addTag("double_jump_h")
             }
-            else if (data.player.hasTag("double_jump_h") && data.button === "Jump" && data.newButtonState === "Pressed" && data.player.getVelocity().y < 0) {
+            else if (data.player.hasTag("double_jump_h") && data.button === "Jump" && data.newButtonState === "Pressed" && data.player.getVelocity().y < 0.1) {
                 data.player.applyKnockback({ x: view.x * 0.7, z: view.z * 0.7 }, 0.7)
                 data.player.removeTag("double_jump_h")
             }

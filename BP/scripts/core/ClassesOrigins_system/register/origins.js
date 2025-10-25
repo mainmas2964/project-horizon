@@ -40,4 +40,11 @@ export function registerOrigin(originManager) {
         },
         hidden: false
     }))
+    originManager.register(new Origin({
+        id: "sculkborned",
+        tags: ["sculkborned", "sculk_biomass"],
+        dynamicProperties: {
+            "sculk_biomass": 50
+        }
+    }))
 }

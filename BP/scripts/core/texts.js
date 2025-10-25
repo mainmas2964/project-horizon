@@ -25,6 +25,10 @@ originsLoc = {
         "robot": {
             name: "Robot",
             description: ""
+        },
+        "sculkborned": {
+            name: "Sculkborned",
+            dscription: ""
         }
     },
     "ru": {
@@ -48,6 +52,10 @@ originsLoc = {
         "robot": {
             name: "Робот",
             description: ""
+        },
+        "sculkborned": {
+            name: "Скалкорожденный",
+            dscription: ""
         }
     }
 }

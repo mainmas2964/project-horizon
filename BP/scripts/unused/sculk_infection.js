@@ -1,5 +1,8 @@
 import { system } from "@minecraft/server";
 import { getDistance, isValidPosition, pickRandom } from "./sculk_utils.js";
+import { TickTaskScheduler } from "core/tickSystem/tick.js"
+
+const schedule = new TickTaskScheduler(10)
 
 const DEFAULT_RADIUS = 5;
 const DEFAULT_SPEED = 3;

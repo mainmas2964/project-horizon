@@ -28,9 +28,9 @@ export const builder_wand = {
         const isPlaneMode = source.isSneaking;
         const inv = source.getComponent("inventory").container;
 
-        const blocks = source.dimension.getBlocks(blocksVolume, { includeTypes: ["minecraft:air"] }, false);
+        const blocks = source.dimension.getBlocks(blocksVolume, { includeTypes: ["minecraft:air"] }, true);
 
-        buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, 100, (blockQueue) => {
+        buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, 500, (blockQueue) => {
             const countblocks = blockQueue.length;
             const typeId = block.typeId;
 
@@ -54,12 +54,11 @@ export const builder_wand = {
 }
 export const robosphere = {
     onUseOn(e, { params }) {
-        const origin = e.block.above(); // Блок над местом использования
+        const origin = e.block.above();
         const dim = origin.dimension;
 
-        // Все потенциальные позиции спавна (в порядке приоритета)
         const candidates = [
-            origin.location, // Прямо над местом клика
+            origin.location,
             { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z },
             { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z },
             { x: origin.location.x, y: origin.location.y, z: origin.location.z + 1 },
@@ -68,19 +67,17 @@ export const robosphere = {
             { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z - 1 },
             { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z + 1 },
             { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z - 1 },
-            { x: origin.location.x, y: origin.location.y + 1, z: origin.location.z }, // Один блок выше
-            { x: origin.location.x, y: origin.location.y - 1, z: origin.location.z }  // Один блок ниже
+            { x: origin.location.x, y: origin.location.y + 1, z: origin.location.z },
+            { x: origin.location.x, y: origin.location.y - 1, z: origin.location.z }
         ];
 
-        // Фильтруем только свободные (воздушные) блоки
         const freeSpots = candidates.filter(pos => {
             const block = dim.getBlock(pos);
             return block && block.isAir;
         });
 
-        if (freeSpots.length < 2) return; // Недостаточно места для спавна
+        if (freeSpots.length < 2) return;
 
-        // Спавн мобов
         const pos1 = freeSpots[0];
         const pos2 = freeSpots[1];
 
@@ -103,7 +100,6 @@ export const robosphere = {
             s2.addEffect("resistance", 20000000, { amplifier: 1, showParticles: false })
         }
 
-        // Эффект партиклов
         dim.spawnParticle("horizon:spidermine_spawn_particle", {
             x: pos1.x + 0.5,
             y: pos1.y + 0.5,
@@ -138,7 +134,7 @@ export const nectar_collector = {
         const durability = itemStack.getComponent('minecraft:durability');
         const inventory = e.source.getComponent("minecraft:inventory").container;
         let unbreaking = 0;
-        // Проверяемьлыдды
+
         if (itemStack.hasComponent("minecraft:enchantable")) {
             const ench = itemStack.getComponent(ItemEnchantableComponent.componentId);
             if (ench) { // Проверяем ь и компонент зачарования

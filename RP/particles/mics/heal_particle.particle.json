@@ -5,7 +5,7 @@
 			"identifier": "horizon:heal_particle",
 			"basic_render_parameters": {
 				"material": "particles_blend",
-				"texture":"textures/particle/mics/heal_particle"
+				"texture": "textures/particle/mics/heal_particle"
 			}
 		},
 		"components": {
@@ -18,24 +18,41 @@
 			},
 			"minecraft:emitter_shape_sphere": {
 				"radius": 1.5,
-				"direction": [0, 5, 0]
+				"direction": [
+					0,
+					5,
+					0
+				]
 			},
 			"minecraft:particle_lifetime_expression": {
 				"max_lifetime": 1
 			},
 			"minecraft:particle_initial_speed": 5,
 			"minecraft:particle_motion_dynamic": {
-				"linear_acceleration": [0, 6, 0],
+				"linear_acceleration": [
+					0,
+					6,
+					0
+				],
 				"linear_drag_coefficient": 4
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.2, 0.2],
+				"size": [
+					0.2,
+					0.2
+				],
 				"facing_camera_mode": "rotate_xyz",
 				"uv": {
 					"texture_width": 5,
 					"texture_height": 5,
-					"uv": [0, 0],
-					"uv_size": [5, 5]
+					"uv": [
+						0,
+						0
+					],
+					"uv_size": [
+						5,
+						5
+					]
 				}
 			},
 			"minecraft:particle_appearance_tinting": {

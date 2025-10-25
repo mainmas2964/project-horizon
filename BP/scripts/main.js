@@ -28,4 +28,5 @@ import "./core/ClassesOrigins_system/OriginsClassesManager.js"
 import "./core/diskomet.js"
 import "./core/start.js"
 import "./core/abilities.js"
+import "./core/sculk/sculk_infection.js"
 

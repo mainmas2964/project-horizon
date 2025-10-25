@@ -12,51 +12,70 @@ export { originManager, classManager }
 import { registerClass } from "./register/classes.js"
 import { registerOrigin } from "./register/origins.js"
 import { TickTaskScheduler } from "core/tickSystem/tick.js"
-const sheduler = new TickTaskScheduler()
+const scheduler = new TickTaskScheduler({ maxTasksPerTick: 15, metaKey: "horizon:originsclasses_manager", saveKey: "horizon:originsclasses_manager_save" })
+
 const effectKey = {
   "firer": {
     effect: "fire_resistance",
     duration: 200,
     amplifier: 1,
     showparticles: false
+  },
+  "nostingers": {
+    effect: "fatal_poison",
+    duration: 200,
+    amplifier: 1,
+    showparticles: false
+  },
+  "morehealth": {
+    effect: "health_boost",
+    duration: 200,
+    amplifier: 1,
+    showparticles: false
   }
 }
-sheduler.registerTaskFactory("effects", (data, resolveTarget) => {
+export { scheduler }
+scheduler.registerTaskFactory("effects", (data, resolveTarget) => {
   return (target) => {
-    if (!target) return false; // цель исчезла — удаляем задачу
-    target.addEffect(data.effect, data.duration, { amplifier: data.amplifier, showparticles: data.showparticles });
+    if (!target) return true;
+    target.addEffect(data.effect, data.duration, { amplifier: data.amplifier, showParticles: false });
     if (!target.hasTag(data.key)) return false;
     return true;
   };
 });
-
-world.afterEvents.playerJoin.subscribe(data => {
-  const player = world.getEntity(data.playerId);
-  const tags = player.getTags();
-
-  for (const key of tags) {
-    if (!effectKey[key]) continue; // пропускаем только этот тег, но продолжаем цикл
-
-    sheduler.addTask(null, {
-      delay: 1,
-      repeat: 5,
-      priority: "normal",
-      persist: true,
-      type: "effects",
-      data: {
-        effect: effectKey[key].effect,
-        duration: effectKey[key].duration,
-        amplifier: effectKey[key].amplifier,
-        showparticles: effectKey[key].showparticles,
-        key: key
-      },
-      customId: `effect_${effectKey[key].effect}_${player.id}`, // уникальный ID
-      replace: true,
-      target: player
-    });
-  }
+scheduler.registerTaskFactory("tick_task", (data, resolveTarget) => {
+  return () => {
+    world.sendMessage("Task1");
+    return true; // оставляем задачу
+  };
+});
+scheduler.loadTasks()
+system.run(() => {
+  console.log("SAVE:", world.getDynamicProperty("horizon:scheduler_tasks")?.slice?.(0, 300) ?? "NO SAVE");
+  console.log("META:", world.getDynamicProperty("horizon:scheduler_tasks_meta"));
 });
 
+// 2. Добавляем задачу при использовании предмета
+
+function processEffects(player, key) {
+  scheduler.addTask(null, {
+    delay: 1,
+    repeat: 5,
+    priority: "normal",
+    persist: true,
+    type: "effects",
+    data: {
+      effect: effectKey[key].effect,
+      duration: effectKey[key].duration,
+      amplifier: effectKey[key].amplifier,
+      key: key
+    },
+    customId: `effect_${effectKey[key].effect}_${player.id}`,
+    replace: true,
+    target: player
+  });
+}
+export { processEffects, effectKey }
 
 world.afterEvents.itemUse.subscribe(event => {
   if (event.itemStack.typeId === "horizon:scroll_of_oc") {
@@ -86,7 +105,15 @@ world.afterEvents.itemUse.subscribe(event => {
     // после выбора откроется меню классов
   }
 });
+world.afterEvents.playerJoin.subscribe(data => {
+  const player = world.getEntity(data.playerId)
+  for (const tag of player.getTags()) {
+    player.addTag(tag);
+    if (!effectKey[tag]) continue;
+    processEffects(player, tag)
 
+  }
+})
 world.afterEvents.itemUse.subscribe(event => {
   if (event.itemStack.typeId != "horizon:abilities_tablet") return;
   const classp = classManager.getPlayerClass(event.source);

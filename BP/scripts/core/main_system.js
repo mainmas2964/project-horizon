@@ -2,6 +2,9 @@ import { world, system, ItemStack, EquipmentSlot, EntityDamageCause, BlockPermut
 // Механика улучшенной невидимости
 import { consumeUsedItem, countItems, removeItems } from "core/utilities/core_utilities.js"
 import { MessageFormData } from "@minecraft/server-ui"
+import { TickTaskScheduler } from "core/tickSystem/tick.js"
+const scheduler = new TickTaskScheduler({ saveKey: "main_system_save", maxTasksPerTick: 10, metaKey: "main_system" })
+
 world.afterEvents.entityHitEntity.subscribe(event => {
   if (event.damagingEntity.getEffect("minecraft:invisibility")) {
     const effect = event.damagingEntity.getEffect("minecraft:invisibility").duration;
@@ -9,7 +12,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
       const invisible = event.damagingEntity.getEffect("minecraft:invisibility");
       event.damagingEntity.removeEffect("minecraft:invisibility");
       system.runTimeout(() => {
-        event.damagingEntity.addEffect("minecraft:invisibility", effect, { amplifier: 1 })
+        event.damagingEntity.addEffect("minecraft:invisibility", effect, { amplifier: 1, showParticles: false })
       }, 50)
     } else {
       event.damagingEntity.removeEffect("minecraft:invisibility")
@@ -47,7 +50,7 @@ world.beforeEvents.itemUse.subscribe(({ source: player, itemStack }) => {
   let inventory = player.getComponent("minecraft:inventory").container;
   if (countItems(inventory, "minecraft:lapis_lazuli") < 3) return;
   const targets = player.getEntitiesFromViewDirection({
-    maxDistance: 10,
+    maxDistance: 15,
     maxResults: 1,
     excludeSpectators: true,
   });

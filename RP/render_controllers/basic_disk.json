@@ -2,14 +2,14 @@
 	"format_version": "1.20.80",
 	"render_controllers": {
 		"controller.render.basic_disc": {
-			"geometry": "Geometry.default",
+			"geometry": "geometry.default",
 			"materials": [
 				{
-					"*": "Material.default"
+					"*": "material.default"
 				}
 			],
 			"textures": [
-				"Texture.default"
+				"texture.default"
 			]
 		}
 	}

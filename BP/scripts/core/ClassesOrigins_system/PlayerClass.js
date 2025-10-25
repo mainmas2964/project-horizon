@@ -2,6 +2,7 @@ import { world, system } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 import { classLoc } from "core/texts.js"
 import { clearAbilites } from "core/abilities.js"
+import { processEffects, effectKey } from "./OriginsClassesManager.js"
 export class PlayerClass {
   constructor({ id, name, description, tags = [], effects = [], dynamicProperties = {}, availableAbilities = [] }) {
     this.id = id;
@@ -18,6 +19,8 @@ export class PlayerClass {
     player.addTag(this.id);
     for (const tag of this.tags) {
       player.addTag(tag);
+      if (!effectKey[tag]) continue;
+      processEffects(player, tag)
     }
 
     for (const [key, value] of Object.entries(this.dynamicProperties)) {

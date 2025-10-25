@@ -21,7 +21,7 @@ const allRecipes = {
         "Simple\ncomponent": {
             cat: categories.components,
             result: "horizon:simple_component",
-            count: 6,
+            count: 12,
             ingredients: {
                 "minecraft:copper_ingot": 4,
                 "horizon:light_steel_ingot": 1
@@ -32,21 +32,21 @@ const allRecipes = {
         "Electric\nelement": {
             cat: categories.components,
             result: "horizon:electric_element",
-            count: 6,
+            count: 8,
             ingredients: {
                 "minecraft:redstone": 4,
-                "horizon:simple_component": 8
+                "horizon:simple_component": 4
             },
             icon: "textures/items/electric_element"
 
         },
         "Fire\nelement": {
             cat: categories.components,
-            result: "horizon:fire_component",
-            count: 4,
+            result: "horizon:fire_element",
+            count: 5,
             ingredients: {
-                "horizon:simple_component": 8,
-                "minecraft:blaze_powder": 4
+                "horizon:simple_component": 2,
+                "minecraft:blaze_powder": 2
             },
             icon: "textures/items/fire_element"
         },
@@ -55,14 +55,19 @@ const allRecipes = {
             result: "horizon:ai_module",
             count: 1,
             ingredients: {
-                "horizon:simple_component": 8,
-                "horizon:electric_component": 6,
-                "horizon:redstone": 12
+                "horizon:simple_component": 5,
+                "horizon:electric_element": 5,
+                "minecraft:redstone": 4
             },
             icon: "textures/items/ai_module"
         }
     },
     "predecessor": {
+        "Simple component\n(primitive)":{
+            cat: categories.components,
+            result: "horizon:simple_component",
+            count: "4"
+        },
         "Torch": {
             cat: categories.basic,
             result: "minecraft:torch",
@@ -81,6 +86,18 @@ const allRecipes = {
             ingredients: {
                 "minecraft:iron_ingot": 1,
                 "minecraft:coal": 1
+            }
+        },
+        "Copper drill": {
+            cat: categories.basic,
+            result: "horizon:copper_drill",
+            count: 1,
+            icon: "textures/items/copper_drill",
+            ingredients: {
+                "minecraft:copper_block": 3,
+                "minecraft:lever": 1,
+                "minecraft:copper_ingot": 5
+
             }
         }
     },
@@ -168,12 +185,13 @@ const allRecipes = {
         "Robosphere\nT1": {
             cat: categories.gadgets,
             result: "horizon:robosphere_t1",
-            count: 1,
+            count: 3,
             icon: "textures/items/robosphere_t1",
             ingredients: {
-                "minecraft:redstone": 6,
-                "horizon:light_steel_ingot": 2,
-                "minecraft:gunpowder": 3
+                "horizon:simple_component": 7,
+                "horizon:electric_element": 4,
+                "horizon:fire_element": 6,
+                "horizon:ai_module": 2
             }
         }
     },

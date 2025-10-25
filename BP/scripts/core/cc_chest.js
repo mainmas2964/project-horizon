@@ -13,7 +13,6 @@ system.beforeEvents.startup.subscribe(event => {
       const newPermutation = BlockPermutation.resolve("horizon:caves_chest_1_opened", {
         "minecraft:facing_direction": facingDirection
       });
-      
       block.setPermutation(newPermutation)
       system.runTimeout(() => {
         block.dimension.spawnParticle("horizon:dust_chest", block);

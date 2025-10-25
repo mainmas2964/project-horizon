@@ -24,13 +24,13 @@
 						"items": [
 							"minecraft:copper_block"
 						],
-						"repair_amount": "query.max_durability * 0.25"
+						"repair_amount": "query.max_durability*0.25"
 					},
 					{
 						"items": [
 							"horizon:copper_drill"
 						],
-						"repair_amount": "context.other->query.remaining_durability + 0.12 * context.other->query.max_durability"
+						"repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
 					}
 				]
 			},

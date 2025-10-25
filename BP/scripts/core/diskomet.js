@@ -6,7 +6,7 @@ import { system, world, Direction } from "@minecraft/server";
  */
 const DEFAULTS = {
   ttlTicks: 20 * 6, // 6 секунд
-  maxBounces: 4,
+  maxBounces: 25,
   bounciness: 0.75, // коэффициент сохранения скорости после удара
   minSpeedToKeep: 0.08, // если скорость мала — убираем снаряд
   spawnOffset: 0.6, // насколько смещать снаряд от поверхности чтобы не застрял

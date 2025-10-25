@@ -17,7 +17,7 @@ export function registerClass(classManager) {
         tags: ["engineer", "redstone_engineer", "engineer_level_r", "engineer_level_c", "basic_components"],
         availableAbilities: ["redstone_impulse"],
         dynamicProperties: {
-            "charge": 0
+            "charge": 250
         }
     }))
     classManager.register(new PlayerClass({
