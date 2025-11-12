@@ -4,14 +4,17 @@
 		"description": {
 			"identifier": "horizon:builder_wand",
 			"menu_category": {
-				"category": "items"
+				"category": "equipment"
 			}
 		},
 		"components": {
 			"minecraft:icon": "horizon_builder_wand",
 			"horizon:builder_wand": {
-				"batch_size": 5,
+				"batch_size": 10,
 				"ticks_delay": 2
+			},
+			"minecraft:max_stack_size": {
+				"value": 1
 			}
 		}
 	}

@@ -2,7 +2,7 @@ import { world, system } from "@minecraft/server";
 import { Origin, openOriginSelectionMenu, openOriginConfirmMenu, OriginManager } from "./Origin.js"
 import { ClassManager, openAvailableClassMenu, openClassConfirmMenu, PlayerClass } from "./PlayerClass.js"
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
-import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction } from "core/utilities/core_utilities.js"
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, FlowerIDs } from "core/utilities/core_utilities.js"
 const originManager = new OriginManager();
 const classManager = new ClassManager()
 import "./register/classes.js"
@@ -32,6 +32,12 @@ const effectKey = {
     duration: 200,
     amplifier: 1,
     showparticles: false
+  },
+  "robot": {
+    effect: "saturation",
+    duration: 200,
+    amplifier: 1,
+    showparticles: false
   }
 }
 export { scheduler }
@@ -49,11 +55,18 @@ scheduler.registerTaskFactory("tick_task", (data, resolveTarget) => {
     return true; // оставляем задачу
   };
 });
+scheduler.registerTaskFactory("bee_nectar_collecting", (data, resolveTarget) => {
+  return (target) => {
+    if (!target.isSneaking || !FlowerIDs.includes(target.dimension.getBlock(target.location).typeId)) return false;
+    scheduler.resolveCurrentData(data.id, ["data", "timer"], data.timer + 1)
+    if (data.timer >= 10) {
+      console.warn("hello")
+    }
+    return true;
+  }
+})
 scheduler.loadTasks()
-system.run(() => {
-  console.log("SAVE:", world.getDynamicProperty("horizon:scheduler_tasks")?.slice?.(0, 300) ?? "NO SAVE");
-  console.log("META:", world.getDynamicProperty("horizon:scheduler_tasks_meta"));
-});
+
 
 // 2. Добавляем задачу при использовании предмета
 
@@ -80,6 +93,7 @@ export { processEffects, effectKey }
 world.afterEvents.itemUse.subscribe(event => {
   if (event.itemStack.typeId === "horizon:scroll_of_oc") {
     if (event.source.hasTag("en")) {
+
       openOriginSelectionMenu(event.source, originManager, classManager, "en")
     }
     else if (event.source.hasTag("ru")) {

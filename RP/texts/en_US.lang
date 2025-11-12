@@ -108,3 +108,4 @@ item.horizon:fire_element=Fire element
 item.horizon:electric_element=Electric element
 item.horizon:ai_module=AI module
 item.horizon:builder_wand=Builder wand
+item.bridge:prototype_of_builder_wand=Prototype of builder wand

@@ -1,4 +1,4 @@
-import { world, system } from "@minecraft/server";
+import { world, system, HudElement, HudVisibility } from "@minecraft/server";
 import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew } from "core/utilities/core_utilities.js"
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 import { openAvailableClassMenu, openClassConfirmMenu } from "./PlayerClass.js"
@@ -34,6 +34,7 @@ export class Origin {
       processEffects(player, tag)
 
     }
+    player.onScreenDisplay.resetHudElementsVisibility()
     onApply(this.id, player)
     // Устанавливаем динамические свойства
     for (const [key, value] of Object.entries(this.dynamicProperties)) {
@@ -152,7 +153,7 @@ export function openOriginConfirmMenu(player, origin, originManager, classManage
     if (res.selection === 0) {
       originManager.assignToPlayer(player, origin.id, loc)
       const id = {
-        id: "horizo"
+        id: "horizon"
       }
       if (origin.availableClasses?.length > 0) {
         consumeUsedItemNew(player, 1)

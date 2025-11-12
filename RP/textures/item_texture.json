@@ -71,6 +71,9 @@
 		"horizon_flint_sword": {
 			"textures": "textures/items/weapon/mics/flint_sword"
 		},
+		"horizon:flint_hoe": {
+			"textures": "textures/items/flint_hoe"
+		},
 		"horizon_iron_ingot_with_flint": {
 			"textures": "textures/items/iron_with_flint"
 		},
@@ -178,6 +181,9 @@
 		},
 		"horizon_builder_wand": {
 			"textures": "textures/items/builder_wand"
+		},
+		"bridge_prototype_of_builder_wand": {
+			"textures": "textures/items/prototype_of_builder_wand"
 		}
 	}
 }

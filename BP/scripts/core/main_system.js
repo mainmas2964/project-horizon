@@ -8,7 +8,7 @@ const scheduler = new TickTaskScheduler({ saveKey: "main_system_save", maxTasksP
 world.afterEvents.entityHitEntity.subscribe(event => {
   if (event.damagingEntity.getEffect("minecraft:invisibility")) {
     const effect = event.damagingEntity.getEffect("minecraft:invisibility").duration;
-    if (event.damagingEntity.hasTag("horizon: adv_invisible")) {
+    if (event.damagingEntity.hasTag("horizon:adv_invisible")) {
       const invisible = event.damagingEntity.getEffect("minecraft:invisibility");
       event.damagingEntity.removeEffect("minecraft:invisibility");
       system.runTimeout(() => {

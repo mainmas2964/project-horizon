@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "horizon:silver_block",
 			"menu_category": {
-				"category": "construction"
+				"category": "none"
 			}
 		},
 		"components": {

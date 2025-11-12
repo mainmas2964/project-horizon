@@ -1,4 +1,4 @@
-import { world, system, BlockVolume } from "@minecraft/server"
+import { world, system, BlockVolume, EntityDamageCause } from "@minecraft/server"
 import { TickTaskScheduler } from "core/tickSystem/tick.js"
 import { getDistance } from "core/utilities/core_utilities.js"
 const sculkSystem = new TickTaskScheduler({
@@ -97,7 +97,7 @@ sculkSystem.registerTaskFactory("sculk_worm_infection_entity_target", (data, res
                     target.location,
                     targetEntity.location,
                     target.dimension,
-                    1
+                    1.5
                 );
             }
         }
@@ -105,7 +105,11 @@ sculkSystem.registerTaskFactory("sculk_worm_infection_entity_target", (data, res
             nextPos = findRandomInfectPos(target.location, target.dimension, 1);
         }
         if (targetEntity && getDistance(targetEntity.location, target.location) <= 3) {
-            targetEntity.applyDamage(5);
+            targetEntity.applyDamage(1, {
+                cause: "entityAttack",
+                damagingEntity: world.getEntity(data.targetOwnerId)
+            });
+
         }
         if (nextPos) {
             sculkSystem.resolveCurrentTarget(data.id, target.dimension.getBlock(nextPos))
@@ -122,16 +126,20 @@ sculkSystem.registerTaskFactory("sculk_worm_infection_entity_target", (data, res
 
 sculkSystem.loadTasks()
 
-export function startSculkInfect(biomass, targetEntityID, source) {
+export function startSculkInfect(biomass, entity, source, id) {
     sculkSystem.addTask(null, {
         delay: 5,
+        customId: id,
         repeat: 1,
         priority: "normal",
         persist: true,
         type: "sculk_worm_infection_entity_target",
         data: {
             biomass: biomass,
-            targetEntityId: targetEntityID
+            targetEntityId: entity.length > 0 ? entity[0].entity.id : false,
+            targetOwnerId: source.id,
+            id: id,
+            waitingTime: 100000
         },
         target: source.dimension.getBlockBelow(source.location),
         replace: true
@@ -146,21 +154,8 @@ world.afterEvents.itemUse.subscribe(data => {
         ignoreBlockCollision: true
     });
     const id = Math.floor(Date.now() * 100)
+    startSculkInfect(150, entity, source, id)
 
-    sculkSystem.addTask(null, {
-        delay: 5,
-        customId: id,
-        repeat: 1,
-        priority: "normal",
-        persist: true,
-        type: "sculk_worm_infection_entity_target",
-        data: {
-            biomass: 100,
-            targetEntityId: entity.length > 0 ? entity[0].entity.id : false,
-            id: id,
-            waitingTime: 100000
-        },
-        target: source.dimension.getBlockBelow(source.location),
-        replace: true
-    });
+
+
 });

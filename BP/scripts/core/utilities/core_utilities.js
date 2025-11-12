@@ -6,7 +6,7 @@ import { world, system } from "@minecraft/server"
 
 
 const RedstoneOres = ["minecraft:redstone_ore", "minecraft:deepslate_redstone_ore"]
-const FlowerIDs = [
+export const FlowerIDs = [
     "minecraft:dandelion",
     "minecraft:poppy",
     "minecraft:blue_orchid",
@@ -199,8 +199,10 @@ export function isPlaneShape(pos1, pos2, block) {
         z === minZ || z === maxZ
     );
 }
-// Постепенная установка блоков
-export function placeNextBatch(queue, inv, typeId, source, batchSize = 5, delayTicks = 1) {
+
+export function placeNextBatch(queue, inv, typeId, source, batchSize = 1, delayTicks = 5, useDurability = false, durabilityValue = 0.1, itemStack) {
+
+
     for (let i = 0; i < batchSize; i++) {
         if (queue.length === 0) return;
 
@@ -210,13 +212,35 @@ export function placeNextBatch(queue, inv, typeId, source, batchSize = 5, delayT
         if (block.isAir && countItems(inv, typeId) > 0) {
             block.setType(typeId);
             removeItems(inv, typeId, 1);
+
+
+            if (useDurability && itemStack) {
+
+
+
+                if (Math.random() < durabilityValue) {
+                    const durability = itemStack.getComponent('minecraft:durability');
+                    const inv = source.getComponent("minecraft:inventory").container;
+                    if (durability.damage + 1 <= durability.maxDurability) {
+                        durability.damage += 1;
+                        inv.setItem(source.selectedSlotIndex, itemStack);
+                    } else {
+
+                        inv.setItem(source.selectedSlotIndex, undefined);
+                        source.playSound("random.break");
+                        return;
+                    }
+                }
+            }
         }
     }
 
+
     system.runTimeout(() => {
-        placeNextBatch(queue, inv, typeId, source, batchSize, delayTicks);
+        placeNextBatch(queue, inv, typeId, source, batchSize, delayTicks, useDurability, durabilityValue);
     }, delayTicks);
 }
+
 
 
 export function getDistance(pos1, pos2) {

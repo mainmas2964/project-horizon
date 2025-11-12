@@ -1,20 +1,21 @@
 
 import { addAction } from "core/utilities/core_utilities.js"
-import { world, system } from "@minecraft/server"
+import { world, system, HudElement, HudVisibility } from "@minecraft/server"
 import { TickTaskScheduler } from "core/tickSystem/tick.js"
 const scheduler = new TickTaskScheduler({ maxTasksPerTick: 5, saveKey: "123", metaKey: "12345" })
 scheduler.registerTaskFactory("display_robot_charge", (data, resolveTarget) => {
     return (target) => {
         const player = target;
-
-        if (!player) return true; // ждём появления игрока
-        if (!player?.hasTag("robot")) return false
+        if (!player) return true;
+        if (!player?.hasTag("robot")) return false;
         let charge = player.getDynamicProperty("charge") ?? 100;
         addAction(player, `${player.getDynamicProperty("charge") ?? 0}`);
+        player.onScreenDisplay.setHudVisibility(HudVisibility.Hide, [HudElement.Hunger])
         if (!target.isInWater || charge === 0) return true;
         player.setDynamicProperty("charge", charge - 1);
         addAction(player, `${charge - 1} (-1)`);
         player.applyDamage(5)
+
         return true;
 
     };
@@ -70,6 +71,8 @@ const applyObjectives = {
             target: player
         });
         startPermanentTextRobot(player, 20)
+
+
     })
 }
 export function onApply(applyData, player) {
@@ -79,7 +82,10 @@ export function onApply(applyData, player) {
 
 scheduler.loadTasks()
 
-
+world.afterEvents.playerJoin.subscribe(data => {
+    const player = world.getEntity(data.playerId)
+    onApply(applyObjectives, player)
+})
 scheduler.registerTaskFactory("applyTaskCommand", (data, resolveTarget) => {
     return (target) => {
         if (!target.hasTag(data.tag)) return false
@@ -89,5 +95,3 @@ scheduler.registerTaskFactory("applyTaskCommand", (data, resolveTarget) => {
     }
 })
 
-export function taskApply(applyData, player) {
-}

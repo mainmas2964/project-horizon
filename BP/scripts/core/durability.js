@@ -8,17 +8,15 @@ system.beforeEvents.startup.subscribe(eventData => {
             const inventory = source.getComponent("minecraft:inventory").container;
             let unbreaking = 0;
 
-            // Проверяемьлыдды
             if (itemStack.hasComponent("minecraft:enchantable")) {
                 const ench = itemStack.getComponent(ItemEnchantableComponent.componentId);
-                if (ench) { // Проверяем ь и компонент зачарования
+                if (ench) {
                     const unbreakingEnchantment = ench.getEnchantment("unbreaking");
-                    if (unbreakingEnchantment) { // Проверяемвововоы
+                    if (unbreakingEnchantment) {
                         unbreaking = unbreakingEnchantment.level;
                     }
                 }
             }
-
             if (source) {
                 if ((Math.ceil(Math.random() * 100)) <= (100 / (unbreaking + 1))) {
                     if (durability.damage + 1 <= durability.maxDurability) {

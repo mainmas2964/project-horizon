@@ -1,9 +1,9 @@
 
-import { world, system, ItemStack, EquipmentSlot, ItemTypes, BlockPermutation, ItemEnchantableComponent, EnchantmentTypes } from "@minecraft/server"
+import { world, system, ItemStack, EquipmentSlot, ItemTypes, BlockPermutation, ItemEnchantableComponent, EnchantmentTypes, HudVisibility } from "@minecraft/server"
 import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction } from "core/utilities/core_utilities.js"
 const stoneKeywords = ["stone", "cobble", "granite", "andesite", "diorite", "deepslate"];
-import { processEffects } from "./OriginsClassesManager.js"
-
+import { processEffects, scheduler } from "./OriginsClassesManager.js"
+import { startSculkInfect } from "core/sculk/sculk_infection.js"
 // ITEM USING
 // BLOCK BREAK
 const RedstoneOres = ["minecraft:redstone_ore", "minecraft:deepslate_redstone_ore"]
@@ -171,7 +171,24 @@ const PlayerButtonInputFunctionsMap = {
             }
 
         }
-    )
+    ),
+    "bee_origin": (data => {
+        if (data.button === "Sneak") {
+            scheduler.addTask(null, {
+                delay: 10,
+                repeat: 2,
+                persist: true,
+                customId: `bee_nectar_collecting_${data.player.id}`,
+                replace: true,
+                target: data.player,
+                type: "bee_nectar_collecting",
+                data: {
+                    timer: 0,
+                    id: `bee_nectar_collecting_${data.player.id}`
+                }
+            })
+        }
+    })
 }
 /*
 function dispatchByTag(entity, map, event) {

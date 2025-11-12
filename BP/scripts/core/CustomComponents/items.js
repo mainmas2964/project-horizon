@@ -8,7 +8,7 @@ import { MessageFormData } from "@minecraft/server-ui"
 export const builder_wand = {
 
     onUseOn(e, { params }) {
-        const { source, block } = e;
+        const { source, block, itemStack } = e;
         const pos1 = source.getDynamicProperty("pos1");
         const pos2 = source.getDynamicProperty("pos2");
 
@@ -42,7 +42,7 @@ export const builder_wand = {
 
             message.show(source).then(res => {
                 if (res.selection === 0) {
-                    placeNextBatch(blockQueue, inv, typeId, source, params.batch_size, params.ticks_delay);
+                    placeNextBatch(blockQueue, inv, typeId, source, params.batch_size, params.ticks_delay, params.durability, params.durability_value, itemStack);
                 }
             });
         });
@@ -52,6 +52,9 @@ export const builder_wand = {
     }
 
 }
+
+
+
 export const robosphere = {
     onUseOn(e, { params }) {
         const origin = e.block.above();
