@@ -103,3 +103,4 @@ item.bridge:prototype_of_builder_wand=Prototype of builder wand
 item.spawn_egg.entity.bridge:sculk_void.name=Spawn Sculk void
 entity.bridge:sculk_void.name=Sculk void
 item.horizon:pollen_bottle=Pollen bottle
+item.horizon:techno_rune_of_invisibility=Techno-rune of invisibility

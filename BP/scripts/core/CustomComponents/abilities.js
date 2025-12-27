@@ -45,7 +45,16 @@ const redstoneCraftedBlocks = [
 ];
 
 
-
+export const techno_rune_of_invisibility = {
+    onUse(e) {
+        const inventory = e.source.getComponent("minecraft:inventory").container;
+        if (countItems(inventory, "minecraft:lapis_lazuli") < 4) return;
+        e.source.addEffect("invisibility", 300, { showParticles: false })
+        e.source.addEffect("speed", 300, { showParticles: false })
+        removeItems(inventory, "minecraft:lapis_lazuli", 4)
+        e.source.startItemCooldown("ability", 20)
+    }
+}
 export const drone_station_t1 = {
     onUseOn(e) {
         if (e.source.isSneaking) return

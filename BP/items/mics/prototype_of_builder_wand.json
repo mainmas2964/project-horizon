@@ -19,7 +19,8 @@
 			},
 			"minecraft:durability": {
 				"max_durability": 1100
-			}
+			},
+			"minecraft:hand_equipped": true
 		}
 	}
 }

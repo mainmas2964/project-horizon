@@ -26,4 +26,5 @@ export function registerClass(classManager) {
         tags: ["mechanist", "engineer_level_c", "engineer_level_r", "better_spidermines", "basic_components"],
         availableAbilities: ["drone_station_t1"]
     }))
+
 }

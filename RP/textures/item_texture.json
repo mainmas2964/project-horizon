@@ -187,6 +187,9 @@
 		},
 		"bridge_pollen_bottle": {
 			"textures": "textures/items/pollen_bottle"
+		},
+		"bridge_techno_rune_of_invisibility": {
+			"textures": "textures/items/techno-rune_of_invisibility"
 		}
 	}
 }

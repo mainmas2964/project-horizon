@@ -1,6 +1,6 @@
 import { world, system } from "@minecraft/server"
 
-import { teleport, drone_station_t1, redstone_impulse } from "./abilities.js"
+import { teleport, drone_station_t1, redstone_impulse, techno_rune_of_invisibility } from "./abilities.js"
 import { invisibility_scroll, stinger_weapon, pollen_collector, robosphere, builder_wand } from "./items.js"
 export function itemCustomComponent(data) {
     data.itemComponentRegistry.registerCustomComponent("horizon:teleport", teleport)
@@ -11,4 +11,5 @@ export function itemCustomComponent(data) {
     data.itemComponentRegistry.registerCustomComponent("horizon:stinger_weapon", stinger_weapon)
     data.itemComponentRegistry.registerCustomComponent("horizon:robosphere", robosphere)
     data.itemComponentRegistry.registerCustomComponent("horizon:builder_wand", builder_wand)
+    data.itemComponentRegistry.registerCustomComponent("horizon:techno_rune_of_inisibility", techno_rune_of_invisibility)
 }

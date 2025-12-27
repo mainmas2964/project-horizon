@@ -6,10 +6,80 @@ const categories = {
     mine: "§rMine tools",
     utilities: "§hUtilities",
     redstone: "§l§cRedstone",
-    machines: "§lMachines"
+    machines: "§lMachines",
+    builder: "§lBuilder"
 }
 
 const allRecipes = {
+    "builder": {
+        "Diorite\n(Bulk)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:diorite", count: 32 }],
+            icon: "textures/blocks/stone_diorite",
+            ingredients: { "minecraft:cobblestone": 32, "minecraft:white_dye": 8 }
+        },
+        "Andesite\n(Bulk)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:andesite", count: 32 }],
+            icon: "textures/blocks/stone_andesite",
+            ingredients: { "minecraft:cobblestone": 32, "minecraft:light_gray_dye": 8 }
+        },
+        "Granite\n(Bulk)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:granite", count: 32 }],
+            icon: "textures/blocks/stone_granite",
+            ingredients: { "minecraft:cobblestone": 32, "minecraft:red_dye": 8 }
+        },
+        "Blackstone\n(Artificial)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:blackstone", count: 32 }],
+            icon: "textures/blocks/blackstone",
+            ingredients: { "minecraft:cobblestone": 32, "minecraft:black_dye": 8, "minecraft:coal": 4 }
+        },
+        "Tuff\n(Artificial)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:tuff", count: 32 }],
+            icon: "textures/blocks/tuff",
+            ingredients: { "minecraft:cobblestone": 32, "minecraft:gray_dye": 8, "minecraft:clay_ball": 8 }
+        },
+        "Calcite\n(Artificial)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:calcite", count: 32 }],
+            icon: "textures/blocks/calcite",
+            ingredients: { "minecraft:diorite": 16, "minecraft:white_dye": 8, "minecraft:quartz": 2 }
+        },
+        "Quartz\nBlock": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:quartz_block", count: 16 }],
+            icon: "textures/blocks/quartz_block_side",
+            ingredients: { "minecraft:white_dye": 8, "minecraft:glass": 16, "minecraft:iron_nugget": 4 }
+        },
+        "Stone\nBricks": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:stone_bricks", count: 64 }],
+            icon: "textures/blocks/stonebrick",
+            ingredients: { "minecraft:stone": 32, "minecraft:clay_ball": 4 }
+        },
+        "Terracotta\n(Base)": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:terracotta", count: 32 }],
+            icon: "textures/blocks/terracotta",
+            ingredients: { "minecraft:clay": 8, "minecraft:sand": 16, "minecraft:red_dye": 1 }
+        },
+        "Cheap\nScaffolding": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:scaffolding", count: 24 }],
+            icon: "textures/blocks/scaffolding_side",
+            ingredients: { "minecraft:stick": 6, "minecraft:string": 1 }
+        },
+
+        "Basalt": {
+            cat: categories.builder,
+            results: [{ id: "minecraft:basalt", count: 32 }],
+            icon: "textures/blocks/basalt_side",
+            ingredients: { "minecraft:cobblestone": 16, "minecraft:blackstone": 16 }
+        }
+    },
     "basic_components": {
         "Simple\ncomponent": {
             cat: categories.components,
@@ -52,7 +122,12 @@ const allRecipes = {
     "predecessor": {
         "Simple component\n(primitive)": {
             cat: categories.components,
-            results: [{ id: "horizon:simple_component", count: 4 }]
+            results: [{ id: "horizon:simple_component", count: 4 }],
+            ingredients: {
+                "minecraft:copper_ingot": 4,
+                "horizon:light_steel_ingot": 2
+            },
+            icon: "textures/items/simple_component"
         },
         "Torch": {
             cat: categories.basic,

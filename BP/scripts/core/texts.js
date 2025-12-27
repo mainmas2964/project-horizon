@@ -75,7 +75,7 @@ abilitiesLoc = {
         },
         "builder_wand": {
             name: "Builder wand",
-            desciption: ""
+            desciption: "§7[Class Ability: Builder]\n\n§fAllows for rapid construction of structures using selected blocks.\n\n§6• §e1st Use: §fSet Point A\n§6• §e2nd Use: §fSet Point B\n§6• §e3rd Use: §fOpen construction menu\n\n§b⚙ §3Feature: §fForged for master builders, this artifact is §aunbreakable §fand operates with ultimate efficiency"
         }
     },
     "ru": {
@@ -92,8 +92,8 @@ abilitiesLoc = {
             description: "§fЗа 12 редстоуна позволяет заспавнить не более 2 гибридных паукоботов Т1\n§fПри спавне третьего паукобота, самый старый паукобот исчезает\n§fПозволяет ремонтировать союзных юнитов роботов"
         },
         "builder_wand": {
-            name: "Строительный посох",
-            description: ""
+            name: "Посох строителя",
+            description: "§7[Спецспособность класса: Строитель]\n\n§fПозволяет мгновенно возводить структуры из выбранных блоков. \n\n§6• §eПервое использование: §fУстановить точку 1\n§6• §eВторое использование: §fУстановить точку 2\n§6• §eТретье использование: §fОткрыть меню строительства\n\n§b⚙ §3Особенность: §fБлагодаря мастерству строителя, этот инструмент §aнерушим §fи обладает повышенной скоростью работы"
         }
     }
 }
@@ -114,7 +114,7 @@ classLoc = {
         },
         "builder": {
             name: "§aBuilder",
-            description: "§aBuilder §f- a class that loves to build large buildings\n§6[ Building staff ]\n§fWhen choosing a class, you get a building staff\n§fWhen using the staff on any block, it enters the selection area\n§fWhen creating a second point..."
+            description: "§aBuilder §f- a class that loves to build\n§6[ Abilities: ]\n§fConstruction Staff, Teleportation\n[ Builder's Mobile Workbench ]: cheaper crafting of various materials, synthesis of stone types from cobblestone and dyes"
         },
         "mage": {},
         "farmer": {},
@@ -135,7 +135,7 @@ classLoc = {
         },
         "builder": {
             name: "§aСтроитель",
-            description: "§aСтроитель §f- класс который любит строить большие здания\n§6[ Строительный посох ]\n§fпри выборе класса у вас появляеться строительный посох\n§fПри использований посоха на любом блоке он попадает в зону выделения\n§fпри созданий второй то"
+            description: "§aСтроитель §f- класс который любит строить\n§6[ Способности : ]\n§fСтроительный посох, Телепортация\n[ Мобильный версткак строителя ] : более дешевое создание разных материалов, синтез пород камня из булыжника и красителей"
         }
     }
 }
