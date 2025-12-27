@@ -111,6 +111,12 @@
 				"sounds/spidermines/metal_break",
 				"sounds/spidermines/metal_break1"
 			]
+		},
+		"horizon:coming_of_void":{
+			"__use_legacy_max_distance": true,
+			"sounds": [
+				"sounds/coming_of_void"
+			]
 		}
 	}
 }

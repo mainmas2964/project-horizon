@@ -81,6 +81,9 @@
 		},
 		"horizon_strange_torch": {
 			"textures": "textures/blocks/strange_torch"
+		},
+		"bridge_pollen_bottle": {
+			"textures": "textures/blocks/mics/pollen_bottle"
 		}
 	}
 }

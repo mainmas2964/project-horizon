@@ -10,7 +10,8 @@ export function registerClass(classManager) {
     classManager.register(new PlayerClass({
         id: "builder",
         tags: ["builder"],
-        availableAbilities: ["teleportation"]
+        availableAbilities: ["teleportation", "builder_wand"],
+        abilitySlots: 2
     }))
     classManager.register(new PlayerClass({
         id: "redstone_engineer",

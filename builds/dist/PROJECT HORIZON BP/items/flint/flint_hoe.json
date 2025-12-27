@@ -17,7 +17,7 @@
 			"minecraft:durability": {
 				"max_durability": 100
 			},
-			"minecraft:icon": "horizon_flint_hoe",
+			"minecraft:icon": "horizon:flint_hoe",
 			"minecraft:damage": 0,
 			"minecraft:enchantable": {
 				"value": 14,

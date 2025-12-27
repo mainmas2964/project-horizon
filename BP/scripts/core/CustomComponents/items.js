@@ -14,13 +14,13 @@ export const builder_wand = {
 
         if (!pos1) {
             source.setDynamicProperty("pos1", block.location);
-            world.sendMessage("pos1 set");
+            source.sendMessage("pos1 set");
             return;
         }
 
         if (!pos2) {
             source.setDynamicProperty("pos2", block.location);
-            world.sendMessage("pos2 set");
+            source.sendMessage("pos2 set");
             return;
         }
 
@@ -28,7 +28,13 @@ export const builder_wand = {
         const isPlaneMode = source.isSneaking;
         const inv = source.getComponent("inventory").container;
 
+
         const blocks = source.dimension.getBlocks(blocksVolume, { includeTypes: ["minecraft:air"] }, true);
+
+        const batchSize = params.batch_size ?? 5;
+        const ticksDelay = params.ticks_delay ?? 1;
+        const isOp = params.is_op ?? false;
+
 
         buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, 500, (blockQueue) => {
             const countblocks = blockQueue.length;
@@ -42,7 +48,18 @@ export const builder_wand = {
 
             message.show(source).then(res => {
                 if (res.selection === 0) {
-                    placeNextBatch(blockQueue, inv, typeId, source, params.batch_size, params.ticks_delay, params.durability, params.durability_value, itemStack);
+
+                    placeNextBatch(
+                        blockQueue,
+                        inv,
+                        typeId,
+                        source,
+                        batchSize,
+                        ticksDelay,
+                        !isOp,
+                        1.0,
+                        itemStack
+                    );
                 }
             });
         });
@@ -50,9 +67,7 @@ export const builder_wand = {
         source.setDynamicProperty("pos1", undefined);
         source.setDynamicProperty("pos2", undefined);
     }
-
 }
-
 
 
 export const robosphere = {
@@ -126,11 +141,11 @@ export const invisibility_scroll = {
         if (e.source.hasTag("mage")) e.source.addEffect("minecraft:invisibility", 3200, { amplifier: 1 });
     }
 }
-export const nectar_collector = {
+export const pollen_collector = {
     onUseOn(e) {
         if (!FlowerIDs.includes(e.block.typeId)) return;
-        const nectar = new ItemStack("horizon:nectar", 2)
-        e.block.dimension.spawnItem(nectar, e.block.location)
+        const pollen = new ItemStack("horizon:pollen", 2)
+        e.block.dimension.spawnItem(pollen, e.block.location)
         for (let i = 0; i < 7; i++) e.block.dimension.spawnParticle("minecraft:honey_drip_particle", { x: e.block.location.x, y: e.block.location.y + 0.7, z: e.block.location.z })
         e.block.setType("air")
         const itemStack = e.itemStack

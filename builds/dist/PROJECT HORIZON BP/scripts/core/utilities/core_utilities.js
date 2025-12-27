@@ -1,13 +1,12 @@
-
+import { TickTaskScheduler } from "core/tickSystem/tick.js"
 import { world, system } from "@minecraft/server"
 
 
 
 
 
-
 const RedstoneOres = ["minecraft:redstone_ore", "minecraft:deepslate_redstone_ore"]
-const FlowerIDs = [
+export const FlowerIDs = [
     "minecraft:dandelion",
     "minecraft:poppy",
     "minecraft:blue_orchid",
@@ -114,6 +113,7 @@ export function addAction(player, text) {
     player.dimension.runCommand(`title ${player.name} actionbar ${text}`)
 }
 
+
 export function spawnSpiderbot(dimension, block, player, tag) {
     dimension.spawnParticle("horizon:spidermine_spawn_particle", block.center());
     dimension.playSound("horizon:spidermine_spawn", block.center())
@@ -145,3 +145,122 @@ export function getWeaponTier(typeId) {
 
     return 0;
 }
+
+
+export function buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, batchSize, onDone) {
+    const iterator = blocks.getBlockLocationIterator();
+    const queue = [];
+
+    function step() {
+        let count = 0;
+        while (count < batchSize) {
+            const next = iterator.next();
+            if (next.done) {
+                onDone(queue);
+                return;
+            }
+
+            const loc = next.value;
+            const block = source.dimension.getBlock(loc);
+            if (block.isAir) {
+                if (isPlaneMode) {
+                    if (isPlaneShape(pos1, pos2, loc)) {
+                        queue.push(loc);
+                    }
+                } else {
+                    queue.push(loc);
+                }
+            }
+
+            count++;
+        }
+
+        system.runTimeout(step, 1); // Следующий тик
+    }
+
+    step();
+}
+
+export function isPlaneShape(pos1, pos2, block) {
+    const minX = Math.min(pos1.x, pos2.x);
+    const maxX = Math.max(pos1.x, pos2.x);
+    const minY = Math.min(pos1.y, pos2.y);
+    const maxY = Math.max(pos1.y, pos2.y);
+    const minZ = Math.min(pos1.z, pos2.z);
+    const maxZ = Math.max(pos1.z, pos2.z);
+
+    const x = block.x;
+    const y = block.y;
+    const z = block.z;
+
+    return (
+        x === minX || x === maxX ||
+        y === minY || y === maxY ||
+        z === minZ || z === maxZ
+    );
+}
+
+export function placeNextBatch(queue, inv, typeId, source, batchSize = 1, delayTicks = 5, useDurability = false, durabilityValue = 0.1, itemStack) {
+
+
+    for (let i = 0; i < batchSize; i++) {
+        if (queue.length === 0) return;
+
+        const loc = queue.shift();
+        const block = source.dimension.getBlock(loc);
+
+        if (block.isAir && countItems(inv, typeId) > 0) {
+            block.setType(typeId);
+            removeItems(inv, typeId, 1);
+
+
+            if (useDurability && itemStack) {
+
+
+
+                if (Math.random() < durabilityValue) {
+                    const durability = itemStack.getComponent('minecraft:durability');
+                    const inv = source.getComponent("minecraft:inventory").container;
+                    if (durability.damage + 1 <= durability.maxDurability) {
+                        durability.damage += 1;
+                        inv.setItem(source.selectedSlotIndex, itemStack);
+                    } else {
+
+                        inv.setItem(source.selectedSlotIndex, undefined);
+                        source.playSound("random.break");
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+
+    system.runTimeout(() => {
+        placeNextBatch(queue, inv, typeId, source, batchSize, delayTicks, useDurability, durabilityValue);
+    }, delayTicks);
+}
+
+
+
+export function getDistance(pos1, pos2) {
+    return Math.sqrt(
+        Math.pow(pos1.x - pos2.x, 2) +
+        Math.pow(pos1.y - pos2.y, 2) +
+        Math.pow(pos1.z - pos2.z, 2)
+    );
+}
+
+const WORLD_HEIGHT_MIN = -64;
+const WORLD_HEIGHT_MAX = 320;
+
+export function isValidPosition(pos) {
+    return pos.y >= WORLD_HEIGHT_MIN && pos.y <= WORLD_HEIGHT_MAX;
+}
+
+// Выбор случайных элементов из массива
+export function pickRandom(array, count) {
+    const shuffled = [...array].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
+

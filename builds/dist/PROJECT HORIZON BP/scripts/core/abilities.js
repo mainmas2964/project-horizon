@@ -1,7 +1,7 @@
-import { world, system } from "@minecraft/server"
+import { world, system, BlockVolume } from "@minecraft/server"
 import { ActionFormData, MessageFormData } from "@minecraft/server-ui"
-import { ClassManager } from "./PlayerClass.js"
-import { classManager } from "./OriginsClassesManager.js"
+import { ClassManager } from "./ClassesOrigins_system/PlayerClass.js"
+import { classManager } from "./ClassesOrigins_system/OriginsClassesManager.js"
 import { abilitiesLoc } from "./texts.js"
 const abilitiesMain = {
     "teleportation": {

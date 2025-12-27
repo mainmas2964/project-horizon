@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.8.0",
 	"render_controllers": {
 		"controller.render.slimecat": {
 			"geometry": "geometry.default",
@@ -9,8 +9,17 @@
 				}
 			],
 			"textures": [
-				"texture.default"
-			]
+				"array.skins[query.variant]"
+			],
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.default",
+						"Texture.variant_1",
+						"Texture.variant_2"
+					]
+				}
+			}
 		}
 	}
 }

@@ -7,7 +7,9 @@
 				"default": "entity_alphablend"
 			},
 			"textures": {
-				"default": "textures/entity/slimecat_def"
+				"default": "textures/entity/slimecat/slimecat_def",
+				"variant_1": "textures/entity/slimecat/slimecat_blue",
+				"variant_2": "textures/entity/slimecat/slimecat_pink"
 			},
 			"geometry": {
 				"default": "geometry.slimecat"

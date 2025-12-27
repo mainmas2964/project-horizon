@@ -1,0 +1,42 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "horizon:scroll_of_oc"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"a": {
+				"item": "amethyst_shard"
+			},
+			"b": {
+				"item": "blaze_rod"
+			},
+			"e": {
+				"item": "echo_shard"
+			},
+			"l": {
+				"item": "lapis_lazuli"
+			},
+			"p": {
+				"item": "paper"
+			},
+			"r": {
+				"item": "redstone"
+			},
+			"w": {
+				"item": "breeze_rod"
+			}
+		},
+		"pattern": [
+			"wpb",
+			"ape",
+			"rpl"
+		],
+		"result": {
+			"item": "horizon:scroll_of_oc"
+		}
+	}
+}

@@ -26,7 +26,7 @@ import "./core/spidermines_1.js";
 import "./core/craft_ui1_horizon.js";
 import "./core/ClassesOrigins_system/OriginsClassesManager.js"
 import "./core/diskomet.js"
-import "./core/start.js"
+//import "./core/start.js"
 import "./core/abilities.js"
 import "./core/sculk/sculk_infection.js"
 

@@ -46,13 +46,13 @@
 											"value": "player"
 										}
 									]
-								}
-							},
-							"barter": true,
-							"admire": true,
-							"use_item": true,
-							"interact_text": "action.interact.barter",
-							"cooldown_after_being_attacked": 20
+								},
+								"barter": true,
+								"admire": true,
+								"use_item": true,
+								"interact_text": "action.interact.barter",
+								"cooldown_after_being_attacked": 20
+							}
 						}
 					]
 				}
@@ -101,6 +101,21 @@
 				"minecraft:attack": {
 					"damage": 4
 				}
+			},
+			"variant_0": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"variant_1": {
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"variant_2": {
+				"minecraft:variant": {
+					"value": 2
+				}
 			}
 		},
 		"components": {
@@ -132,6 +147,12 @@
 			},
 			"minecraft:inventory": {
 				"inventory_size": 8
+			},
+			"minecraft:equipment": {
+				"table": "loot_tables/entities/slimecat_gear.json"
+			},
+			"minecraft:variant": {
+				"value": 0
 			},
 			"minecraft:shareables": {
 				"singular_pickup": true,
@@ -189,7 +210,33 @@
 					"component_groups": [
 						"bartering"
 					]
-				}
+				},
+				"randomize": [
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"variant_0"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"variant_1"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"variant_2"
+							]
+						}
+					}
+				]
 			},
 			"slimecat:angry": {
 				"add": {

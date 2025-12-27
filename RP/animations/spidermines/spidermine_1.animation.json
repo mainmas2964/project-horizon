@@ -1,6 +1,18 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.spidermine.look_at_target": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [
+						0,
+						"query.target_y_rotation",
+						"query.target_x_rotation"
+					]
+				}
+			}
+		},
 		"animation.spidermine.walk": {
 			"loop": true,
 			"animation_length": 0.5,

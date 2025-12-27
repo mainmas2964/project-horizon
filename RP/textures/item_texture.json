@@ -140,11 +140,11 @@
 		"horizon_basic_disk_item": {
 			"textures": "textures/items/basic_disk"
 		},
-		"horizon_nectar": {
-			"textures": "textures/items/nectare"
+		"horizon_pollen": {
+			"textures": "textures/items/pollene"
 		},
-		"horizon_nectar_collector": {
-			"textures": "textures/items/nectar_collector"
+		"horizon_pollen_collector": {
+			"textures": "textures/items/pollen_collector"
 		},
 		"horizon_teleportation": {
 			"textures": "textures/items/abilities/teleportation"
@@ -184,6 +184,9 @@
 		},
 		"bridge_prototype_of_builder_wand": {
 			"textures": "textures/items/prototype_of_builder_wand"
+		},
+		"bridge_pollen_bottle": {
+			"textures": "textures/items/pollen_bottle"
 		}
 	}
 }

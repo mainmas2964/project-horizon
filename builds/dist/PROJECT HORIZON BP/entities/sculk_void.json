@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "horizon:sculk_void",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1000,
+				"max": 1000
+			},
+			"minecraft:attack": {
+				"damage": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 0.5
+			},
+			"minecraft:movement": {}
+		}
+	}
+}

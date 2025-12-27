@@ -1,5 +1,5 @@
 {
-	"format_version": "1.8.0",
+	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
 			"identifier": "horizon:spidermine_1",
@@ -12,16 +12,18 @@
 			"geometry": {
 				"default": "geometry.spidermine"
 			},
+			"animations": {
+				"walk_controller": "controller.animation.spidermine.walk",
+				"look_at_target": "animation.spidermine.look_at_target"
+			},
+			"scripts": {
+				"animate": [
+					"walk_controller",
+					"look_at_target"
+				]
+			},
 			"render_controllers": [
 				"controller.render.spidermine_1"
-			],
-			"animations": {
-				"walk": "animation.spidermine.walk"
-			},
-			"animation_controllers": [
-				{
-					"walk": "controller.animation.spidermine.walk"
-				}
 			]
 		}
 	}

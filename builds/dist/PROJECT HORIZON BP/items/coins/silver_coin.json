@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "horizon:silver_coins",
 			"menu_category": {
-				"category": "items"
+				"category": "none"
 			}
 		},
 		"components": {

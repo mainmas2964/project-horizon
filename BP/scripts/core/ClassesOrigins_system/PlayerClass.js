@@ -4,7 +4,7 @@ import { classLoc } from "core/texts.js"
 import { clearAbilites } from "core/abilities.js"
 import { processEffects, effectKey } from "./OriginsClassesManager.js"
 export class PlayerClass {
-  constructor({ id, name, description, tags = [], effects = [], dynamicProperties = {}, availableAbilities = [] }) {
+  constructor({ id, name, description, tags = [], effects = [], dynamicProperties = {}, availableAbilities = [], abilitySlots }) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -12,6 +12,7 @@ export class PlayerClass {
     this.effects = effects;
     this.dynamicProperties = dynamicProperties;
     this.availableAbilities = availableAbilities
+    this.abilitySlots = abilitySlots
   }
   //none commit 00000
 

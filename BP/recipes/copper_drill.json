@@ -1,0 +1,33 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "horizon:copper_drill"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "key": {
+            "C": {
+                "item": "copper_block"
+            },
+            "c": {
+                "item": "copper_ingot"
+            },
+            "l": {
+                "item": "lever"
+            },
+            "R": {
+                "item": "redstone_block"
+            }
+        },
+        "pattern": [
+            " cC",
+            " Rc",
+            "l"
+        ],
+        "result": {
+            "item": "horizon:copper_drill"
+        }
+    }
+}

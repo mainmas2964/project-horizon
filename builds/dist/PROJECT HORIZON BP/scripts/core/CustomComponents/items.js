@@ -1,15 +1,67 @@
-import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew } from "core/utilities/core_utilities.js"
-import { system, world } from "@minecraft/server"
+import { consumeUsedItem, countItems, removeItems, spawnSpiderbot, addAction, consumeUsedItemNew, placeNextBatch, isPlaneShape, buildBlockQueue } from "core/utilities/core_utilities.js"
+import { system, world, BlockVolume } from "@minecraft/server"
+import { MessageFormData } from "@minecraft/server-ui"
+
+
+
+
+export const builder_wand = {
+
+    onUseOn(e, { params }) {
+        const { source, block, itemStack } = e;
+        const pos1 = source.getDynamicProperty("pos1");
+        const pos2 = source.getDynamicProperty("pos2");
+
+        if (!pos1) {
+            source.setDynamicProperty("pos1", block.location);
+            world.sendMessage("pos1 set");
+            return;
+        }
+
+        if (!pos2) {
+            source.setDynamicProperty("pos2", block.location);
+            world.sendMessage("pos2 set");
+            return;
+        }
+
+        const blocksVolume = new BlockVolume(pos1, pos2);
+        const isPlaneMode = source.isSneaking;
+        const inv = source.getComponent("inventory").container;
+
+        const blocks = source.dimension.getBlocks(blocksVolume, { includeTypes: ["minecraft:air"] }, true);
+
+        buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, 500, (blockQueue) => {
+            const countblocks = blockQueue.length;
+            const typeId = block.typeId;
+
+            let message = new MessageFormData()
+                .body(`You need ${countblocks}x ${typeId}, you have ${countItems(inv, typeId)}\nBuild a box?`)
+                .title("Builder Wand")
+                .button1("Yes")
+                .button2("No");
+
+            message.show(source).then(res => {
+                if (res.selection === 0) {
+                    placeNextBatch(blockQueue, inv, typeId, source, params.batch_size, params.ticks_delay, params.durability, params.durability_value, itemStack);
+                }
+            });
+        });
+
+        source.setDynamicProperty("pos1", undefined);
+        source.setDynamicProperty("pos2", undefined);
+    }
+
+}
+
 
 
 export const robosphere = {
     onUseOn(e, { params }) {
-        const origin = e.block.above(); // Блок над местом использования
+        const origin = e.block.above();
         const dim = origin.dimension;
 
-        // Все потенциальные позиции спавна (в порядке приоритета)
         const candidates = [
-            origin.location, // Прямо над местом клика
+            origin.location,
             { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z },
             { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z },
             { x: origin.location.x, y: origin.location.y, z: origin.location.z + 1 },
@@ -18,19 +70,17 @@ export const robosphere = {
             { x: origin.location.x + 1, y: origin.location.y, z: origin.location.z - 1 },
             { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z + 1 },
             { x: origin.location.x - 1, y: origin.location.y, z: origin.location.z - 1 },
-            { x: origin.location.x, y: origin.location.y + 1, z: origin.location.z }, // Один блок выше
-            { x: origin.location.x, y: origin.location.y - 1, z: origin.location.z }  // Один блок ниже
+            { x: origin.location.x, y: origin.location.y + 1, z: origin.location.z },
+            { x: origin.location.x, y: origin.location.y - 1, z: origin.location.z }
         ];
 
-        // Фильтруем только свободные (воздушные) блоки
         const freeSpots = candidates.filter(pos => {
             const block = dim.getBlock(pos);
             return block && block.isAir;
         });
 
-        if (freeSpots.length < 2) return; // Недостаточно места для спавна
+        if (freeSpots.length < 2) return;
 
-        // Спавн мобов
         const pos1 = freeSpots[0];
         const pos2 = freeSpots[1];
 
@@ -53,7 +103,6 @@ export const robosphere = {
             s2.addEffect("resistance", 20000000, { amplifier: 1, showParticles: false })
         }
 
-        // Эффект партиклов
         dim.spawnParticle("horizon:spidermine_spawn_particle", {
             x: pos1.x + 0.5,
             y: pos1.y + 0.5,
@@ -77,18 +126,18 @@ export const invisibility_scroll = {
         if (e.source.hasTag("mage")) e.source.addEffect("minecraft:invisibility", 3200, { amplifier: 1 });
     }
 }
-export const nectar_collector = {
+export const pollen_collector = {
     onUseOn(e) {
         if (!FlowerIDs.includes(e.block.typeId)) return;
-        const nectar = new ItemStack("horizon:nectar", 2)
-        e.block.dimension.spawnItem(nectar, e.block.location)
+        const pollen = new ItemStack("horizon:pollen", 2)
+        e.block.dimension.spawnItem(pollen, e.block.location)
         for (let i = 0; i < 7; i++) e.block.dimension.spawnParticle("minecraft:honey_drip_particle", { x: e.block.location.x, y: e.block.location.y + 0.7, z: e.block.location.z })
         e.block.setType("air")
         const itemStack = e.itemStack
         const durability = itemStack.getComponent('minecraft:durability');
         const inventory = e.source.getComponent("minecraft:inventory").container;
         let unbreaking = 0;
-        // Проверяемьлыдды
+
         if (itemStack.hasComponent("minecraft:enchantable")) {
             const ench = itemStack.getComponent(ItemEnchantableComponent.componentId);
             if (ench) { // Проверяем ь и компонент зачарования

@@ -100,5 +100,9 @@
 	},
 	"horizon:strange_torch": {
 		"sound": "stone"
+	},
+	"bridge:pollen_bottle": {
+		"sound": "stone",
+		"textures": "bridge_pollen_bottle"
 	}
 }

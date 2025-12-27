@@ -17,8 +17,8 @@ function startCoreSpread(block) {
     startSculkSpread(block, {
         radius: 15,
         speed: 1,
-        count: 10,
-        maxSpread: 2000,
+        count: 30,
+        maxSpread: 100000,
         sculkAddonBlock: [
             "minecraft:sculk_shrieker",
             "minecraft:sculk_sensor",
@@ -27,6 +27,6 @@ function startCoreSpread(block) {
             "sculk_prds:sculk_grass_2",
             "sculk_prds:sculk_kust"
         ],
-        growthChance: [0.01, 0.1, 0.01, 0.05, 0.01, 0.05]
+        growthChance: [0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
     });
 }

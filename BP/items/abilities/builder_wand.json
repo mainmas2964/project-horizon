@@ -11,7 +11,8 @@
 			"minecraft:icon": "horizon_builder_wand",
 			"horizon:builder_wand": {
 				"batch_size": 10,
-				"ticks_delay": 2
+				"ticks_delay": 2,
+				"is_op": true
 			},
 			"minecraft:max_stack_size": {
 				"value": 1

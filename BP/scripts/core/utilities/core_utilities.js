@@ -171,13 +171,10 @@ export function buildBlockQueue(blocks, source, pos1, pos2, isPlaneMode, batchSi
                     queue.push(loc);
                 }
             }
-
             count++;
         }
-
-        system.runTimeout(step, 1); // Следующий тик
+        system.runTimeout(step, 1);
     }
-
     step();
 }
 
@@ -200,8 +197,10 @@ export function isPlaneShape(pos1, pos2, block) {
     );
 }
 
-export function placeNextBatch(queue, inv, typeId, source, batchSize = 1, delayTicks = 5, useDurability = false, durabilityValue = 0.1, itemStack) {
+export function placeNextBatch(queue, inv, typeId, source, batchSize = 1, delayTicks = 5, useDurability = false, durabilityChance = 1.0, itemStack) {
 
+
+    if (!source || !source.isValid) return;
 
     for (let i = 0; i < batchSize; i++) {
         if (queue.length === 0) return;
@@ -209,24 +208,24 @@ export function placeNextBatch(queue, inv, typeId, source, batchSize = 1, delayT
         const loc = queue.shift();
         const block = source.dimension.getBlock(loc);
 
+
         if (block.isAir && countItems(inv, typeId) > 0) {
             block.setType(typeId);
             removeItems(inv, typeId, 1);
 
-
             if (useDurability && itemStack) {
-
-
-
-                if (Math.random() < durabilityValue) {
+                if (Math.random() < durabilityChance) {
                     const durability = itemStack.getComponent('minecraft:durability');
-                    const inv = source.getComponent("minecraft:inventory").container;
-                    if (durability.damage + 1 <= durability.maxDurability) {
+
+                    const currentInv = source.getComponent("minecraft:inventory").container;
+
+                    if (durability && durability.damage + 1 <= durability.maxDurability) {
                         durability.damage += 1;
-                        inv.setItem(source.selectedSlotIndex, itemStack);
+
+                        currentInv.setItem(source.selectedSlotIndex, itemStack);
                     } else {
 
-                        inv.setItem(source.selectedSlotIndex, undefined);
+                        currentInv.setItem(source.selectedSlotIndex, undefined);
                         source.playSound("random.break");
                         return;
                     }
@@ -235,9 +234,10 @@ export function placeNextBatch(queue, inv, typeId, source, batchSize = 1, delayT
         }
     }
 
-
+    // Рекурсивный вызов следующей партии
     system.runTimeout(() => {
-        placeNextBatch(queue, inv, typeId, source, batchSize, delayTicks, useDurability, durabilityValue);
+        // ВАЖНО: Передаем itemStack снова, иначе в следующем цикле прочность перестанет работать
+        placeNextBatch(queue, inv, typeId, source, batchSize, delayTicks, useDurability, durabilityChance, itemStack);
     }, delayTicks);
 }
 

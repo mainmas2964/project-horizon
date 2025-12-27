@@ -1,6 +1,6 @@
 
 import { consumeUsedItem, countItems, removeItems, addAction, spawnSpiderbot } from "core/utilities/core_utilities.js"
-import { system, world } from "@minecraft/server"
+import { system, world, EntityDamageCause, BlockVolume } from "@minecraft/server"
 const FlowerIDs = [
     "minecraft:dandelion",
     "minecraft:poppy",
@@ -81,8 +81,11 @@ export const drone_station_t1 = {
             const bot0 = bots1[0];
 
             if (bot0) {
-                bot0.dimension.playSound("horizon:spidermine_dead", bot0.location);
-                bot0.dimension.spawnParticle("horizon:spidermine_spawn_particle", bot0.location);
+                try {
+                    bot0.dimension.playSound("horizon:spidermine_dead", bot0.location);
+                    bot0.dimension.spawnParticle("horizon:spidermine_spawn_particle", bot0.location);
+                }
+                catch { }
 
                 system.runTimeout(() => {
                     bot0.removeTag(tag1)
@@ -129,9 +132,9 @@ export const teleport = {
     onUse(e) {
         if (e.source.getItemCooldown("ability") > 0) return;
         const player = e.source;
-        const entities = player.getEntitiesFromViewDirection({ maxDistance: 10 });
+        const entities = player.getEntitiesFromViewDirection({ maxDistance: 15 });
         const loc = player.location
-        const block = player.getBlockFromViewDirection({ maxDistance: 10 })
+        const block = player.getBlockFromViewDirection({ maxDistance: 15 })
         let inventory = player.getComponent("minecraft:inventory").container;
         const dir = player.getViewDirection();
         if (entities.length > 0) {
@@ -231,10 +234,10 @@ export const redstone_impulse = {
             }
         }
         const newcharge = 100 + (redstone * 0.5)
-        e.source.setDynamicProperty("charge", charge + newcharge)
+        e.source.setDynamicProperty("charge", Math.min(charge + newcharge, 1500))
 
         removeItems(inventory, "minecraft:redstone", 8)
-        addAction(e.source, `${charge + newcharge} (+ ${newcharge})`)
+        addAction(e.source, `${Math.min(charge + newcharge)} (+ ${newcharge})`)
         e.source.startItemCooldown("ability", 400)
     }
 }

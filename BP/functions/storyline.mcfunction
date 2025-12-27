@@ -1,0 +1,2 @@
+setblock ~ ~ ~ bedrock
+horizon:storyline ~ ~ ~ ~ ~ ~

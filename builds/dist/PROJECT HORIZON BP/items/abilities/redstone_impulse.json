@@ -11,7 +11,10 @@
 			"minecraft:icon": "horizon_redstone_impulse",
 			"minecraft:custom_components": [
 				"horizon:redstone_impulse"
-			]
+			],
+			"minecraft:max_stack_size": {
+				"value": 1
+			}
 		}
 	}
 }
